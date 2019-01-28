@@ -427,6 +427,9 @@ Public Class F1_Productos
         btnImprimir.Visible = True
         tbCodauto.ReadOnly = True
         btDeleteImg.Visible = False
+
+        ButtonX2.Visible = False
+        ButtonX1.Visible = True
     End Sub
 
     Public Overrides Sub _PMOLimpiar()
@@ -1130,6 +1133,8 @@ Public Class F1_Productos
                     tbcategoria.Text = Row.Cells("ygnombre").Value
                     Dim nameImagen = Row.Cells("ygimg").Value
                     CodCategoria = Row.Cells("ygcodigo").Value
+                    tbgrupo.Focus()
+
                     If (nameImagen.Equals("Default.jpg")) Then
 
                         ImgCategoria.Visible = False
