@@ -211,6 +211,7 @@ Partial Class F1_Productos
         '
         'btnGrabar
         '
+        Me.btnGrabar.TabIndex = 0
         '
         'btnEliminar
         '
@@ -229,7 +230,7 @@ Partial Class F1_Productos
         Me.MPanelSup.Controls.Add(Me.TableLayoutPanel1)
         Me.MPanelSup.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MPanelSup.Margin = New System.Windows.Forms.Padding(5)
-        Me.MPanelSup.Size = New System.Drawing.Size(1889, 860)
+        Me.MPanelSup.Size = New System.Drawing.Size(1889, 922)
         Me.MPanelSup.Controls.SetChildIndex(Me.PanelUsuario, 0)
         Me.MPanelSup.Controls.SetChildIndex(Me.TableLayoutPanel1, 0)
         '
@@ -364,7 +365,7 @@ Partial Class F1_Productos
         Me.swEstado.OnTextColor = System.Drawing.Color.White
         Me.swEstado.Size = New System.Drawing.Size(181, 27)
         Me.swEstado.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.swEstado.TabIndex = 5
+        Me.swEstado.TabIndex = 7
         Me.swEstado.Value = True
         Me.swEstado.ValueObject = "Y"
         '
@@ -469,7 +470,7 @@ Partial Class F1_Productos
         Me.GroupPanel1.Location = New System.Drawing.Point(4, 4)
         Me.GroupPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(558, 852)
+        Me.GroupPanel1.Size = New System.Drawing.Size(558, 914)
         '
         '
         '
@@ -534,7 +535,7 @@ Partial Class F1_Productos
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(552, 825)
+        Me.Panel3.Size = New System.Drawing.Size(552, 887)
         Me.Panel3.TabIndex = 227
         '
         'ImgClase
@@ -580,7 +581,7 @@ Partial Class F1_Productos
         Me.tbclase.Name = "tbclase"
         Me.tbclase.PreventEnterBeep = True
         Me.tbclase.Size = New System.Drawing.Size(262, 24)
-        Me.tbclase.TabIndex = 8
+        Me.tbclase.TabIndex = 6
         '
         'LabelX10
         '
@@ -616,7 +617,7 @@ Partial Class F1_Productos
         Me.tbsubgrupo.Name = "tbsubgrupo"
         Me.tbsubgrupo.PreventEnterBeep = True
         Me.tbsubgrupo.Size = New System.Drawing.Size(262, 24)
-        Me.tbsubgrupo.TabIndex = 7
+        Me.tbsubgrupo.TabIndex = 5
         '
         'LabelX8
         '
@@ -652,7 +653,7 @@ Partial Class F1_Productos
         Me.tbestructura.Name = "tbestructura"
         Me.tbestructura.PreventEnterBeep = True
         Me.tbestructura.Size = New System.Drawing.Size(262, 24)
-        Me.tbestructura.TabIndex = 6
+        Me.tbestructura.TabIndex = 4
         '
         'LabelX7
         '
@@ -834,7 +835,7 @@ Partial Class F1_Productos
         Me.GroupPanel3.Location = New System.Drawing.Point(570, 4)
         Me.GroupPanel3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupPanel3.Name = "GroupPanel3"
-        Me.GroupPanel3.Size = New System.Drawing.Size(1315, 852)
+        Me.GroupPanel3.Size = New System.Drawing.Size(1315, 914)
         '
         '
         '
@@ -876,7 +877,7 @@ Partial Class F1_Productos
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1309, 825)
+        Me.Panel1.Size = New System.Drawing.Size(1309, 887)
         Me.Panel1.TabIndex = 223
         '
         'SuperTabControl1
@@ -902,7 +903,7 @@ Partial Class F1_Productos
         Me.SuperTabControl1.ReorderTabsEnabled = True
         Me.SuperTabControl1.SelectedTabFont = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Bold)
         Me.SuperTabControl1.SelectedTabIndex = 0
-        Me.SuperTabControl1.Size = New System.Drawing.Size(1309, 825)
+        Me.SuperTabControl1.Size = New System.Drawing.Size(1309, 887)
         Me.SuperTabControl1.TabFont = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SuperTabControl1.TabIndex = 1
         Me.SuperTabControl1.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItem1})
@@ -916,7 +917,7 @@ Partial Class F1_Productos
         Me.SuperTabControlPanel1.Location = New System.Drawing.Point(0, 31)
         Me.SuperTabControlPanel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.SuperTabControlPanel1.Name = "SuperTabControlPanel1"
-        Me.SuperTabControlPanel1.Size = New System.Drawing.Size(1309, 794)
+        Me.SuperTabControlPanel1.Size = New System.Drawing.Size(1309, 856)
         Me.SuperTabControlPanel1.TabIndex = 1
         Me.SuperTabControlPanel1.TabItem = Me.SuperTabItem1
         '
@@ -927,7 +928,7 @@ Partial Class F1_Productos
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1309, 794)
+        Me.Panel2.Size = New System.Drawing.Size(1309, 856)
         Me.Panel2.TabIndex = 1
         '
         'Panel5
@@ -940,7 +941,7 @@ Partial Class F1_Productos
         Me.Panel5.Location = New System.Drawing.Point(0, 0)
         Me.Panel5.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(1309, 794)
+        Me.Panel5.Size = New System.Drawing.Size(1309, 856)
         Me.Panel5.TabIndex = 1
         '
         'btDeleteImg
@@ -964,7 +965,7 @@ Partial Class F1_Productos
         Me.pbImgProdu.Location = New System.Drawing.Point(186, 0)
         Me.pbImgProdu.Margin = New System.Windows.Forms.Padding(4)
         Me.pbImgProdu.Name = "pbImgProdu"
-        Me.pbImgProdu.Size = New System.Drawing.Size(1123, 794)
+        Me.pbImgProdu.Size = New System.Drawing.Size(1123, 856)
         Me.pbImgProdu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbImgProdu.TabIndex = 0
         Me.pbImgProdu.TabStop = False
@@ -979,7 +980,7 @@ Partial Class F1_Productos
         Me.panelA.Location = New System.Drawing.Point(0, 0)
         Me.panelA.Margin = New System.Windows.Forms.Padding(4)
         Me.panelA.Name = "panelA"
-        Me.panelA.Size = New System.Drawing.Size(186, 794)
+        Me.panelA.Size = New System.Drawing.Size(186, 856)
         Me.panelA.TabIndex = 2
         '
         'SuperTabItem1
@@ -1021,7 +1022,7 @@ Partial Class F1_Productos
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1889, 860)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1889, 922)
         Me.TableLayoutPanel1.TabIndex = 227
         '
         'cbgrupo3
