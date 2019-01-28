@@ -1,0 +1,26 @@
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\Logica\bin\Debug\Logica.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\Logica\bin\Debug\Logica.pdb
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\Logica\bin\Debug\Logica.xml
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\Logica\bin\Debug\Datos.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\Logica\bin\Debug\Datos.pdb
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\Logica\bin\Debug\Datos.xml
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\Logica\obj\Debug\Logica.vbprojResolveAssemblyReference.cache
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\Logica\obj\Debug\Logica.Resources.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\Logica\obj\Debug\Logica.vbproj.GenerateResource.Cache
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\Logica\obj\Debug\Logica.vbproj.CoreCompileInputs.cache
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\Logica\obj\Debug\Logica.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\Logica\obj\Debug\Logica.xml
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\Logica\obj\Debug\Logica.pdb
+A:\DINASES\proyectos\Corimexo\DinoM\Logica\bin\Debug\Logica.dll
+A:\DINASES\proyectos\Corimexo\DinoM\Logica\bin\Debug\Logica.pdb
+A:\DINASES\proyectos\Corimexo\DinoM\Logica\bin\Debug\Logica.xml
+A:\DINASES\proyectos\Corimexo\DinoM\Logica\bin\Debug\Datos.dll
+A:\DINASES\proyectos\Corimexo\DinoM\Logica\bin\Debug\Datos.pdb
+A:\DINASES\proyectos\Corimexo\DinoM\Logica\bin\Debug\Datos.xml
+A:\DINASES\proyectos\Corimexo\DinoM\Logica\obj\Debug\Logica.vbprojResolveAssemblyReference.cache
+A:\DINASES\proyectos\Corimexo\DinoM\Logica\obj\Debug\Logica.Resources.resources
+A:\DINASES\proyectos\Corimexo\DinoM\Logica\obj\Debug\Logica.vbproj.GenerateResource.Cache
+A:\DINASES\proyectos\Corimexo\DinoM\Logica\obj\Debug\Logica.vbproj.CoreCompileInputs.cache
+A:\DINASES\proyectos\Corimexo\DinoM\Logica\obj\Debug\Logica.dll
+A:\DINASES\proyectos\Corimexo\DinoM\Logica\obj\Debug\Logica.xml
+A:\DINASES\proyectos\Corimexo\DinoM\Logica\obj\Debug\Logica.pdb

@@ -1,0 +1,248 @@
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\Presentacion.vbprojResolveAssemblyReference.cache
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.Imageus.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.UCImg.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_AnularFactura.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_Cobrar_Cliente.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_Cobrar_Vendedor.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_KardexMovimiento.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_LibroVenta.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_MCompras.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_Movimiento.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_PagosInicial.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_PagosCreditoCompraUlt.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_PagosCreditoCompra.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_PagosCredito.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_Libreria.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_Precios.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_Compra.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_Factura.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_Roles.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_RotacionProductos.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_Usuarios.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_Proforma.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F0_Ventas.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F1_Almacen.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F1_Proveedor.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F1_CobrosCobranzas.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F1_MapaCLientes.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F1_Vendedor.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F1_Deposito.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F1_Clientes.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F1_Dosificacion.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F1_Rol.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F1_Zonas.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.Pr_SAldosPorAlmacenLinea.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.Pr_StockMinimo.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.Pr_Ventas12Meses.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.Pr_ReporteVentasGrafico.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.PR_StockActualProductosLotes.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.Pr_StockUtilidad.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.PR_StockActualProductos.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.Pr_HojaRuta.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.Pr_KardexProductos.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.Pr_ProductosVentas.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.Pr_KardexCredito.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.Pr_ReporteMorosidadGeneral.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.Pr_VentasVsCostos.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.Pr_VentasAtendidas.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.Login.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.P_Principal.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.Efecto.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.F1_Productos.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.Form1.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.Resources.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.Visualizador.resources
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\Presentacion.vbproj.GenerateResource.Cache
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.exe.licenses
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\Presentacion.vbproj.CoreCompileInputs.cache
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\DinoM.exe.config
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\DinoM.exe
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\DinoM.pdb
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\DinoM.xml
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\AxInterop.AcroPDFLib.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportSource.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\CrystalDecisions.Shared.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\CrystalDecisions.Web.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\CrystalDecisions.Windows.Forms.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar.Keyboard.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar.Layout.Design.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar.Layout.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar.Schedule.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar.SuperGrid.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar2.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\DevComponents.Instrumentation.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\DevComponents.SuperGrid.Design.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\DevComponents.TreeGX.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Facturacion.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\FlashControlV71.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Gma.QrCodeNet.Encoding.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\GMap.NET.Core.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\GMap.NET.WindowsForms.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Janus.Data.v3.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Janus.Windows.CalendarCombo.v3.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Janus.Windows.Common.v3.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Janus.Windows.GridEX.v3.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Janus.Windows.Ribbon.v3.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Janus.Windows.UI.v3.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Logica.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Modelo.exe
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\OnBarcode.Barcode.WinForms.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Datos.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Interop.AcroPDFLib.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\ShockwaveFlashObjects.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\stdole.dll
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Facturacion.pdb
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Facturacion.xml
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Logica.pdb
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Logica.xml
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Modelo.pdb
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Modelo.xml
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Modelo.exe.config
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar.Keyboard.xml
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar.Schedule.xml
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar.SuperGrid.xml
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar2.xml
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\DevComponents.Instrumentation.xml
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Datos.pdb
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\bin\Debug\Datos.xml
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.exe
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.xml
+A:\DINASES\Nueva carpeta\Dino\DinoM\DinoM\DinoM\obj\Debug\DinoM.pdb
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\DinoM.exe.config
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\DinoM.exe
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\DinoM.pdb
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\DinoM.xml
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportSource.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\CrystalDecisions.Shared.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\CrystalDecisions.Web.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\CrystalDecisions.Windows.Forms.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar.Keyboard.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar.Layout.Design.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar.Layout.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar.Schedule.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar.SuperGrid.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar2.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\DevComponents.Instrumentation.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\DevComponents.SuperGrid.Design.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\DevComponents.TreeGX.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Facturacion.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\FlashControlV71.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Gma.QrCodeNet.Encoding.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\GMap.NET.Core.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\GMap.NET.WindowsForms.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Janus.Data.v3.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Janus.Windows.CalendarCombo.v3.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Janus.Windows.Common.v3.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Janus.Windows.GridEX.v3.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Janus.Windows.Ribbon.v3.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Janus.Windows.UI.v3.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Logica.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Modelo.exe
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\OnBarcode.Barcode.WinForms.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Datos.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\ShockwaveFlashObjects.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\stdole.dll
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Facturacion.pdb
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Facturacion.xml
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Logica.pdb
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Logica.xml
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Modelo.pdb
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Modelo.xml
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Modelo.exe.config
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar.Keyboard.xml
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar.Schedule.xml
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar.SuperGrid.xml
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\DevComponents.DotNetBar2.xml
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\DevComponents.Instrumentation.xml
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Datos.pdb
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\bin\Debug\Datos.xml
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\Presentacion.vbprojResolveAssemblyReference.cache
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.Imageus.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.ImgCategoria.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.UCImg.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.UCItemImg.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_AnularFactura.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_Cobrar_Cliente.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_Cobrar_Vendedor.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_KardexMovimiento.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_LibroVenta.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_MCompras.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_Movimiento.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_PagosInicial.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_PagosCreditoCompraUlt.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_PagosCreditoCompra.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_PagosCredito.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_Libreria.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_Precios.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_Compra.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_Factura.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_Roles.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_RotacionProductos.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_Usuarios.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_Proforma.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_Ventas.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F1_Almacen.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F1_Proveedor.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F1_CobrosCobranzas.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F1_MapaCLientes.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F1_Vendedor.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F1_Deposito.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F1_Clientes.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F1_Dosificacion.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F1_Rol.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F1_Zonas.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F1_Categoria.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.Pr_SAldosPorAlmacenLinea.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.Pr_StockMinimo.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.Pr_Ventas12Meses.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.Pr_ReporteVentasGrafico.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.PR_StockActualProductosLotes.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.Pr_StockUtilidad.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.PR_StockActualProductos.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.Pr_HojaRuta.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.Pr_KardexProductos.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.Pr_ProductosVentas.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.Pr_KardexCredito.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.Pr_ReporteMorosidadGeneral.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.Pr_VentasVsCostos.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.Pr_VentasAtendidas.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.Login.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.P_Principal.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.Efecto.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F1_Productos.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.Form1.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.Resources.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.F0_ModeloAyudaImagenes.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.Visualizador.resources
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\Presentacion.vbproj.GenerateResource.Cache
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.exe.licenses
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\Presentacion.vbproj.CoreCompileInputs.cache
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.exe
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.xml
+A:\DINASES\proyectos\Corimexo\DinoM\DinoM\obj\Debug\DinoM.pdb
