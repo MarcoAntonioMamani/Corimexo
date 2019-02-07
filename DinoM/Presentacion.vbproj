@@ -379,6 +379,18 @@
     <Compile Include="Formulario Corimexo\F1_Categoria.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formulario Corimexo\F1_Materia.Designer.vb">
+      <DependentUpon>F1_Materia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario Corimexo\F1_Materia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario Corimexo\Migrar.Designer.vb">
+      <DependentUpon>Migrar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario Corimexo\Migrar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Pr_SAldosPorAlmacenLinea.Designer.vb">
       <DependentUpon>Pr_SAldosPorAlmacenLinea.vb</DependentUpon>
     </Compile>
@@ -833,6 +845,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario Corimexo\F1_Categoria.resx">
       <DependentUpon>F1_Categoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario Corimexo\F1_Materia.resx">
+      <DependentUpon>F1_Materia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario Corimexo\Migrar.resx">
+      <DependentUpon>Migrar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pr_SAldosPorAlmacenLinea.resx">
       <DependentUpon>Pr_SAldosPorAlmacenLinea.vb</DependentUpon>

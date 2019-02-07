@@ -997,6 +997,24 @@ Public Class P_Principal
         tab3.Icon = ico
     End Sub
 
+    Private Sub btConfMateria_Click(sender As Object, e As EventArgs) Handles btConfMateria.Click
+        SideNav1.IsMenuExpanded = False
+        Ventana.Select()
+        Dim frm As New F1_Materia
+        frm._nameButton = btConfMateria.Name
+        frm._modulo = FP_Configuracion
+        Dim tab3 As SuperTabItem = superTabControl3.CreateTab(frm.Text)
+        frm._tab = tab3
+        Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
+        superTabControl3.SelectedTabIndex = superTabControl3.Tabs.Count - 1
+        tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+        tab3.Text = "MATERIALES"
+        Dim blah As New Bitmap(New Bitmap(My.Resources.ic_c), 20, 20)
+        Dim ico As Icon = Icon.FromHandle(blah.GetHicon())
+        tab3.Icon = ico
+    End Sub
+
     'Private Sub btnCredPagoCliente_Click(sender As Object, e As EventArgs) Handles btnCredPagoCliente.Click
     '    SideNav1.IsMenuExpanded = False
     '    Ventana.Select()

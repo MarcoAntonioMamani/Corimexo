@@ -43,13 +43,15 @@ Public Class F1_Productos
         'L_prAbrirConexion(gs_Ip, gs_UsuarioSql, gs_ClaveSql, gs_NombreBD)
         _prMaxLength()
         _prAsignarPermisos()
-        tbdesc.ReadOnly = True
+        tbNombre.ReadOnly = True
         _PMIniciarTodo()
         Dim blah As New Bitmap(New Bitmap(My.Resources.producto), 20, 20)
         Dim ico As Icon = Icon.FromHandle(blah.GetHicon())
         Me.Icon = ico
         ButtonX2.Visible = False
         ButtonX1.Visible = True
+        tbNombre.BackColor = Color.White
+        tbnombre.BackColor = Color.White
     End Sub
 
     Public Sub _prCargarImagen()
@@ -112,7 +114,7 @@ Public Class F1_Productos
 
             i += 1
         Next
-        If (tbdesc.ReadOnly = False) Then
+        If (tbnombre.ReadOnly = False) Then
             Dim elemImgAdd As UCItemImg = New UCItemImg
 
             Dim imgadd As Bitmap = New Bitmap(My.Resources.addimg)
@@ -123,10 +125,10 @@ Public Class F1_Productos
             elemImgAdd.Height = panelA.Height / 6
             panelA.Controls.Add(elemImgAdd)
         End If
-        If (tbdesc.ReadOnly = False And _fnObtenerNumeroFilasActivas() < 0) Then
+        If (tbnombre.ReadOnly = False And _fnObtenerNumeroFilasActivas() < 0) Then
             btDeleteImg.Visible = False
         Else
-            If (tbdesc.ReadOnly = False) Then
+            If (tbnombre.ReadOnly = False) Then
                 btDeleteImg.Visible = True
             End If
 
@@ -179,7 +181,7 @@ Public Class F1_Productos
 
     Public Sub _prMaxLength()
 
-        tbdesc.MaxLength = 150
+        tbnombre.MaxLength = 150
 
     End Sub
 
@@ -394,14 +396,15 @@ Public Class F1_Productos
     Public Overrides Sub _PMOHabilitar()
 
         swEstado.IsReadOnly = False
-        tbdesc.ReadOnly = False
+        tbnombre.ReadOnly = False
+        tbnombre.ReadOnly = False
         _prCrearCarpetaImagenes()
         _prCrearCarpetaTemporal()
 
         tbStockMinimo.IsInputReadOnly = False
         btExcel.Visible = False
         btnImprimir.Visible = False
-        tbdesc.ReadOnly = False
+
         Modificar = True
         btDeleteImg.Visible = True
         _prCargarImagen()
@@ -413,12 +416,14 @@ Public Class F1_Productos
         Modificado = False
         tbcategoria.ReadOnly = True
         tbgrupo.ReadOnly = True
+        tbnombre.ReadOnly = True
+        tbnombre.ReadOnly = True
         tbproducto.ReadOnly = True
         tbestructura.ReadOnly = True
         tbsubgrupo.ReadOnly = True
         tbclase.ReadOnly = True
         swEstado.IsReadOnly = True
-        tbdesc.ReadOnly = True
+
         tbStockMinimo.IsInputReadOnly = True
         _prStyleJanus()
         JGrM_Buscador.Focus()
@@ -437,8 +442,8 @@ Public Class F1_Productos
         TablaImagenes = L_prCargarImagenes(-1)
         _prCargarImagen()
         Modificar = True
-        tbdesc.Clear()
-
+        tbnombre.Clear()
+        tbnombre.Clear()
         CbCategoria = 0
         CbGrupo = 0
         CbProducto = 0
@@ -467,7 +472,7 @@ Public Class F1_Productos
         tbestructura.Clear()
         tbsubgrupo.Clear()
         tbclase.Clear()
-        tbdesc.Focus()
+        tbnombre.Focus()
     End Sub
     Public Sub _prSeleccionarCombo(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
         If (CType(mCombo.DataSource, DataTable).Rows.Count > 0) Then
@@ -501,7 +506,7 @@ Public Class F1_Productos
         'Dim CbSubgrupo As Integer = 0  _yfMed
         'Dim CbClase As Integer = 0  _yfuMin
 
-        Dim res As Boolean = L_fnGrabarProducto(tbCodigo.Text, CodCategoria + "." + CodGrupo + "." + CodProducto + "." + CodEstructura + "." + CodSubGrupo + "." + CodClase, "", tbdesc.Text, "", CbCategoria, CbGrupo, CbProducto, CbEstructura, CbSubgrupo, CbClase, 0, 0, IIf(tbStockMinimo.Text = String.Empty, 0, tbStockMinimo.Text), IIf(swEstado.Value = True, 1, 0), nameImg, TablaImagenes)
+        Dim res As Boolean = L_fnGrabarProducto(tbCodigo.Text, CodCategoria + "." + CodGrupo + "." + CodProducto + "." + CodEstructura + "." + CodSubGrupo + "." + CodClase, "", tbnombre.Text, tbdesc.Text, CbCategoria, CbGrupo, CbProducto, CbEstructura, CbSubgrupo, CbClase, 0, 0, IIf(tbStockMinimo.Text = String.Empty, 0, tbStockMinimo.Text), IIf(swEstado.Value = True, 1, 0), nameImg, TablaImagenes)
 
 
         If res Then
@@ -533,7 +538,7 @@ Public Class F1_Productos
 
         Dim nameImage As String = JGrM_Buscador.GetValue("yfimg")
 
-        res = L_fnModificarProducto(tbCodigo.Text, CodCategoria + "." + CodGrupo + "." + CodProducto + "." + CodEstructura + "." + CodSubGrupo + "." + CodClase, "", tbdesc.Text, "", CbCategoria, CbGrupo, CbProducto, CbEstructura, CbSubgrupo, CbClase, 0, 0, IIf(tbStockMinimo.Text = String.Empty, 0, tbStockMinimo.Text), IIf(swEstado.Value = True, 1, 0), nameImg, TablaImagenes)
+        res = L_fnModificarProducto(tbCodigo.Text, CodCategoria + "." + CodGrupo + "." + CodProducto + "." + CodEstructura + "." + CodSubGrupo + "." + CodClase, "", tbnombre.Text, tbdesc.Text, CbCategoria, CbGrupo, CbProducto, CbEstructura, CbSubgrupo, CbClase, 0, 0, IIf(tbStockMinimo.Text = String.Empty, 0, tbStockMinimo.Text), IIf(swEstado.Value = True, 1, 0), nameImg, TablaImagenes)
 
         If res Then
             Modificar = False
@@ -559,7 +564,7 @@ Public Class F1_Productos
     End Function
 
     Public Function _fnActionNuevo() As Boolean
-        Return tbCodigo.Text = String.Empty And tbdesc.ReadOnly = False
+        Return tbCodigo.Text = String.Empty And tbnombre.ReadOnly = False
     End Function
 
     Public Overrides Sub _PMOEliminarRegistro()
@@ -599,14 +604,14 @@ Public Class F1_Productos
         Dim _ok As Boolean = True
         MEP.Clear()
 
-        If tbdesc.Text = String.Empty Then
-            tbdesc.BackColor = Color.Red
-            AddHandler tbdesc.KeyDown, AddressOf TextBox_KeyDown
-            MEP.SetError(tbdesc, "ingrese el descripcion del producto!".ToUpper)
+        If tbnombre.Text = String.Empty Then
+            tbnombre.BackColor = Color.Red
+            AddHandler tbnombre.KeyDown, AddressOf TextBox_KeyDown
+            MEP.SetError(tbnombre, "ingrese el descripcion del producto!".ToUpper)
             _ok = False
         Else
-            tbdesc.BackColor = Color.White
-            MEP.SetError(tbdesc, "")
+            tbnombre.BackColor = Color.White
+            MEP.SetError(tbnombre, "")
         End If
         'If tbDescCort.Text = String.Empty Then
         '    tbDescCort.BackColor = Color.Red
@@ -715,7 +720,8 @@ Public Class F1_Productos
             End Try
             With JGrM_Buscador
                 tbCodigo.Text = .GetValue("yfnumi").ToString
-                tbdesc.Text = .GetValue("yfcdprod1").ToString
+                tbnombre.Text = .GetValue("yfcdprod1").ToString
+                tbdesc.Text = .GetValue("yfcdprod2").ToString
                 tbCodauto.Text = .GetValue("yfcprod").ToString
                 tbStockMinimo.Text = .GetValue("yfsmin")
                 swEstado.Value = .GetValue("yfap")
@@ -1100,7 +1106,7 @@ Public Class F1_Productos
     End Sub
 
     Private Sub tbcategoria_KeyDown(sender As Object, e As KeyEventArgs) Handles tbcategoria.KeyDown
-        If (tbdesc.ReadOnly = False) Then
+        If (tbnombre.ReadOnly = False) Then
             If e.KeyData = Keys.Control + Keys.Enter Then
 
                 Dim dt As DataTable
@@ -1158,7 +1164,7 @@ Public Class F1_Productos
     End Sub
 
     Private Sub tbgrupo_KeyDown(sender As Object, e As KeyEventArgs) Handles tbgrupo.KeyDown
-        If (tbdesc.ReadOnly = False) Then
+        If (tbnombre.ReadOnly = False) Then
             If e.KeyData = Keys.Control + Keys.Enter Then
 
                 Dim dt As DataTable
@@ -1213,7 +1219,7 @@ Public Class F1_Productos
     End Sub
 
     Private Sub tbproducto_KeyDown(sender As Object, e As KeyEventArgs) Handles tbproducto.KeyDown
-        If (tbdesc.ReadOnly = False) Then
+        If (tbnombre.ReadOnly = False) Then
             If e.KeyData = Keys.Control + Keys.Enter Then
 
                 Dim dt As DataTable
@@ -1268,7 +1274,7 @@ Public Class F1_Productos
     End Sub
 
     Private Sub tbestructura_KeyDown(sender As Object, e As KeyEventArgs) Handles tbestructura.KeyDown
-        If (tbdesc.ReadOnly = False) Then
+        If (tbnombre.ReadOnly = False) Then
             If e.KeyData = Keys.Control + Keys.Enter Then
 
                 Dim dt As DataTable
@@ -1323,7 +1329,7 @@ Public Class F1_Productos
     End Sub
 
     Private Sub tbsubgrupo_KeyDown(sender As Object, e As KeyEventArgs) Handles tbsubgrupo.KeyDown
-        If (tbdesc.ReadOnly = False) Then
+        If (tbnombre.ReadOnly = False) Then
             If e.KeyData = Keys.Control + Keys.Enter Then
 
                 Dim dt As DataTable
@@ -1378,7 +1384,7 @@ Public Class F1_Productos
     End Sub
 
     Private Sub tbclase_KeyDown(sender As Object, e As KeyEventArgs) Handles tbclase.KeyDown
-        If (tbdesc.ReadOnly = False) Then
+        If (tbnombre.ReadOnly = False) Then
             If e.KeyData = Keys.Control + Keys.Enter Then
 
                 Dim dt As DataTable
@@ -1451,5 +1457,9 @@ Public Class F1_Productos
         PanelSuperior.Visible = True
         ButtonX2.Visible = False
         ButtonX1.Visible = True
+    End Sub
+
+    Private Sub TextBoxX1_TextChanged(sender As Object, e As EventArgs) Handles tbnombre.TextChanged
+
     End Sub
 End Class

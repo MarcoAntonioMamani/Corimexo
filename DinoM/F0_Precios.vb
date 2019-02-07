@@ -112,7 +112,7 @@ Public Class F0_Precios
             'a.yfcprod ,a.yfnumi ,a.yfcdprod1,gr3.ycdes3 as Laboratorio,gr4.ycdes3 as Presentacion 
             With grprecio.RootTable.Columns("yfcprod")
                 .Caption = "COD PR"
-                .Width = 60
+                .Width = 150
                 .Visible = True
             End With
             With grprecio.RootTable.Columns("yfnumi")
@@ -122,7 +122,7 @@ Public Class F0_Precios
             End With
             With grprecio.RootTable.Columns("yfcdprod1")
                 .Caption = "PRODUCTO"
-                .Width = 210
+                .Width = 280
                 .Visible = True
             End With
             With grprecio.RootTable.Columns("Laboratorio")

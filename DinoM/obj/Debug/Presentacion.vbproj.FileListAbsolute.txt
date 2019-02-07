@@ -371,3 +371,5 @@ A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\DinoM\obj\Debug\Presenta
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\DinoM\obj\Debug\DinoM.exe
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\DinoM\obj\Debug\DinoM.xml
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\DinoM\obj\Debug\DinoM.pdb
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\DinoM\obj\Debug\DinoM.Migrar.resources
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\DinoM\obj\Debug\DinoM.F1_Materia.resources

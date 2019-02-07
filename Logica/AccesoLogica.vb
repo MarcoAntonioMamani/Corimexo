@@ -1028,8 +1028,8 @@ Public Class AccesoLogica
         Dim _listParam As New List(Of Datos.DParametro)
 
         _listParam.Add(New Datos.DParametro("@tipo", 8))
-        _listParam.Add(New Datos.DParametro("@almacen", _almacen))
-        _listParam.Add(New Datos.DParametro("@producto", _codproducto))
+        '_listParam.Add(New Datos.DParametro("@almacen", _almacen))
+        '_listParam.Add(New Datos.DParametro("@producto", _codproducto))
         _listParam.Add(New Datos.DParametro("@tauact", L_Usuario))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TV001", _listParam)
 
@@ -1752,7 +1752,105 @@ Public Class AccesoLogica
 
 #End Region
 
+#Region "MAteriales"
+    Public Shared Function L_fnGrabarMateriales(ByRef _yhnumi As String, _yhnombre As String, _yhcodigo As String,
+                                               _yhcategoria As Integer, _yhimg As String, _yhestado As Integer) As Boolean
+        Dim _resultado As Boolean
 
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        '@yhnumi ,@yhnombre ,@yhcodigo ,@yhcategoria ,@yhimg ,@yhestado ,@newFecha,@newHora,@yhuact
+        _listParam.Add(New Datos.DParametro("@tipo", 1))
+        _listParam.Add(New Datos.DParametro("@yhnumi", _yhnumi))
+        _listParam.Add(New Datos.DParametro("@yhnombre", _yhnombre))
+        _listParam.Add(New Datos.DParametro("@yhcodigo", _yhcodigo))
+        _listParam.Add(New Datos.DParametro("@yhcategoria", _yhcategoria))
+        _listParam.Add(New Datos.DParametro("@yhimg", _yhimg))
+        _listParam.Add(New Datos.DParametro("@yhestado", _yhestado))
+
+
+
+        _listParam.Add(New Datos.DParametro("@yhuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0052", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _yhnumi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+
+
+
+    Public Shared Function L_fnModificarMateriales(ByRef _yhnumi As String, _yhnombre As String, _yhcodigo As String,
+                                               _yhcategoria As Integer, _yhimg As String, _yhestado As Integer) As Boolean
+        Dim _resultado As Boolean
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        '@yhnumi ,@yhnombre ,@yhcodigo ,@yhcategoria ,@yhimg ,@yhestado ,@newFecha,@newHora,@yhuact
+        _listParam.Add(New Datos.DParametro("@tipo", 2))
+        _listParam.Add(New Datos.DParametro("@yhnumi", _yhnumi))
+        _listParam.Add(New Datos.DParametro("@yhnombre", _yhnombre))
+        _listParam.Add(New Datos.DParametro("@yhcodigo", _yhcodigo))
+        _listParam.Add(New Datos.DParametro("@yhcategoria", _yhcategoria))
+        _listParam.Add(New Datos.DParametro("@yhimg", _yhimg))
+        _listParam.Add(New Datos.DParametro("@yhestado", _yhestado))
+
+
+
+        _listParam.Add(New Datos.DParametro("@yhuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0052", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _yhnumi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+
+
+    Public Shared Function L_fnEliminarCategoriaProductoMateria(numi As String, ByRef mensaje As String) As Boolean
+        Dim _resultado As Boolean
+        If L_fnbValidarEliminacion(numi, "TY0053", "yhnumi", mensaje) = True Then
+            Dim _Tabla As DataTable
+            Dim _listParam As New List(Of Datos.DParametro)
+
+            _listParam.Add(New Datos.DParametro("@tipo", -1))
+            _listParam.Add(New Datos.DParametro("@yhnumi", numi))
+            _listParam.Add(New Datos.DParametro("@yhuact", L_Usuario))
+
+            _Tabla = D_ProcedimientoConParam("sp_Mam_TY0052", _listParam)
+
+            If _Tabla.Rows.Count > 0 Then
+                _resultado = True
+            Else
+                _resultado = False
+            End If
+        Else
+            _resultado = False
+        End If
+        Return _resultado
+    End Function
+
+    Public Shared Function L_fnGeneralCategoriaMateria() As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 3))
+        _listParam.Add(New Datos.DParametro("@yhuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0052", _listParam)
+
+        Return _Tabla
+    End Function
+#End Region
 #Region "TY0051 Categoria Producto"
     Public Shared Function L_fnGrabarCategoria(ByRef _ygnumi As String, _ygnombre As String, _ygcodigo As String,
                                                _ygcategoria As Integer, _ygimg As String, _ygestado As Integer) As Boolean
@@ -1968,6 +2066,18 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@tipo", 4))
         _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TY0051", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_fnListarCategoriaMateria() As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 4))
+        _listParam.Add(New Datos.DParametro("@yhuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0052", _listParam)
 
         Return _Tabla
     End Function
