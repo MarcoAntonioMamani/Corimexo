@@ -379,16 +379,40 @@
     <Compile Include="Formulario Corimexo\F1_Categoria.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formulario Corimexo\F1_Clase.Designer.vb">
+      <DependentUpon>F1_Clase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario Corimexo\F1_Clase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario Corimexo\F1_Grupo.Designer.vb">
+      <DependentUpon>F1_Grupo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario Corimexo\F1_Grupo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formulario Corimexo\F1_Materia.Designer.vb">
       <DependentUpon>F1_Materia.vb</DependentUpon>
     </Compile>
     <Compile Include="Formulario Corimexo\F1_Materia.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formulario Corimexo\F1_Modelo.Designer.vb">
+      <DependentUpon>F1_Modelo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario Corimexo\F1_Modelo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formulario Corimexo\Migrar.Designer.vb">
       <DependentUpon>Migrar.vb</DependentUpon>
     </Compile>
     <Compile Include="Formulario Corimexo\Migrar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario Corimexo\F1_SubGrupo.Designer.vb">
+      <DependentUpon>F1_SubGrupo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario Corimexo\F1_SubGrupo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pr_SAldosPorAlmacenLinea.Designer.vb">
@@ -846,8 +870,20 @@
     <EmbeddedResource Include="Formulario Corimexo\F1_Categoria.resx">
       <DependentUpon>F1_Categoria.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formulario Corimexo\F1_Clase.resx">
+      <DependentUpon>F1_Clase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario Corimexo\F1_Grupo.resx">
+      <DependentUpon>F1_Grupo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formulario Corimexo\F1_Materia.resx">
       <DependentUpon>F1_Materia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario Corimexo\F1_Modelo.resx">
+      <DependentUpon>F1_Modelo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario Corimexo\F1_SubGrupo.resx">
+      <DependentUpon>F1_SubGrupo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario Corimexo\Migrar.resx">
       <DependentUpon>Migrar.vb</DependentUpon>
@@ -1359,6 +1395,7 @@
     <Content Include="Resources\check-mark.png" />
     <None Include="Resources\cobro.png" />
     <None Include="Resources\creditopagos.png" />
+    <None Include="Resources\corimexo.jpg" />
     <Content Include="Resources\dinases.png" />
     <None Include="Resources\MapaClientes.png" />
     <None Include="Resources\ventasCostos.png" />

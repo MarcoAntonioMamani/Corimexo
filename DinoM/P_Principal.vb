@@ -1015,6 +1015,103 @@ Public Class P_Principal
         tab3.Icon = ico
     End Sub
 
+    Private Sub btConfGrupo_Click(sender As Object, e As EventArgs) Handles btConfGrupo.Click
+
+        SideNav1.IsMenuExpanded = False
+        Ventana.Select()
+        Dim frm As New F1_Grupo
+
+        frm._nameButton = btConfGrupo.Name
+        frm._modulo = FP_Configuracion
+        Dim tab3 As SuperTabItem = superTabControl3.CreateTab(frm.Text)
+        frm._tab = tab3
+
+        frm.Size = PanelPrincipal.Size
+
+        Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
+        superTabControl3.SelectedTabIndex = superTabControl3.Tabs.Count - 1
+        tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+
+
+        tab3.Text = "GRUPOS"
+        Dim blah As New Bitmap(New Bitmap(My.Resources.ic_a), 20, 20)
+        Dim ico As Icon = Icon.FromHandle(blah.GetHicon())
+        tab3.Icon = ico
+    End Sub
+
+    Private Sub btConfSubGrupo_Click(sender As Object, e As EventArgs) Handles btConfSubGrupo.Click
+        SideNav1.IsMenuExpanded = False
+        Ventana.Select()
+        Dim frm As New F1_SubGrupo
+
+        frm._nameButton = btConfSubGrupo.Name
+        frm._modulo = FP_Configuracion
+        Dim tab3 As SuperTabItem = superTabControl3.CreateTab(frm.Text)
+        frm._tab = tab3
+
+        frm.Size = PanelPrincipal.Size
+
+        Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
+        superTabControl3.SelectedTabIndex = superTabControl3.Tabs.Count - 1
+        tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+
+
+        tab3.Text = "SUB GRUPOS"
+        Dim blah As New Bitmap(New Bitmap(My.Resources.ic_a), 20, 20)
+        Dim ico As Icon = Icon.FromHandle(blah.GetHicon())
+        tab3.Icon = ico
+    End Sub
+
+    Private Sub btConfClase_Click(sender As Object, e As EventArgs) Handles btConfClase.Click
+        SideNav1.IsMenuExpanded = False
+        Ventana.Select()
+        Dim frm As New F1_Clase
+
+        frm._nameButton = btConfClase.Name
+        frm._modulo = FP_Configuracion
+        Dim tab3 As SuperTabItem = superTabControl3.CreateTab(frm.Text)
+        frm._tab = tab3
+
+        frm.Size = PanelPrincipal.Size
+
+        Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
+        superTabControl3.SelectedTabIndex = superTabControl3.Tabs.Count - 1
+        tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+
+
+        tab3.Text = "CLASES"
+        Dim blah As New Bitmap(New Bitmap(My.Resources.ic_a), 20, 20)
+        Dim ico As Icon = Icon.FromHandle(blah.GetHicon())
+        tab3.Icon = ico
+    End Sub
+
+    Private Sub btConfModelo_Click(sender As Object, e As EventArgs) Handles btConfModelo.Click
+        SideNav1.IsMenuExpanded = False
+        Ventana.Select()
+        Dim frm As New F1_Modelo
+
+        frm._nameButton = btConfModelo.Name
+        frm._modulo = FP_Configuracion
+        Dim tab3 As SuperTabItem = superTabControl3.CreateTab(frm.Text)
+        frm._tab = tab3
+
+        frm.Size = PanelPrincipal.Size
+
+        Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
+        superTabControl3.SelectedTabIndex = superTabControl3.Tabs.Count - 1
+        tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+
+
+        tab3.Text = "MODELOS"
+        Dim blah As New Bitmap(New Bitmap(My.Resources.ic_a), 20, 20)
+        Dim ico As Icon = Icon.FromHandle(blah.GetHicon())
+        tab3.Icon = ico
+    End Sub
+
     'Private Sub btnCredPagoCliente_Click(sender As Object, e As EventArgs) Handles btnCredPagoCliente.Click
     '    SideNav1.IsMenuExpanded = False
     '    Ventana.Select()

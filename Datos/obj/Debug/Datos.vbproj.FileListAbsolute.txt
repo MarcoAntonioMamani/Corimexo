@@ -17,3 +17,13 @@ A:\DINASES\proyectos\Corimexo\DinoM\Datos\obj\Debug\Datos.vbproj.CoreCompileInpu
 A:\DINASES\proyectos\Corimexo\DinoM\Datos\obj\Debug\Datos.dll
 A:\DINASES\proyectos\Corimexo\DinoM\Datos\obj\Debug\Datos.xml
 A:\DINASES\proyectos\Corimexo\DinoM\Datos\obj\Debug\Datos.pdb
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Datos\bin\Debug\Datos.dll
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Datos\bin\Debug\Datos.pdb
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Datos\bin\Debug\Datos.xml
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Datos\obj\Debug\Datos.vbprojResolveAssemblyReference.cache
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Datos\obj\Debug\Datos.Resources.resources
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Datos\obj\Debug\Datos.vbproj.GenerateResource.Cache
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Datos\obj\Debug\Datos.vbproj.CoreCompileInputs.cache
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Datos\obj\Debug\Datos.dll
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Datos\obj\Debug\Datos.xml
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Datos\obj\Debug\Datos.pdb

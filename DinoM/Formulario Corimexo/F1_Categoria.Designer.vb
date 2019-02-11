@@ -24,14 +24,11 @@ Partial Class F1_Categoria
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F1_Categoria))
-        Dim cbCategoria_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.swEstado = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.LabelX9 = New DevComponents.DotNetBar.LabelX()
-        Me.cbCategoria = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
-        Me.LabelX7 = New DevComponents.DotNetBar.LabelX()
         Me.tbdesccorta = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX10 = New DevComponents.DotNetBar.LabelX()
@@ -45,7 +42,7 @@ Partial Class F1_Categoria
         Me.BtAdicionar = New DevComponents.DotNetBar.ButtonX()
         Me.LabelX15 = New DevComponents.DotNetBar.LabelX()
         Me.SuperTabItem3 = New DevComponents.DotNetBar.SuperTabItem()
-        Me.UsImg = New DinoM.UCImg()
+        Me.UsImg = New System.Windows.Forms.PictureBox()
         CType(Me.SuperTabPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabPrincipal.SuspendLayout()
         Me.SuperTabControlPanelRegistro.SuspendLayout()
@@ -65,12 +62,12 @@ Partial Class F1_Categoria
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        CType(Me.cbCategoria, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanel3.SuspendLayout()
         CType(Me.SuperTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabControl1.SuspendLayout()
         Me.SuperTabControlPanel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.UsImg, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SuperTabPrincipal
@@ -151,10 +148,6 @@ Partial Class F1_Categoria
         Me.BubbleBarUsuario.MouseOverTabColors.BorderColor = System.Drawing.SystemColors.Highlight
         Me.BubbleBarUsuario.SelectedTabColors.BorderColor = System.Drawing.Color.Black
         '
-        'TxtNombreUsu
-        '
-        Me.TxtNombreUsu.Size = New System.Drawing.Size(267, 44)
-        '
         'btnSalir
         '
         '
@@ -165,7 +158,7 @@ Partial Class F1_Categoria
         'MPanelSup
         '
         Me.MPanelSup.Controls.Add(Me.TableLayoutPanel1)
-        Me.MPanelSup.Size = New System.Drawing.Size(1247, 367)
+        Me.MPanelSup.Size = New System.Drawing.Size(1247, 313)
         Me.MPanelSup.Controls.SetChildIndex(Me.PanelUsuario, 0)
         Me.MPanelSup.Controls.SetChildIndex(Me.TableLayoutPanel1, 0)
         '
@@ -175,8 +168,8 @@ Partial Class F1_Categoria
         '
         'GroupPanelBuscador
         '
-        Me.GroupPanelBuscador.Location = New System.Drawing.Point(0, 367)
-        Me.GroupPanelBuscador.Size = New System.Drawing.Size(1247, 124)
+        Me.GroupPanelBuscador.Location = New System.Drawing.Point(0, 313)
+        Me.GroupPanelBuscador.Size = New System.Drawing.Size(1247, 178)
         '
         '
         '
@@ -214,11 +207,7 @@ Partial Class F1_Categoria
         Me.JGrM_Buscador.SelectedFormatStyle.BackColor = System.Drawing.Color.DodgerBlue
         Me.JGrM_Buscador.SelectedFormatStyle.Font = New System.Drawing.Font("Open Sans", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.JGrM_Buscador.SelectedFormatStyle.ForeColor = System.Drawing.Color.White
-        Me.JGrM_Buscador.Size = New System.Drawing.Size(1241, 97)
-        '
-        'btnUltimo
-        '
-        Me.btnUltimo.Location = New System.Drawing.Point(171, 0)
+        Me.JGrM_Buscador.Size = New System.Drawing.Size(1241, 151)
         '
         'MPanelUserAct
         '
@@ -237,7 +226,7 @@ Partial Class F1_Categoria
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1247, 367)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1247, 313)
         Me.TableLayoutPanel1.TabIndex = 236
         '
         'GroupPanel1
@@ -252,7 +241,7 @@ Partial Class F1_Categoria
         Me.GroupPanel1.Location = New System.Drawing.Point(4, 4)
         Me.GroupPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(615, 359)
+        Me.GroupPanel1.Size = New System.Drawing.Size(615, 305)
         '
         '
         '
@@ -289,8 +278,6 @@ Partial Class F1_Categoria
         Me.Panel1.AutoScroll = True
         Me.Panel1.Controls.Add(Me.swEstado)
         Me.Panel1.Controls.Add(Me.LabelX9)
-        Me.Panel1.Controls.Add(Me.cbCategoria)
-        Me.Panel1.Controls.Add(Me.LabelX7)
         Me.Panel1.Controls.Add(Me.tbdesccorta)
         Me.Panel1.Controls.Add(Me.LabelX1)
         Me.Panel1.Controls.Add(Me.LabelX10)
@@ -301,7 +288,7 @@ Partial Class F1_Categoria
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(609, 332)
+        Me.Panel1.Size = New System.Drawing.Size(609, 278)
         Me.Panel1.TabIndex = 234
         '
         'swEstado
@@ -311,7 +298,7 @@ Partial Class F1_Categoria
         '
         Me.swEstado.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.swEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.swEstado.Location = New System.Drawing.Point(229, 195)
+        Me.swEstado.Location = New System.Drawing.Point(229, 157)
         Me.swEstado.Margin = New System.Windows.Forms.Padding(4)
         Me.swEstado.Name = "swEstado"
         Me.swEstado.OffBackColor = System.Drawing.SystemColors.ActiveCaptionText
@@ -336,46 +323,13 @@ Partial Class F1_Categoria
         Me.LabelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX9.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX9.Location = New System.Drawing.Point(17, 195)
+        Me.LabelX9.Location = New System.Drawing.Point(17, 157)
         Me.LabelX9.Margin = New System.Windows.Forms.Padding(4)
         Me.LabelX9.Name = "LabelX9"
         Me.LabelX9.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX9.Size = New System.Drawing.Size(61, 20)
         Me.LabelX9.TabIndex = 241
         Me.LabelX9.Text = "Estado:"
-        '
-        'cbCategoria
-        '
-        cbCategoria_DesignTimeLayout.LayoutString = resources.GetString("cbCategoria_DesignTimeLayout.LayoutString")
-        Me.cbCategoria.DesignTimeLayout = cbCategoria_DesignTimeLayout
-        Me.cbCategoria.Font = New System.Drawing.Font("Open Sans Light", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbCategoria.Location = New System.Drawing.Point(229, 157)
-        Me.cbCategoria.Margin = New System.Windows.Forms.Padding(4)
-        Me.cbCategoria.Name = "cbCategoria"
-        Me.cbCategoria.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
-        Me.cbCategoria.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.cbCategoria.SelectedIndex = -1
-        Me.cbCategoria.SelectedItem = Nothing
-        Me.cbCategoria.Size = New System.Drawing.Size(192, 30)
-        Me.cbCategoria.TabIndex = 239
-        Me.cbCategoria.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
-        '
-        'LabelX7
-        '
-        Me.LabelX7.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX7.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX7.Location = New System.Drawing.Point(17, 157)
-        Me.LabelX7.Margin = New System.Windows.Forms.Padding(4)
-        Me.LabelX7.Name = "LabelX7"
-        Me.LabelX7.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX7.Size = New System.Drawing.Size(172, 28)
-        Me.LabelX7.TabIndex = 238
-        Me.LabelX7.Text = "Categoria:"
         '
         'tbdesccorta
         '
@@ -490,7 +444,7 @@ Partial Class F1_Categoria
         Me.GroupPanel3.Location = New System.Drawing.Point(627, 4)
         Me.GroupPanel3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupPanel3.Name = "GroupPanel3"
-        Me.GroupPanel3.Size = New System.Drawing.Size(616, 359)
+        Me.GroupPanel3.Size = New System.Drawing.Size(616, 305)
         '
         '
         '
@@ -545,7 +499,7 @@ Partial Class F1_Categoria
         Me.SuperTabControl1.ReorderTabsEnabled = True
         Me.SuperTabControl1.SelectedTabFont = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold)
         Me.SuperTabControl1.SelectedTabIndex = 1
-        Me.SuperTabControl1.Size = New System.Drawing.Size(610, 332)
+        Me.SuperTabControl1.Size = New System.Drawing.Size(610, 278)
         Me.SuperTabControl1.TabFont = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SuperTabControl1.TabIndex = 223
         Me.SuperTabControl1.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItem3})
@@ -559,7 +513,7 @@ Partial Class F1_Categoria
         Me.SuperTabControlPanel3.Location = New System.Drawing.Point(0, 29)
         Me.SuperTabControlPanel3.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabControlPanel3.Name = "SuperTabControlPanel3"
-        Me.SuperTabControlPanel3.Size = New System.Drawing.Size(610, 303)
+        Me.SuperTabControlPanel3.Size = New System.Drawing.Size(610, 249)
         Me.SuperTabControlPanel3.TabIndex = 0
         Me.SuperTabControlPanel3.TabItem = Me.SuperTabItem3
         '
@@ -575,7 +529,7 @@ Partial Class F1_Categoria
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(610, 303)
+        Me.Panel2.Size = New System.Drawing.Size(610, 249)
         Me.Panel2.TabIndex = 223
         '
         'BtAdicionar
@@ -623,13 +577,15 @@ Partial Class F1_Categoria
         '
         'UsImg
         '
-        Me.UsImg.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.UsImg.BackColor = System.Drawing.Color.Transparent
-        Me.UsImg.Location = New System.Drawing.Point(142, 16)
-        Me.UsImg.Margin = New System.Windows.Forms.Padding(5)
+        Me.UsImg.Image = Global.DinoM.My.Resources.Resources.pantalla
+        Me.UsImg.Location = New System.Drawing.Point(190, 25)
         Me.UsImg.Name = "UsImg"
-        Me.UsImg.Size = New System.Drawing.Size(330, 245)
-        Me.UsImg.TabIndex = 222
+        Me.UsImg.Padding = New System.Windows.Forms.Padding(2)
+        Me.UsImg.Size = New System.Drawing.Size(231, 199)
+        Me.UsImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.UsImg.TabIndex = 223
+        Me.UsImg.TabStop = False
         '
         'F1_Categoria
         '
@@ -661,13 +617,13 @@ Partial Class F1_Categoria
         Me.GroupPanel1.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.cbCategoria, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanel3.ResumeLayout(False)
         CType(Me.SuperTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SuperTabControl1.ResumeLayout(False)
         Me.SuperTabControlPanel3.ResumeLayout(False)
         Me.SuperTabControlPanel3.PerformLayout()
         Me.Panel2.ResumeLayout(False)
+        CType(Me.UsImg, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -675,8 +631,6 @@ Partial Class F1_Categoria
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents GroupPanel1 As DevComponents.DotNetBar.Controls.GroupPanel
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents cbCategoria As Janus.Windows.GridEX.EditControls.MultiColumnCombo
-    Friend WithEvents LabelX7 As DevComponents.DotNetBar.LabelX
     Friend WithEvents tbdesccorta As DevComponents.DotNetBar.Controls.TextBoxX
     Friend WithEvents LabelX1 As DevComponents.DotNetBar.LabelX
     Friend WithEvents LabelX10 As DevComponents.DotNetBar.LabelX
@@ -687,10 +641,10 @@ Partial Class F1_Categoria
     Friend WithEvents SuperTabControl1 As DevComponents.DotNetBar.SuperTabControl
     Friend WithEvents SuperTabControlPanel3 As DevComponents.DotNetBar.SuperTabControlPanel
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents UsImg As UCImg
     Friend WithEvents BtAdicionar As DevComponents.DotNetBar.ButtonX
     Friend WithEvents LabelX15 As DevComponents.DotNetBar.LabelX
     Friend WithEvents SuperTabItem3 As DevComponents.DotNetBar.SuperTabItem
     Friend WithEvents swEstado As DevComponents.DotNetBar.Controls.SwitchButton
     Friend WithEvents LabelX9 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents UsImg As PictureBox
 End Class

@@ -134,6 +134,7 @@ Module P_Global
 
     Public Function _fnCrearPanelVentanas(frm As Form) As Panel
         Dim panel As New Panel()
+        panel.Size = frm.Size
         panel.Name = "panelA"
         panel.Dock = DockStyle.Fill
         panel.BackColor = Color.White

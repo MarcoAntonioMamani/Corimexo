@@ -25,10 +25,7 @@ Public Class F1_Categoria
 
     Private Sub _prIniciarTodo()
         L_prAbrirConexion(gs_Ip, gs_UsuarioSql, gs_ClaveSql, gs_NombreBD)
-        _prCargarComboLibreriaDepositos(cbCategoria)
         Me.Text = "CATEGORIAS PRODUCTOS"
-
-
         _prMaxLength()
         _prAsignarPermisos()
         _PMIniciarTodo()
@@ -77,8 +74,8 @@ Public Class F1_Categoria
                 If (_fnActionNuevo()) Then
 
                     nameImg = "\Imagen_" + Str(Now.Hour).Trim + Str(Now.Minute).Trim + Str(Now.Second).Trim + ".jpg"
-                    UsImg.pbImage.SizeMode = PictureBoxSizeMode.StretchImage
-                    UsImg.pbImage.Image = Image.FromStream(Bin)
+                    UsImg.SizeMode = PictureBoxSizeMode.StretchImage
+                    UsImg.Image = Image.FromStream(Bin)
 
                     img.Save(RutaTemporal + nameImg, System.Drawing.Imaging.ImageFormat.Jpeg)
                     img.Dispose()
@@ -86,7 +83,7 @@ Public Class F1_Categoria
 
                     nameImg = "\Imagen_" + Str(Now.Hour).Trim + Str(Now.Minute).Trim + Str(Now.Second).Trim + ".jpg"
 
-                    UsImg.pbImage.Image = Image.FromStream(Bin)
+                    UsImg.Image = Image.FromStream(Bin)
                     img.Save(RutaTemporal + nameImg, System.Drawing.Imaging.ImageFormat.Jpeg)
                     Modificado = True
                     img.Dispose()
@@ -172,8 +169,8 @@ Public Class F1_Categoria
 
             Dim img As New Bitmap(New Bitmap(RutaTemporal + name), 500, 300)
 
-            UsImg.pbImage.Image.Dispose()
-            UsImg.pbImage.Image = Nothing
+            UsImg.Image.Dispose()
+            UsImg.Image = Nothing
             Try
                 My.Computer.FileSystem.CopyFile(RutaTemporal + name,
      Folder + name, overwrite:=True)
@@ -195,7 +192,6 @@ Public Class F1_Categoria
 
 
         tbNombre.ReadOnly = False
-        cbCategoria.ReadOnly = False
         tbdesccorta.ReadOnly = False
         _prCrearCarpetaImagenes()
         _prCrearCarpetaTemporal()
@@ -208,7 +204,6 @@ Public Class F1_Categoria
     Public Overrides Sub _PMOInhabilitar()
         tbCodigoOriginal.ReadOnly = True
         tbNombre.ReadOnly = True
-        cbCategoria.ReadOnly = True
         tbdesccorta.ReadOnly = True
 
         BtAdicionar.Visible = False
@@ -221,10 +216,8 @@ Public Class F1_Categoria
         tbCodigoOriginal.Clear()
         tbNombre.Clear()
         tbdesccorta.Clear()
-        If (CType(cbCategoria.DataSource, DataTable).Rows.Count > 0) Then
-            cbCategoria.SelectedIndex = 0
-        End If
-        UsImg.pbImage.Image = My.Resources.pantalla
+
+        UsImg.Image = My.Resources.pantalla
 
 
     End Sub
@@ -239,7 +232,7 @@ Public Class F1_Categoria
 
         'ByRef _ygnumi As String, _ygnombre As String, _ygcodigo As String,
         '                                        _ygcategoria As Integer, _ygimg As String, _ygestado As Integer
-        Dim res As Boolean = L_fnGrabarCategoria(tbCodigoOriginal.Text, tbNombre.Text, tbdesccorta.Text, cbCategoria.Value, nameImg, IIf(swEstado.Value = True, 1, 0))
+        Dim res As Boolean = L_fnGrabarCategoria(tbCodigoOriginal.Text, tbNombre.Text, tbdesccorta.Text, 0, nameImg, IIf(swEstado.Value = True, 1, 0))
 
 
         If res Then
@@ -270,11 +263,11 @@ Public Class F1_Categoria
         Dim nameImage As String = IIf(IsDBNull(JGrM_Buscador.GetValue("ygimg")), "", JGrM_Buscador.GetValue("ygimg"))
         If (Modificado = False And nameImage <> "") Then
 
-            res = L_fnModificarCategoria(tbCodigoOriginal.Text, tbNombre.Text, tbdesccorta.Text, cbCategoria.Value, nameImage, IIf(swEstado.Value = True, 1, 0))
+            res = L_fnModificarCategoria(tbCodigoOriginal.Text, tbNombre.Text, tbdesccorta.Text, 0, nameImage, IIf(swEstado.Value = True, 1, 0))
 
         Else
 
-            res = L_fnModificarCategoria(tbCodigoOriginal.Text, tbNombre.Text, tbdesccorta.Text, cbCategoria.Value, nameImg, IIf(swEstado.Value = True, 1, 0))
+            res = L_fnModificarCategoria(tbCodigoOriginal.Text, tbNombre.Text, tbdesccorta.Text, 0, nameImg, IIf(swEstado.Value = True, 1, 0))
 
         End If
         If res Then
@@ -305,8 +298,8 @@ Public Class F1_Categoria
     Public Sub _PrEliminarImage(nameimg As String)
 
         If (Not (_fnActionNuevo()) And (File.Exists(RutaGlobal + "\Imagenes\Imagenes Categoria" + nameimg))) Then
-            UsImg.pbImage.Image.Dispose()
-            UsImg.pbImage.Image = Nothing
+            UsImg.Image.Dispose()
+            UsImg.Image = Nothing
             Try
                 My.Computer.FileSystem.DeleteFile(RutaGlobal + "\Imagenes\Imagenes Categoria" + nameimg)
             Catch ex As Exception
@@ -375,16 +368,7 @@ Public Class F1_Categoria
             tbdesccorta.BackColor = Color.White
             MEP.SetError(tbdesccorta, "")
         End If
-        If cbCategoria.SelectedIndex < 0 Then
-            cbCategoria.BackColor = Color.Red
-            MEP.SetError(cbCategoria, "Seleccione una categoria por favor!".ToUpper)
-            _ok = False
-            Dim img As Bitmap = New Bitmap(My.Resources.mensaje, 50, 50)
-            ToastNotification.Show(Me, "Seleccione una categoria por favor".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
-        Else
-            cbCategoria.BackColor = Color.White
-            MEP.SetError(cbCategoria, "")
-        End If
+
 
 
 
@@ -401,13 +385,13 @@ Public Class F1_Categoria
         Dim listEstCeldas As New List(Of Modelo.Celda)
         'a.ygnumi ,a.ygnombre ,a.ygcodigo ,a.ygcategoria, libreria .ycdes3 as libreria ,a.ygimg ,a.ygestado ,a.ygfact ,a.yghact ,a.yguact
 
-        listEstCeldas.Add(New Modelo.Celda("ygnumi", True, "Código".ToUpper, 80))
-        listEstCeldas.Add(New Modelo.Celda("ygnombre", True, "nombre".ToUpper, 200))
+        listEstCeldas.Add(New Modelo.Celda("ygnumi", True, "Código".ToUpper, 120))
+        listEstCeldas.Add(New Modelo.Celda("ygnombre", True, "nombre".ToUpper, 300))
         listEstCeldas.Add(New Modelo.Celda("ygcodigo", True, "Codificacion".ToUpper, 250))
-        listEstCeldas.Add(New Modelo.Celda("libreria", True, "Categoria".ToUpper, 120))
+        listEstCeldas.Add(New Modelo.Celda("libreria", False, "Categoria".ToUpper, 120))
         listEstCeldas.Add(New Modelo.Celda("ygcategoria", False))
         listEstCeldas.Add(New Modelo.Celda("ygimg", False))
-        listEstCeldas.Add(New Modelo.Celda("ygestado", True, "Estado".ToUpper, 90))
+        listEstCeldas.Add(New Modelo.Celda("ygestado", True, "Estado".ToUpper, 150))
         listEstCeldas.Add(New Modelo.Celda("ygfact", False))
         listEstCeldas.Add(New Modelo.Celda("yghact", False))
         listEstCeldas.Add(New Modelo.Celda("yguact", False))
@@ -427,7 +411,7 @@ Public Class F1_Categoria
             tbCodigoOriginal.Text = .GetValue("ygnumi").ToString
             tbNombre.Text = .GetValue("ygnombre")
             tbdesccorta.Text = .GetValue("ygcodigo")
-            cbCategoria.Value = .GetValue("ygcategoria")
+            'cbCategoria.Value = .GetValue("ygcategoria")
             lbFecha.Text = CType(.GetValue("ygfact"), Date).ToString("dd/MM/yyyy")
             lbHora.Text = .GetValue("yghact").ToString
             lbUsuario.Text = .GetValue("yguact").ToString
@@ -437,14 +421,14 @@ Public Class F1_Categoria
         If name.Equals("Default.jpg") Or Not File.Exists(RutaGlobal + "\Imagenes\Imagenes Categoria" + name) Then
 
             Dim im As New Bitmap(My.Resources.pantalla)
-            UsImg.pbImage.Image = im
+            UsImg.Image = im
         Else
             If (File.Exists(RutaGlobal + "\Imagenes\Imagenes Categoria" + name)) Then
                 Dim Bin As New MemoryStream
                 Dim im As New Bitmap(New Bitmap(RutaGlobal + "\Imagenes\Imagenes Categoria" + name))
                 im.Save(Bin, System.Drawing.Imaging.ImageFormat.Jpeg)
-                UsImg.pbImage.SizeMode = PictureBoxSizeMode.StretchImage
-                UsImg.pbImage.Image = Image.FromStream(Bin)
+                UsImg.SizeMode = PictureBoxSizeMode.StretchImage
+                UsImg.Image = Image.FromStream(Bin)
                 Bin.Dispose()
 
             End If

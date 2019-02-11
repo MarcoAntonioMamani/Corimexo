@@ -1851,6 +1851,422 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 #End Region
+
+
+
+#Region "Clase"
+    Public Shared Function L_fnGrabarClase(ByRef _ygnumi As String, _ygnombre As String, _ygcodigo As String,
+                                               _ygcategoria As Integer, _yggrupo As Integer, _ygimg As String, _ygestado As Integer) As Boolean
+        Dim _resultado As Boolean
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        '@ygnumi ,@ygnombre ,@ygcodigo ,@ygcategoria ,@ygimg ,@ygestado ,@newFecha,@newHora,@yguact
+        _listParam.Add(New Datos.DParametro("@tipo", 1))
+        _listParam.Add(New Datos.DParametro("@ygnumi", _ygnumi))
+        _listParam.Add(New Datos.DParametro("@ygnombre", _ygnombre))
+        _listParam.Add(New Datos.DParametro("@ygcodigo", _ygcodigo))
+        _listParam.Add(New Datos.DParametro("@ygcategoria", _ygcategoria))
+        _listParam.Add(New Datos.DParametro("@yggrupo", _yggrupo))
+        _listParam.Add(New Datos.DParametro("@ygimg", _ygimg))
+        _listParam.Add(New Datos.DParametro("@ygestado", _ygestado))
+
+
+
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0055", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _ygnumi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+
+    Public Shared Function L_fnModificarClase(ByRef _ygnumi As String, _ygnombre As String, _ygcodigo As String,
+                                               _ygcategoria As Integer, _yggrupo As Integer, _ygimg As String, _ygestado As Integer) As Boolean
+        Dim _resultado As Boolean
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        '@ygnumi ,@ygnombre ,@ygcodigo ,@ygcategoria ,@ygimg ,@ygestado ,@newFecha,@newHora,@yguact
+        _listParam.Add(New Datos.DParametro("@tipo", 2))
+        _listParam.Add(New Datos.DParametro("@ygnumi", _ygnumi))
+        _listParam.Add(New Datos.DParametro("@ygnombre", _ygnombre))
+        _listParam.Add(New Datos.DParametro("@ygcodigo", _ygcodigo))
+        _listParam.Add(New Datos.DParametro("@ygcategoria", _ygcategoria))
+        _listParam.Add(New Datos.DParametro("@yggrupo", _yggrupo))
+        _listParam.Add(New Datos.DParametro("@ygimg", _ygimg))
+        _listParam.Add(New Datos.DParametro("@ygestado", _ygestado))
+
+
+
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0055", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _ygnumi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+
+    Public Shared Function L_fnGeneralClase() As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 3))
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0055", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_fnEliminarClaseProducto(numi As String, ByRef mensaje As String) As Boolean
+        Dim _resultado As Boolean
+        If L_fnbValidarEliminacion(numi, "TY0054", "ygnumi", mensaje) = True Then
+            Dim _Tabla As DataTable
+            Dim _listParam As New List(Of Datos.DParametro)
+
+            _listParam.Add(New Datos.DParametro("@tipo", -1))
+            _listParam.Add(New Datos.DParametro("@ygnumi", numi))
+            _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+
+            _Tabla = D_ProcedimientoConParam("sp_Mam_TY0055", _listParam)
+
+            If _Tabla.Rows.Count > 0 Then
+                _resultado = True
+            Else
+                _resultado = False
+            End If
+        Else
+            _resultado = False
+        End If
+        Return _resultado
+    End Function
+
+#End Region
+
+#Region "Modelo"
+    Public Shared Function L_fnGrabarModelo(ByRef _ygnumi As String, _ygnombre As String, _ygcodigo As String,
+                                               _ygcategoria As Integer, _yggrupo As Integer, _ygimg As String, _ygestado As Integer) As Boolean
+        Dim _resultado As Boolean
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        '@ygnumi ,@ygnombre ,@ygcodigo ,@ygcategoria ,@ygimg ,@ygestado ,@newFecha,@newHora,@yguact
+        _listParam.Add(New Datos.DParametro("@tipo", 1))
+        _listParam.Add(New Datos.DParametro("@ygnumi", _ygnumi))
+        _listParam.Add(New Datos.DParametro("@ygnombre", _ygnombre))
+        _listParam.Add(New Datos.DParametro("@ygcodigo", _ygcodigo))
+        _listParam.Add(New Datos.DParametro("@ygcategoria", _ygcategoria))
+        _listParam.Add(New Datos.DParametro("@yggrupo", _yggrupo))
+        _listParam.Add(New Datos.DParametro("@ygimg", _ygimg))
+        _listParam.Add(New Datos.DParametro("@ygestado", _ygestado))
+
+
+
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0056", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _ygnumi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+
+
+    Public Shared Function L_fnModificarModelo(ByRef _ygnumi As String, _ygnombre As String, _ygcodigo As String,
+                                               _ygcategoria As Integer, _yggrupo As Integer, _ygimg As String, _ygestado As Integer) As Boolean
+        Dim _resultado As Boolean
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        '@ygnumi ,@ygnombre ,@ygcodigo ,@ygcategoria ,@ygimg ,@ygestado ,@newFecha,@newHora,@yguact
+        _listParam.Add(New Datos.DParametro("@tipo", 2))
+        _listParam.Add(New Datos.DParametro("@ygnumi", _ygnumi))
+        _listParam.Add(New Datos.DParametro("@ygnombre", _ygnombre))
+        _listParam.Add(New Datos.DParametro("@ygcodigo", _ygcodigo))
+        _listParam.Add(New Datos.DParametro("@ygcategoria", _ygcategoria))
+        _listParam.Add(New Datos.DParametro("@yggrupo", _yggrupo))
+        _listParam.Add(New Datos.DParametro("@ygimg", _ygimg))
+        _listParam.Add(New Datos.DParametro("@ygestado", _ygestado))
+
+
+
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0056", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _ygnumi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+
+    Public Shared Function L_fnGeneralModelos() As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 3))
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0056", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_fnEliminarModelos(numi As String, ByRef mensaje As String) As Boolean
+        Dim _resultado As Boolean
+        If L_fnbValidarEliminacion(numi, "TY0056", "ygnumi", mensaje) = True Then
+            Dim _Tabla As DataTable
+            Dim _listParam As New List(Of Datos.DParametro)
+
+            _listParam.Add(New Datos.DParametro("@tipo", -1))
+            _listParam.Add(New Datos.DParametro("@ygnumi", numi))
+            _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+
+            _Tabla = D_ProcedimientoConParam("sp_Mam_TY0056", _listParam)
+
+            If _Tabla.Rows.Count > 0 Then
+                _resultado = True
+            Else
+                _resultado = False
+            End If
+        Else
+            _resultado = False
+        End If
+        Return _resultado
+    End Function
+#End Region
+
+#Region "SubGrupo"
+    Public Shared Function L_fnGrabarSubGrupo(ByRef _ygnumi As String, _ygnombre As String, _ygcodigo As String,
+                                               _ygcategoria As Integer, _yggrupo As Integer, _ygimg As String, _ygestado As Integer) As Boolean
+        Dim _resultado As Boolean
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        '@ygnumi ,@ygnombre ,@ygcodigo ,@ygcategoria ,@ygimg ,@ygestado ,@newFecha,@newHora,@yguact
+        _listParam.Add(New Datos.DParametro("@tipo", 1))
+        _listParam.Add(New Datos.DParametro("@ygnumi", _ygnumi))
+        _listParam.Add(New Datos.DParametro("@ygnombre", _ygnombre))
+        _listParam.Add(New Datos.DParametro("@ygcodigo", _ygcodigo))
+        _listParam.Add(New Datos.DParametro("@ygcategoria", _ygcategoria))
+        _listParam.Add(New Datos.DParametro("@yggrupo", _yggrupo))
+        _listParam.Add(New Datos.DParametro("@ygimg", _ygimg))
+        _listParam.Add(New Datos.DParametro("@ygestado", _ygestado))
+
+
+
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0054", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _ygnumi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+
+    Public Shared Function L_fnModificarSubGrupo(ByRef _ygnumi As String, _ygnombre As String, _ygcodigo As String,
+                                               _ygcategoria As Integer, _yggrupo As Integer, _ygimg As String, _ygestado As Integer) As Boolean
+        Dim _resultado As Boolean
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        '@ygnumi ,@ygnombre ,@ygcodigo ,@ygcategoria ,@ygimg ,@ygestado ,@newFecha,@newHora,@yguact
+        _listParam.Add(New Datos.DParametro("@tipo", 2))
+        _listParam.Add(New Datos.DParametro("@ygnumi", _ygnumi))
+        _listParam.Add(New Datos.DParametro("@ygnombre", _ygnombre))
+        _listParam.Add(New Datos.DParametro("@ygcodigo", _ygcodigo))
+        _listParam.Add(New Datos.DParametro("@ygcategoria", _ygcategoria))
+        _listParam.Add(New Datos.DParametro("@yggrupo", _yggrupo))
+        _listParam.Add(New Datos.DParametro("@ygimg", _ygimg))
+        _listParam.Add(New Datos.DParametro("@ygestado", _ygestado))
+
+
+
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0054", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _ygnumi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+
+    Public Shared Function L_fnGeneralSubGrupo() As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 3))
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0054", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_fnEliminarSubGrupoProducto(numi As String, ByRef mensaje As String) As Boolean
+        Dim _resultado As Boolean
+        If L_fnbValidarEliminacion(numi, "TY0054", "ygnumi", mensaje) = True Then
+            Dim _Tabla As DataTable
+            Dim _listParam As New List(Of Datos.DParametro)
+
+            _listParam.Add(New Datos.DParametro("@tipo", -1))
+            _listParam.Add(New Datos.DParametro("@ygnumi", numi))
+            _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+
+            _Tabla = D_ProcedimientoConParam("sp_Mam_TY0054", _listParam)
+
+            If _Tabla.Rows.Count > 0 Then
+                _resultado = True
+            Else
+                _resultado = False
+            End If
+        Else
+            _resultado = False
+        End If
+        Return _resultado
+    End Function
+    Public Shared Function L_fnListarGrupoPorCategoria(categoria As Integer) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 4))
+        _listParam.Add(New Datos.DParametro("@ygcategoria", categoria))
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0054", _listParam)
+
+        Return _Tabla
+    End Function
+#End Region
+#Region "TY0052 Grupo"
+
+    Public Shared Function L_fnListarCategoriaGrupo() As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 4))
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_MamGrupo_TY0052", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_fnGrabarGrupo(ByRef _ygnumi As String, _ygnombre As String, _ygcodigo As String,
+                                               _ygcategoria As Integer, _ygimg As String, _ygestado As Integer) As Boolean
+        Dim _resultado As Boolean
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        '@ygnumi ,@ygnombre ,@ygcodigo ,@ygcategoria ,@ygimg ,@ygestado ,@newFecha,@newHora,@yguact
+        _listParam.Add(New Datos.DParametro("@tipo", 1))
+        _listParam.Add(New Datos.DParametro("@ygnumi", _ygnumi))
+        _listParam.Add(New Datos.DParametro("@ygnombre", _ygnombre))
+        _listParam.Add(New Datos.DParametro("@ygcodigo", _ygcodigo))
+        _listParam.Add(New Datos.DParametro("@ygcategoria", _ygcategoria))
+        _listParam.Add(New Datos.DParametro("@ygimg", _ygimg))
+        _listParam.Add(New Datos.DParametro("@ygestado", _ygestado))
+
+
+
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_MamGrupo_TY0052", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _ygnumi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+
+    Public Shared Function L_fnModificarGrupo(ByRef _ygnumi As String, _ygnombre As String, _ygcodigo As String,
+                                               _ygcategoria As Integer, _ygimg As String, _ygestado As Integer) As Boolean
+        Dim _resultado As Boolean
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        '@ygnumi ,@ygnombre ,@ygcodigo ,@ygcategoria ,@ygimg ,@ygestado ,@newFecha,@newHora,@yguact
+        _listParam.Add(New Datos.DParametro("@tipo", 2))
+        _listParam.Add(New Datos.DParametro("@ygnumi", _ygnumi))
+        _listParam.Add(New Datos.DParametro("@ygnombre", _ygnombre))
+        _listParam.Add(New Datos.DParametro("@ygcodigo", _ygcodigo))
+        _listParam.Add(New Datos.DParametro("@ygcategoria", _ygcategoria))
+        _listParam.Add(New Datos.DParametro("@ygimg", _ygimg))
+        _listParam.Add(New Datos.DParametro("@ygestado", _ygestado))
+
+
+
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_MamGrupo_TY0052", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _ygnumi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+    Public Shared Function L_fnGeneralGrupo() As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 3))
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_MamGrupo_TY0052", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_fnEliminarGrupoProducto(numi As String, ByRef mensaje As String) As Boolean
+        Dim _resultado As Boolean
+        If L_fnbValidarEliminacion(numi, "TY0052", "ygnumi", mensaje) = True Then
+            Dim _Tabla As DataTable
+            Dim _listParam As New List(Of Datos.DParametro)
+
+            _listParam.Add(New Datos.DParametro("@tipo", -1))
+            _listParam.Add(New Datos.DParametro("@ygnumi", numi))
+            _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+
+            _Tabla = D_ProcedimientoConParam("sp_MamGrupo_TY0052", _listParam)
+
+            If _Tabla.Rows.Count > 0 Then
+                _resultado = True
+            Else
+                _resultado = False
+            End If
+        Else
+            _resultado = False
+        End If
+        Return _resultado
+    End Function
+#End Region
 #Region "TY0051 Categoria Producto"
     Public Shared Function L_fnGrabarCategoria(ByRef _ygnumi As String, _ygnombre As String, _ygcodigo As String,
                                                _ygcategoria As Integer, _ygimg As String, _ygestado As Integer) As Boolean

@@ -107,6 +107,11 @@ DinoM
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:DinoM.My.Resources.Resources.corimexo">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:DinoM.My.Resources.Resources.creditopagos">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.

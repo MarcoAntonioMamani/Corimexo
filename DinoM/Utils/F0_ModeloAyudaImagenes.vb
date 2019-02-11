@@ -113,12 +113,12 @@ Public Class F0_ModeloAyudaImagenes
         For i As Integer = 0 To length - 1 Step 1
             Dim nameImagen As String = CType(grJBuscador.DataSource, DataTable).Rows(i).Item("ygimg")
             If (nameImagen.Equals("Default.jpg")) Then
-                Dim Bin As New MemoryStream
-                Dim img As New Bitmap(My.Resources.pantalla, 150, 130)
-                img.Save(Bin, Imaging.ImageFormat.Jpeg)
-                Bin.Dispose()
+                'Dim Bin As New MemoryStream
+                'Dim img As New Bitmap(My.Resources.pantalla, 150, 130)
+                'img.Save(Bin, Imaging.ImageFormat.Jpeg)
+                'Bin.Dispose()
 
-                CType(grJBuscador.DataSource, DataTable).Rows(i).Item("img") = Bin.GetBuffer
+                'CType(grJBuscador.DataSource, DataTable).Rows(i).Item("img") = Bin.GetBuffer
             Else
                 Dim Bin As New MemoryStream
                 If (File.Exists(RutaGlobal + "\Imagenes\Imagenes Categoria" + nameImagen)) Then
@@ -128,11 +128,11 @@ Public Class F0_ModeloAyudaImagenes
                     Bin.Dispose()
                 Else
 
-                    Dim img As New Bitmap(My.Resources.pantalla, 150, 130)
-                    img.Save(Bin, Imaging.ImageFormat.Jpeg)
-                    Bin.Dispose()
+                    'Dim img As New Bitmap(My.Resources.pantalla, 150, 130)
+                    'img.Save(Bin, Imaging.ImageFormat.Jpeg)
+                    'Bin.Dispose()
 
-                    CType(grJBuscador.DataSource, DataTable).Rows(i).Item("img") = Bin.GetBuffer
+                    'CType(grJBuscador.DataSource, DataTable).Rows(i).Item("img") = Bin.GetBuffer
 
                 End If
             End If

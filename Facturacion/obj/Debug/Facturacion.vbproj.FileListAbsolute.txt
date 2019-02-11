@@ -18,3 +18,13 @@ A:\DINASES\proyectos\Corimexo\DinoM\Facturacion\obj\Debug\Facturacion.vbproj.Cor
 A:\DINASES\proyectos\Corimexo\DinoM\Facturacion\obj\Debug\Facturacion.dll
 A:\DINASES\proyectos\Corimexo\DinoM\Facturacion\obj\Debug\Facturacion.xml
 A:\DINASES\proyectos\Corimexo\DinoM\Facturacion\obj\Debug\Facturacion.pdb
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Facturacion\bin\Debug\Facturacion.dll
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Facturacion\bin\Debug\Facturacion.pdb
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Facturacion\bin\Debug\Facturacion.xml
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Facturacion\obj\Debug\Facturacion.vbprojResolveAssemblyReference.cache
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Facturacion\obj\Debug\Facturacion.Resources.resources
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Facturacion\obj\Debug\Facturacion.vbproj.GenerateResource.Cache
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Facturacion\obj\Debug\Facturacion.vbproj.CoreCompileInputs.cache
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Facturacion\obj\Debug\Facturacion.dll
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Facturacion\obj\Debug\Facturacion.xml
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Facturacion\obj\Debug\Facturacion.pdb
