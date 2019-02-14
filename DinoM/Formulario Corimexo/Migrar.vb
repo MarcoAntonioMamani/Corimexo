@@ -253,13 +253,50 @@ Public Class Migrar
         End Try
 
     End Function
+
+    Public Sub _prMigrarEstructura()
+        L_prAbrirConexion(gs_Ip, gs_UsuarioSql, gs_ClaveSql, "DBDinoM_Corimexo")
+        Dim dt As DataTable = Import()
+
+        For i As Integer = 0 To dt.Rows.Count - 1 Step 1
+            'ByRef _yhnumi As String, _yhnombre As String, _yhcodigo As String,
+            '                                   _yhcategoria As Integer, _yhimg As String, _yhestado As Integer
+            Dim bandera As Boolean = L_fnGrabarEstructura(0, dt.Rows(i).Item("nombre").ToString.ToUpper, dt.Rows(i).Item("codigo").ToString, "Default.jpg", 1)
+
+
+        Next
+    End Sub
+
+
+    Public Function _fnObtenerCodigo(posicion As Integer, _cadenas As String) As String
+        Dim cont = 0
+        Dim codigo As String = ""
+        For i As Integer = 0 To _cadenas.Length - 1 Step 1
+            Dim ca As String = _cadenas(i)
+            If (ca.Equals(".")) Then
+                cont += 1
+                If (posicion = cont) Then
+                    Return codigo
+                Else
+                    codigo = ""
+                End If
+            Else
+                codigo = codigo + ca
+
+            End If
+        Next
+        Return codigo
+
+    End Function
+
+
     Private Shared Function Import() As DataTable
         Dim conStr As String = ""
         Dim dtExcelSchema As DataTable
         Dim dt As DataSet = New DataSet
 
         conStr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties='Excel 8.0;HDR=Yes'"
-        conStr = String.Format(conStr, "A:\DINASES\Cambios Marco\Corimexo\Migracion\guia.xlsx")
+        conStr = String.Format(conStr, "A:\DINASES\Cambios Marco\Corimexo\Migracion\producto.xlsx")
         Dim connExcel As New OleDbConnection(conStr)
         Dim cmdExcel As New OleDbCommand()
         Dim oda As New OleDbDataAdapter()
@@ -267,7 +304,7 @@ Public Class Migrar
         'Get the name of First Sheet
         connExcel.Open()
         dtExcelSchema = connExcel.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, Nothing)
-        Dim name As String = "guia"
+        Dim name As String = "producto"
         Dim SheetName As String = name + "$"
         'If dtExcelSchema.Rows.Count > 0 Then
         '    SheetName = dtExcelSchema.Rows(dtExcelSchema.Rows.Count - 1)("TABLE_NAME").ToString()
@@ -323,5 +360,69 @@ Public Class Migrar
         '_prMigrarGrupos()
         '_prMigrarClase()
         '_prMigrarModelos()
+        '_prMigrarEstructura()
+
+        'Dim cadena As String = _fnObtenerCodigo(1, "LIV.SLI.016.00.S.TEL".Trim)
+        'MessageBox.Show("LIV.SLI.016.00.S.TEL".Length)
+        'Dim aa As String = "LIV.SLI.016.00.S.TEL"
+        'aa = aa.Substring(0, 20)
+        'MessageBox.Show(aa)
+        _subMigrarProducto()
+
+    End Sub
+
+    Public Sub _subMigrarProducto()
+        '      TY0051, TY0052, TY0056, TY0057, TY0054, TY0055
+        'Categoria, Grupo, Modelo, estructura, subgrupo, clase
+        'LIV.SOF0.001.01.D.TEL
+        L_prAbrirConexion(gs_Ip, gs_UsuarioSql, gs_ClaveSql, "DBDinoM_Corimexo")
+        Dim dt As DataTable = Import()
+        For i As Integer = 0 To dt.Rows.Count - 1 Step 1
+            Dim codigo As String = dt.Rows(i).Item("codigo")
+            If (codigo.Length <= 20) Then
+                Dim codigocategoria = _fnObtenerCodigo(1, codigo.Trim)
+                Dim dtcategorias As DataTable = L_fnVerificarCategoria(codigocategoria)
+                If (Not IsNothing(dtcategorias) And Not IsDBNull(dtcategorias) And dtcategorias.Rows.Count > 0) Then
+                    Dim numicategoria As Integer = dtcategorias.Rows(0).Item(0)
+                    Dim codigogrupo As String = _fnObtenerCodigo(2, codigo.Trim)
+                    Dim dtgrupo As DataTable = L_fnVerificarGrupo(numicategoria, codigogrupo)
+
+                    If (dtgrupo.Rows.Count > 0) Then
+                        Dim numigrupo As Integer = dtgrupo.Rows(0).Item(0)
+
+                        Dim codigomodelo As String = _fnObtenerCodigo(3, codigo.Trim)
+                        Dim dtmodelo As DataTable = L_fnVerificarModelo(numicategoria, numigrupo, codigomodelo)
+                        Dim numimodelo As Integer = dtmodelo.Rows(0).Item(0)
+
+                        Dim codigoestructura As String = _fnObtenerCodigo(4, codigo.Trim)
+                        Dim dtestructura As DataTable = L_fnVerificarEstructura(codigoestructura)
+                        Dim numiestructura As Integer = dtestructura.Rows(0).Item(0)
+
+                        Dim codigosubgrupo As String = _fnObtenerCodigo(5, codigo.Trim)
+                        Dim dtsubgrupo As DataTable = L_fnVerificarSubGrupo(numicategoria, numigrupo, codigosubgrupo)
+                        Dim numisubgrupo As Integer = dtsubgrupo.Rows(0).Item(0)
+
+                        Dim codigoClase As String = _fnObtenerCodigo(6, codigo.Trim)
+                        Dim dtClase As DataTable = L_fnVerificarClase(numicategoria, numigrupo, codigoClase)
+                        If (dtClase.Rows.Count > 0) Then
+                            Dim numiclase As Integer = dtClase.Rows(0).Item(0)
+
+
+
+                            Dim res As Boolean = L_fnGrabarProductoMigrar("0", codigo, "", dt.Rows(i).Item("nombre"), dt.Rows(i).Item("descripcion"), numicategoria, numigrupo, numimodelo, numiestructura, numisubgrupo, numiclase, 0, 0, 0, 1, "")
+                        End If
+
+                    Else
+                        Dim j As Integer = 0
+                    End If
+
+
+
+                End If
+            End If
+        Next
+
+
+
     End Sub
 End Class

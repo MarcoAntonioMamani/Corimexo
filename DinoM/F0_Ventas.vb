@@ -361,12 +361,12 @@ Public Class F0_Ventas
         'End If
         With grdetalle.RootTable.Columns("yfcprod")
             .Caption = "Codigo"
-            .Width = 160
+            .Width = 220
             .Visible = True
         End With
         With grdetalle.RootTable.Columns("producto")
             .Caption = "Productos"
-            .Width = 250
+            .Width = 300
             .Visible = True
 
         End With
@@ -839,11 +839,11 @@ Public Class F0_Ventas
         _prAplicarCondiccionJanusSinLote()
     End Sub
     Public Sub _prAplicarCondiccionJanusSinLote()
-        Dim fc As GridEXFormatCondition
-        fc = New GridEXFormatCondition(grProductos.RootTable.Columns("stock"), ConditionOperator.Equal, 0)
-        'fc.FormatStyle.FontBold = TriState.True
-        fc.FormatStyle.ForeColor = Color.Tan
-        grProductos.RootTable.FormatConditions.Add(fc)
+        'Dim fc As GridEXFormatCondition
+        'fc = New GridEXFormatCondition(grProductos.RootTable.Columns("stock"), ConditionOperator.Equal, 0)
+        ''fc.FormatStyle.FontBold = TriState.True
+        'fc.FormatStyle.ForeColor = Color.Tan
+        'grProductos.RootTable.FormatConditions.Add(fc)
     End Sub
 
 
@@ -2435,7 +2435,8 @@ salirIf:
                 If (grdetalle.GetValue("tbcmin") > 0) Then
 
                     Dim cant As Integer = grdetalle.GetValue("tbcmin")
-                    Dim stock As Integer = grdetalle.GetValue("stock")
+                    'Dim stock As Integer = grdetalle.GetValue("stock")
+                    Dim stock As Integer = 1000
                     If (cant > stock) Then
                         Dim lin As Integer = grdetalle.GetValue("tbnumi")
                         Dim pos As Integer = -1

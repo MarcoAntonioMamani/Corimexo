@@ -661,7 +661,7 @@ Public Class F1_Productos
         listEstCeldas.Add(New Modelo.Celda("img2", False))
 
         listEstCeldas.Add(New Modelo.Celda("yfgr3", False))
-        listEstCeldas.Add(New Modelo.Celda("grupo3", True, "Producto", 120))
+        listEstCeldas.Add(New Modelo.Celda("grupo3", True, "Modelo", 120))
         listEstCeldas.Add(New Modelo.Celda("codigo3", False))
         listEstCeldas.Add(New Modelo.Celda("img3", False))
 
@@ -1240,7 +1240,7 @@ Public Class F1_Productos
                 ef.listEstCeldas = listEstCeldas
                 ef.alto = 50
                 ef.ancho = 350
-                ef.Context = "Seleccione Producto".ToUpper
+                ef.Context = "Seleccione Modelo".ToUpper
                 ef.ShowDialog()
                 Dim bandera As Boolean = False
                 bandera = ef.band

@@ -466,6 +466,53 @@ Public Class AccesoLogica
         Return _resultado
     End Function
 
+
+
+    Public Shared Function L_fnGrabarProductoMigrar(ByRef _yfnumi As String, _yfcprod As String,
+                                              _yfcbarra As String, _yfcdprod1 As String,
+                                              _yfcdprod2 As String, _yfgr1 As Integer, _yfgr2 As Integer,
+                                              _yfgr3 As Integer, _yfgr4 As Integer, _yfMed As Integer, _yfumin As Integer, _yfusup As Integer, _yfvsup As Double, _yfsmin As Integer, _yfap As Integer, _yfimg As String) As Boolean
+        Dim _resultado As Boolean
+        '@yfnumi ,@yfcprod ,@yfcbarra ,@yfcdprod1 ,@yfcdprod2 ,
+        '			@yfgr1 ,@yfgr2 ,@yfgr3 ,@yfgr4 ,@yfMed ,@yfumin ,@yfusup ,@yfvsup ,
+        '			@yfmstk ,@yfclot ,@yfsmin ,@yfap ,@yfimg ,@newFecha,@newHora,@yfuact
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 1))
+        _listParam.Add(New Datos.DParametro("@yfnumi", _yfnumi))
+        _listParam.Add(New Datos.DParametro("@yfcprod", _yfcprod))
+
+        _listParam.Add(New Datos.DParametro("@yfcbarra", _yfcbarra))
+        _listParam.Add(New Datos.DParametro("@yfcdprod1", _yfcdprod1))
+        _listParam.Add(New Datos.DParametro("@yfcdprod2", _yfcdprod2))
+        _listParam.Add(New Datos.DParametro("@yfgr1", _yfgr1))
+        _listParam.Add(New Datos.DParametro("@yfgr2", _yfgr2))
+        _listParam.Add(New Datos.DParametro("@yfgr3", _yfgr3))
+        _listParam.Add(New Datos.DParametro("@yfgr4", _yfgr4))
+        _listParam.Add(New Datos.DParametro("@yfMed", _yfMed))
+        _listParam.Add(New Datos.DParametro("@yfumin", _yfumin))
+        _listParam.Add(New Datos.DParametro("@yfusup", _yfusup))
+        _listParam.Add(New Datos.DParametro("@yfvsup", _yfvsup))
+        _listParam.Add(New Datos.DParametro("@yfmstk", 0))
+        _listParam.Add(New Datos.DParametro("@yfclot", 0))
+
+        _listParam.Add(New Datos.DParametro("@yfsmin", _yfsmin))
+        _listParam.Add(New Datos.DParametro("@yfap", _yfap))
+        _listParam.Add(New Datos.DParametro("@yfimg", _yfimg))
+        _listParam.Add(New Datos.DParametro("@yfuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY005", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _yfnumi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+
     Public Shared Function L_fnModificarProducto(ByRef _yfnumi As String, _yfcprod As String,
                                               _yfcbarra As String, _yfcdprod1 As String,
                                               _yfcdprod2 As String, _yfgr1 As Integer, _yfgr2 As Integer,
@@ -2265,6 +2312,121 @@ Public Class AccesoLogica
             _resultado = False
         End If
         Return _resultado
+    End Function
+#End Region
+
+#Region "Estructura"
+    Public Shared Function L_fnGrabarEstructura(ByRef _ygnumi As String, _ygnombre As String, _ygcodigo As String, _ygimg As String, _ygestado As Integer) As Boolean
+        Dim _resultado As Boolean
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        '@ygnumi ,@ygnombre ,@ygcodigo ,@ygcategoria ,@ygimg ,@ygestado ,@newFecha,@newHora,@yguact
+        _listParam.Add(New Datos.DParametro("@tipo", 1))
+        _listParam.Add(New Datos.DParametro("@ygnumi", _ygnumi))
+        _listParam.Add(New Datos.DParametro("@ygnombre", _ygnombre))
+        _listParam.Add(New Datos.DParametro("@ygcodigo", _ygcodigo))
+        _listParam.Add(New Datos.DParametro("@ygimg", _ygimg))
+        _listParam.Add(New Datos.DParametro("@ygestado", _ygestado))
+
+
+
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0057", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _ygnumi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+
+    Public Shared Function L_fnVerificarCategoria(ygcategoria As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 4))
+        _listParam.Add(New Datos.DParametro("@ygcodigo", ygcategoria))
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0057", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_fnVerificarEstructura(codigo As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 7))
+        _listParam.Add(New Datos.DParametro("@ygcodigo", codigo))
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0057", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_fnVerificarGrupo(ygnumi As Integer, ygcategoria As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 5))
+        _listParam.Add(New Datos.DParametro("@ygcodigo", ygcategoria))
+        _listParam.Add(New Datos.DParametro("@ygnumi", ygnumi))
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0057", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_fnVerificarModelo(categoria As Integer, grupo As Integer, codigo As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 6))
+        _listParam.Add(New Datos.DParametro("@ygcodigo", codigo))
+        _listParam.Add(New Datos.DParametro("@categoria", categoria))
+        _listParam.Add(New Datos.DParametro("@grupo", grupo))
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0057", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_fnVerificarSubGrupo(categoria As Integer, grupo As Integer, codigo As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 8))
+        _listParam.Add(New Datos.DParametro("@ygcodigo", codigo))
+        _listParam.Add(New Datos.DParametro("@categoria", categoria))
+        _listParam.Add(New Datos.DParametro("@grupo", grupo))
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0057", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_fnVerificarClase(categoria As Integer, grupo As Integer, codigo As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 9))
+        _listParam.Add(New Datos.DParametro("@ygcodigo", codigo))
+        _listParam.Add(New Datos.DParametro("@categoria", categoria))
+        _listParam.Add(New Datos.DParametro("@grupo", grupo))
+        _listParam.Add(New Datos.DParametro("@yguact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY0057", _listParam)
+
+        Return _Tabla
     End Function
 #End Region
 #Region "TY0051 Categoria Producto"
