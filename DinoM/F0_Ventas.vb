@@ -32,6 +32,7 @@ Public Class F0_Ventas
     Public _modulo As SideNavItem
     Dim FilaSelectLote As DataRow = Nothing
     Dim Table_Producto As DataTable
+    Dim _Codbanco As Integer = 0
     Dim Lote As Boolean = False '1=igual a mostrar las columnas de lote y fecha de Vencimiento
 #End Region
 
@@ -43,8 +44,9 @@ Public Class F0_Ventas
 
         _prValidarLote()
         _prCargarComboLibreriaSucursal(cbSucursal)
-        lbTipoMoneda.Visible = False
-        swMoneda.Visible = False
+        _prCargarComboLibreriaTipoVenta(cbTipoVenta)
+
+
         P_prCargarVariablesIndispensables()
         _prCargarVenta()
         _prInhabiliitar()
@@ -102,6 +104,22 @@ Public Class F0_Ventas
             .Refresh()
         End With
     End Sub
+
+    Private Sub _prCargarComboLibreriaTipoVenta(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
+        Dim dt As New DataTable
+        dt = L_fnListarTipoVenta()
+        With mCombo
+            .DropDownList.Columns.Clear()
+            .DropDownList.Columns.Add("numi").Width = 60
+            .DropDownList.Columns("numi").Caption = "COD"
+            .DropDownList.Columns.Add("descripcion").Width = 500
+            .DropDownList.Columns("descripcion").Caption = "DESCRIPCION"
+            .ValueMember = "numi"
+            .DisplayMember = "descripcion"
+            .DataSource = dt
+            .Refresh()
+        End With
+    End Sub
     Private Sub _prAsignarPermisos()
 
         Dim dtRolUsu As DataTable = L_prRolDetalleGeneral(gi_userRol, _nameButton)
@@ -130,7 +148,7 @@ Public Class F0_Ventas
         tbFechaVenta.IsInputReadOnly = True
         tbFechaVenc.IsInputReadOnly = True
         swMoneda.IsReadOnly = True
-        swTipoVenta.IsReadOnly = True
+        cbTipoVenta.ReadOnly = True
 
         'Datos facturacion
         tbNroAutoriz.ReadOnly = True
@@ -171,7 +189,7 @@ Public Class F0_Ventas
         tbFechaVenta.IsInputReadOnly = False
         tbFechaVenc.IsInputReadOnly = False
         swMoneda.IsReadOnly = False
-        swTipoVenta.IsReadOnly = False
+        cbTipoVenta.ReadOnly = False
         btnGrabar.Enabled = True
 
         TbNit.ReadOnly = False
@@ -210,7 +228,8 @@ Public Class F0_Ventas
         tbVendedor.Clear()
         tbObservacion.Clear()
         swMoneda.Value = True
-        swTipoVenta.Value = True
+        _Codbanco = 0
+        tbbanco.Clear()
         _CodCliente = 0
         _CodEmpleado = 0
         tbFechaVenta.Value = Now.Date
@@ -248,6 +267,10 @@ Public Class F0_Ventas
         If (CType(cbSucursal.DataSource, DataTable).Rows.Count > 0) Then
             cbSucursal.SelectedIndex = 0
         End If
+        If (CType(cbTipoVenta.DataSource, DataTable).Rows.Count > 0) Then
+            cbTipoVenta.SelectedIndex = 0
+        End If
+
         FilaSelectLote = Nothing
         SwProforma.Value = False
         tbCliente.Focus()
@@ -264,8 +287,10 @@ Public Class F0_Ventas
             tbCodigo.Text = .GetValue("tanumi")
             tbFechaVenta.Value = .GetValue("tafdoc")
             _CodEmpleado = .GetValue("taven")
+            _Codbanco = .GetValue("tabanco")
+            tbbanco.Text = .GetValue("banco")
             tbVendedor.Text = .GetValue("vendedor")
-            swTipoVenta.Value = .GetValue("tatven")
+            cbTipoVenta.Value = .GetValue("tatven")
             _CodCliente = .GetValue("taclpr")
             tbCliente.Text = .GetValue("cliente")
             swMoneda.Value = .GetValue("tamon")
@@ -286,25 +311,25 @@ Public Class F0_Ventas
 
             'If (gb_FacturaEmite) Then
             Dim dt As DataTable = L_fnObtenerTabla("TFV001", "fvanitcli, fvadescli1, fvadescli2, fvaautoriz, fvanfac, fvaccont, fvafec", "fvanumi=" + tbCodigo.Text.Trim)
-                If (dt.Rows.Count = 1) Then
-                    TbNit.Text = dt.Rows(0).Item("fvanitcli").ToString
-                    TbNombre1.Text = dt.Rows(0).Item("fvadescli1").ToString
-                    TbNombre2.Text = dt.Rows(0).Item("fvadescli2").ToString
+            If (dt.Rows.Count = 1) Then
+                TbNit.Text = dt.Rows(0).Item("fvanitcli").ToString
+                TbNombre1.Text = dt.Rows(0).Item("fvadescli1").ToString
+                TbNombre2.Text = dt.Rows(0).Item("fvadescli2").ToString
 
-                    tbNroAutoriz.Text = dt.Rows(0).Item("fvaautoriz").ToString
-                    tbNroFactura.Text = dt.Rows(0).Item("fvanfac").ToString
-                    tbCodigoControl.Text = dt.Rows(0).Item("fvaccont").ToString
-                    dtiFechaFactura.Value = dt.Rows(0).Item("fvafec")
-                Else
-                    TbNit.Clear()
-                    TbNombre1.Clear()
-                    TbNombre2.Clear()
+                tbNroAutoriz.Text = dt.Rows(0).Item("fvaautoriz").ToString
+                tbNroFactura.Text = dt.Rows(0).Item("fvanfac").ToString
+                tbCodigoControl.Text = dt.Rows(0).Item("fvaccont").ToString
+                dtiFechaFactura.Value = dt.Rows(0).Item("fvafec")
+            Else
+                TbNit.Clear()
+                TbNombre1.Clear()
+                TbNombre2.Clear()
 
-                    tbNroAutoriz.Clear()
-                    tbNroFactura.Clear()
-                    tbCodigoControl.Clear()
-                    dtiFechaFactura.Value = "2000/01/01"
-                End If
+                tbNroAutoriz.Clear()
+                tbNroFactura.Clear()
+                tbCodigoControl.Clear()
+                dtiFechaFactura.Value = "2000/01/01"
+            End If
             'End If
 
             lbFecha.Text = CType(.GetValue("tafact"), Date).ToString("dd/MM/yyyy")
@@ -444,7 +469,7 @@ Public Class F0_Ventas
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = False
         End With
-  
+
         With grdetalle.RootTable.Columns("estado")
             .Width = 50
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
@@ -586,6 +611,16 @@ Public Class F0_Ventas
             .Visible = False
         End With
         With grVentas.RootTable.Columns("taest")
+            .Width = 50
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = False
+        End With
+        With grVentas.RootTable.Columns("tabanco")
+            .Width = 50
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = False
+        End With
+        With grVentas.RootTable.Columns("banco")
             .Width = 50
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
             .Visible = False
@@ -1035,6 +1070,16 @@ Public Class F0_Ventas
         Next
 
     End Sub
+    Public Sub _fnObtenerFilaDetalleProducto(ByRef pos As Integer, numi As Integer)
+        For i As Integer = 0 To CType(grProductos.DataSource, DataTable).Rows.Count - 1 Step 1
+            Dim _numi As Integer = CType(grProductos.DataSource, DataTable).Rows(i).Item("yfnumi")
+            If (_numi = numi) Then
+                pos = i
+                Return
+            End If
+        Next
+
+    End Sub
 
     Public Function _fnExisteProducto(idprod As Integer) As Boolean
         For i As Integer = 0 To CType(grdetalle.DataSource, DataTable).Rows.Count - 1 Step 1
@@ -1048,7 +1093,7 @@ Public Class F0_Ventas
         Return False
     End Function
 
-    Public Function _fnExisteProductoConLote(idprod As Integer,lote As String , fechaVenci as date) As Boolean
+    Public Function _fnExisteProductoConLote(idprod As Integer, lote As String, fechaVenci As Date) As Boolean
         For i As Integer = 0 To CType(grdetalle.DataSource, DataTable).Rows.Count - 1 Step 1
             Dim _idprod As Integer = CType(grdetalle.DataSource, DataTable).Rows(i).Item("tbty5prod")
             Dim estado As Integer = CType(grdetalle.DataSource, DataTable).Rows(i).Item("estado")
@@ -1143,20 +1188,20 @@ Public Class F0_Ventas
     End Sub
     Public Function _ValidarCampos() As Boolean
         If (_CodCliente <= 0) Then
-            Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+            Dim img As Bitmap = New Bitmap(My.Resources.mensaje, 50, 50)
             ToastNotification.Show(Me, "Por Favor Seleccione un Cliente con Ctrl+Enter".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
             tbCliente.Focus()
             Return False
 
         End If
         If (_CodEmpleado <= 0) Then
-            Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+            Dim img As Bitmap = New Bitmap(My.Resources.mensaje, 50, 50)
             ToastNotification.Show(Me, "Por Favor Seleccione un Vendedor con Ctrl+Enter".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
             tbVendedor.Focus()
             Return False
         End If
         If (cbSucursal.SelectedIndex < 0) Then
-            Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+            Dim img As Bitmap = New Bitmap(My.Resources.mensaje, 50, 50)
             ToastNotification.Show(Me, "Por Favor Seleccione una Sucursal".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
             cbSucursal.Focus()
             Return False
@@ -1187,10 +1232,10 @@ Public Class F0_Ventas
         End If
         Return True
     End Function
-   
+
     Public Sub _GuardarNuevo()
         Dim numi As String = ""
-        Dim res As Boolean = L_fnGrabarVenta(numi, "", tbFechaVenta.Value.ToString("yyyy/MM/dd"), _CodEmpleado, IIf(swTipoVenta.Value = True, 1, 0), IIf(swTipoVenta.Value = True, Now.Date.ToString("yyyy/MM/dd"), tbFechaVenc.Value.ToString("yyyy/MM/dd")), _CodCliente, IIf(swMoneda.Value = True, 1, 0), tbObservacion.Text, tbMdesc.Value, tbIce.Value, tbtotal.Value, CType(grdetalle.DataSource, DataTable), cbSucursal.Value, IIf(SwProforma.Value = True, tbProforma.Text, 0))
+        Dim res As Boolean = L_fnGrabarVenta(numi, "", tbFechaVenta.Value.ToString("yyyy/MM/dd"), _CodEmpleado, cbTipoVenta.Value, IIf(cbTipoVenta.Value = 2, tbFechaVenc.Value.ToString("yyyy/MM/dd"), Now.Date.ToString("yyyy/MM/dd")), _CodCliente, IIf(swMoneda.Value = True, 1, 0), tbObservacion.Text, tbMdesc.Value, tbIce.Value, tbtotal.Value, CType(grdetalle.DataSource, DataTable), cbSucursal.Value, IIf(SwProforma.Value = True, tbProforma.Text, 0), _Codbanco)
 
 
         If res Then
@@ -1208,9 +1253,7 @@ Public Class F0_Ventas
                                       )
             _prImiprimirNotaVenta(numi)
 
-            If swTipoVenta.Value = True Then
 
-            End If
 
             _prCargarVenta()
 
@@ -1252,7 +1295,7 @@ Public Class F0_Ventas
         End If
     End Sub
     Private Sub _prGuardarModificado()
-        Dim res As Boolean = L_fnModificarVenta(tbCodigo.Text, tbFechaVenta.Value.ToString("yyyy/MM/dd"), _CodEmpleado, IIf(swTipoVenta.Value = True, 1, 0), IIf(swTipoVenta.Value = True, Now.Date.ToString("yyyy/MM/dd"), tbFechaVenc.Value.ToString("yyyy/MM/dd")), _CodCliente, IIf(swMoneda.Value = True, 1, 0), tbObservacion.Text, tbMdesc.Value, tbIce.Value, tbtotal.Value, CType(grdetalle.DataSource, DataTable), cbSucursal.Value, IIf(SwProforma.Value = True, tbProforma.Text, 0))
+        Dim res As Boolean = L_fnModificarVenta(tbCodigo.Text, tbFechaVenta.Value.ToString("yyyy/MM/dd"), _CodEmpleado, cbTipoVenta.Value, IIf(cbTipoVenta.Value = 2, tbFechaVenc.Value.ToString("yyyy/MM/dd"), Now.Date.ToString("yyyy/MM/dd")), _CodCliente, IIf(swMoneda.Value = True, 1, 0), tbObservacion.Text, tbMdesc.Value, tbIce.Value, tbtotal.Value, CType(grdetalle.DataSource, DataTable), cbSucursal.Value, IIf(SwProforma.Value = True, tbProforma.Text, 0), _Codbanco)
         If res Then
 
             'If (gb_FacturaEmite) Then
@@ -1315,7 +1358,7 @@ Public Class F0_Ventas
     Public Sub InsertarProductosSinLote()
         Dim pos As Integer = -1
         grdetalle.Row = grdetalle.RowCount - 1
-        _fnObtenerFilaDetalle(pos, grdetalle.GetValue("tbnumi"))
+        _fnObtenerFilaDetalleProducto(pos, grProductos.GetValue("yfnumi"))
         Dim existe As Boolean = _fnExisteProducto(grProductos.GetValue("yfnumi"))
         If ((pos >= 0) And (Not existe)) Then
             FilaSelectLote = CType(grProductos.DataSource, DataTable).Rows(pos)
@@ -1344,7 +1387,7 @@ Public Class F0_Ventas
         Else
             FilaSelectLote = Nothing
             If (existe) Then
-                Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+                Dim img As Bitmap = New Bitmap(My.Resources.mensaje, 50, 50)
                 ToastNotification.Show(Me, "El producto ya existe en el detalle".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
             End If
         End If
@@ -1361,7 +1404,7 @@ Public Class F0_Ventas
 
 
         Else
-            Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+            Dim img As Bitmap = New Bitmap(My.Resources.mensaje, 50, 50)
             ToastNotification.Show(Me, "El Producto: ".ToUpper + grProductos.GetValue("yfcdprod1") + " NO CUENTA CON STOCK DISPONIBLE", img, 5000, eToastGlowColor.Red, eToastPosition.BottomCenter)
             FilaSelectLote = Nothing
         End If
@@ -1478,8 +1521,8 @@ Public Class F0_Ventas
         _Autorizacion = _Ds1.Tables(0).Rows(0).Item("sbautoriz").ToString
         _NumFac = CInt(_Ds1.Tables(0).Rows(0).Item("sbnfac")) + 1
         _Nit = _Ds.Tables(0).Rows(0).Item("fvanitcli").ToString
-        _Fechainv = Microsoft.VisualBasic.Right(_Fecha.ToShortDateString, 4) + _
-                    Microsoft.VisualBasic.Right(Microsoft.VisualBasic.Left(_Fecha.ToShortDateString, 5), 2) + _
+        _Fechainv = Microsoft.VisualBasic.Right(_Fecha.ToShortDateString, 4) +
+                    Microsoft.VisualBasic.Right(Microsoft.VisualBasic.Left(_Fecha.ToShortDateString, 5), 2) +
                     Microsoft.VisualBasic.Left(_Fecha.ToShortDateString, 2)
         _Total = _Ds.Tables(0).Rows(0).Item("fvatotal").ToString
         ice = _Ds.Tables(0).Rows(0).Item("fvaimpsi")
@@ -1991,16 +2034,7 @@ Public Class F0_Ventas
 
         End If
     End Sub
-    Private Sub swTipoVenta_ValueChanged(sender As Object, e As EventArgs) Handles swTipoVenta.ValueChanged
-        If (swTipoVenta.Value = False) Then
-            lbCredito.Visible = True
-            tbFechaVenc.Visible = True
-            tbFechaVenc.Value = DateAdd(DateInterval.Day, _dias, Now.Date)
-        Else
-            lbCredito.Visible = False
-            tbFechaVenc.Visible = False
-        End If
-    End Sub
+
 
     Private Sub grdetalle_EditingCell(sender As Object, e As EditingCellEventArgs) Handles grdetalle.EditingCell
         If (_fnAccesible()) Then
@@ -2444,7 +2478,7 @@ salirIf:
                         CType(grdetalle.DataSource, DataTable).Rows(pos).Item("tbcmin") = 1
                         CType(grdetalle.DataSource, DataTable).Rows(pos).Item("tbptot") = CType(grdetalle.DataSource, DataTable).Rows(pos).Item("tbpbas")
                         CType(grdetalle.DataSource, DataTable).Rows(pos).Item("tbptot2") = grdetalle.GetValue("tbpcos") * 1
-                        Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+                        Dim img As Bitmap = New Bitmap(My.Resources.mensaje, 50, 50)
                         ToastNotification.Show(Me, "La cantidad de la venta no debe ser mayor al del stock" & vbCrLf &
                         "Stock=" + Str(stock).ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
                         grdetalle.SetValue("tbcmin", 1)
@@ -2646,7 +2680,7 @@ salirIf:
         g_prValidarTextBox(1, e)
     End Sub
 
-    Private Sub swTipoVenta_KeyDown(sender As Object, e As KeyEventArgs) Handles swTipoVenta.KeyDown
+    Private Sub swTipoVenta_KeyDown(sender As Object, e As KeyEventArgs)
 
     End Sub
 
@@ -2657,7 +2691,7 @@ salirIf:
         End If
     End Sub
 
-    Private Sub swTipoVenta_Leave(sender As Object, e As EventArgs) Handles swTipoVenta.Leave
+    Private Sub swTipoVenta_Leave(sender As Object, e As EventArgs)
         grdetalle.Select()
     End Sub
 
@@ -2729,8 +2763,65 @@ salirIf:
 
     End Sub
 
-    Private Sub tbProforma_TextChanged(sender As Object, e As EventArgs) Handles tbProforma.TextChanged
 
+
+    Private Sub cbTipoVenta_ValueChanged(sender As Object, e As EventArgs) Handles cbTipoVenta.ValueChanged
+        If (cbTipoVenta.Value = 2) Then
+            lbCredito.Visible = True
+            tbFechaVenc.Visible = True
+            tbFechaVenc.Value = DateAdd(DateInterval.Day, _dias, Now.Date)
+        Else
+            lbCredito.Visible = False
+            tbFechaVenc.Visible = False
+        End If
+
+        If (cbTipoVenta.Value = 4) Then
+            lbbanco.Visible = True
+            tbbanco.Visible = True
+            'lbobservacion.Visible = True
+            'tbObservacion.Visible = True
+        Else
+            lbbanco.Visible = False
+            tbbanco.Visible = False
+            'lbobservacion.Visible = False
+            'tbObservacion.Visible = False
+        End If
+    End Sub
+
+    Private Sub tbbanco_KeyDown(sender As Object, e As KeyEventArgs) Handles tbbanco.KeyDown
+        If (_fnAccesible()) Then
+            If e.KeyData = Keys.Control + Keys.Enter Then
+
+                Dim dt As DataTable
+
+                dt = L_fnListarBanco()
+                '           banco.canumi,banco.canombre,banco.cacuenta
+
+                Dim listEstCeldas As New List(Of Modelo.Celda)
+                listEstCeldas.Add(New Modelo.Celda("canumi,", True, "Codigo", 120))
+                listEstCeldas.Add(New Modelo.Celda("canombre", True, "NOMBRE", 200, ""))
+                listEstCeldas.Add(New Modelo.Celda("cacuenta", True, "NRO CUENTA".ToUpper, 200))
+                Dim ef = New Efecto
+                ef.tipo = 3
+                ef.dt = dt
+                ef.SeleclCol = 2
+                ef.listEstCeldas = listEstCeldas
+                ef.alto = 50
+                ef.ancho = 350
+                ef.Context = "Seleccione BANCO".ToUpper
+                ef.ShowDialog()
+                Dim bandera As Boolean = False
+                bandera = ef.band
+                If (bandera = True) Then
+                    Dim Row As Janus.Windows.GridEX.GridEXRow = ef.Row
+                    _Codbanco = Row.Cells("canumi").Value
+                    tbbanco.Text = Row.Cells("canombre").Value.ToString + " " + Row.Cells("cacuenta").Value.ToString
+
+                End If
+
+            End If
+
+        End If
     End Sub
 
 #End Region

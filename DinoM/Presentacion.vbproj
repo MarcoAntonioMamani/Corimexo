@@ -415,6 +415,12 @@
     <Compile Include="Formulario Corimexo\F1_SubGrupo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Pr_CajaDetallada.Designer.vb">
+      <DependentUpon>Pr_CajaDetallada.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Pr_CajaDetallada.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Pr_SAldosPorAlmacenLinea.Designer.vb">
       <DependentUpon>Pr_SAldosPorAlmacenLinea.vb</DependentUpon>
     </Compile>
@@ -673,6 +679,18 @@
       <DependentUpon>R_StockMinimo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reporte\R_TipoVenta.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_TipoVenta.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte\R_VentaCaja.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_VentaCaja.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reporte\R_VentasCostosVendedorAlmacen.vb">
       <DependentUpon>R_VentasCostosVendedorAlmacen.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -888,6 +906,9 @@
     <EmbeddedResource Include="Formulario Corimexo\Migrar.resx">
       <DependentUpon>Migrar.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pr_CajaDetallada.resx">
+      <DependentUpon>Pr_CajaDetallada.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pr_SAldosPorAlmacenLinea.resx">
       <DependentUpon>Pr_SAldosPorAlmacenLinea.vb</DependentUpon>
     </EmbeddedResource>
@@ -1044,6 +1065,14 @@
     <EmbeddedResource Include="Reporte\R_StockMinimo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_StockMinimo.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\R_TipoVenta.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_TipoVenta.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\R_VentaCaja.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_VentaCaja.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte\R_VentasCostosVendedorAlmacen.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
