@@ -260,3 +260,9 @@ paket-files/
 __pycache__/
 *.pyc
 DinoM/obj/Debug/DesignTimeResolveAssemblyReferences\.cache
+
+*.dll
+
+*.exe
+
+*.cache

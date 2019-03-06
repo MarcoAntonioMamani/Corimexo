@@ -443,7 +443,7 @@ Public Class F1_Productos
         _prCargarImagen()
         Modificar = True
         tbnombre.Clear()
-        tbnombre.Clear()
+        tbdesc.Clear()
         CbCategoria = 0
         CbGrupo = 0
         CbProducto = 0
@@ -1107,11 +1107,13 @@ Public Class F1_Productos
 
     Private Sub tbcategoria_KeyDown(sender As Object, e As KeyEventArgs) Handles tbcategoria.KeyDown
         If (tbnombre.ReadOnly = False) Then
+
+
             If e.KeyData = Keys.Control + Keys.Enter Then
 
                 Dim dt As DataTable
 
-                dt = L_fnListarCategoria(1)  ''''Categoria
+                dt = L_fnListarCategoriaProducto()  ''''Categoria
                 'a.ygnumi ,a.ygnombre ,a.ygcodigo ,a.ygimg ,cast('' as image) as img
 
                 Dim listEstCeldas As New List(Of Modelo.Celda)
@@ -1167,9 +1169,16 @@ Public Class F1_Productos
         If (tbnombre.ReadOnly = False) Then
             If e.KeyData = Keys.Control + Keys.Enter Then
 
+                If (CbCategoria <= 0) Then
+                    Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
+                    ToastNotification.Show(Me, "Primero Seleccione una Categoria".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+                    tbcategoria.Focus()
+                    Return
+                End If
+
                 Dim dt As DataTable
 
-                dt = L_fnListarCategoria(2)  ''''Categoria
+                dt = L_fnListarGrupoProducto(CbCategoria)  ''''Categoria
                 'a.ygnumi ,a.ygnombre ,a.ygcodigo ,a.ygimg ,cast('' as image) as img
 
                 Dim listEstCeldas As New List(Of Modelo.Celda)
@@ -1222,9 +1231,22 @@ Public Class F1_Productos
         If (tbnombre.ReadOnly = False) Then
             If e.KeyData = Keys.Control + Keys.Enter Then
 
+                If (CbCategoria <= 0) Then
+                    Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
+                    ToastNotification.Show(Me, "Primero Seleccione una Categoria".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+                    tbcategoria.Focus()
+                    Return
+                End If
+                If (CbGrupo <= 0) Then
+                    Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
+                    ToastNotification.Show(Me, "Primero Seleccione una Grupo".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+                    tbgrupo.Focus()
+                    Return
+                End If
+
                 Dim dt As DataTable
 
-                dt = L_fnListarCategoria(3)  ''''Categoria
+                dt = L_fnListarModeloProducto(CbCategoria, CbGrupo)  ''''Categoria
                 'a.ygnumi ,a.ygnombre ,a.ygcodigo ,a.ygimg ,cast('' as image) as img
 
                 Dim listEstCeldas As New List(Of Modelo.Celda)
@@ -1279,7 +1301,7 @@ Public Class F1_Productos
 
                 Dim dt As DataTable
 
-                dt = L_fnListarCategoria(4)  ''''Categoria
+                dt = L_fnListarEstructuraProducto()  ''''Categoria
                 'a.ygnumi ,a.ygnombre ,a.ygcodigo ,a.ygimg ,cast('' as image) as img
 
                 Dim listEstCeldas As New List(Of Modelo.Celda)
@@ -1331,10 +1353,21 @@ Public Class F1_Productos
     Private Sub tbsubgrupo_KeyDown(sender As Object, e As KeyEventArgs) Handles tbsubgrupo.KeyDown
         If (tbnombre.ReadOnly = False) Then
             If e.KeyData = Keys.Control + Keys.Enter Then
-
+                If (CbCategoria <= 0) Then
+                    Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
+                    ToastNotification.Show(Me, "Primero Seleccione una Categoria".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+                    tbcategoria.Focus()
+                    Return
+                End If
+                If (CbGrupo <= 0) Then
+                    Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
+                    ToastNotification.Show(Me, "Primero Seleccione una Grupo".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+                    tbgrupo.Focus()
+                    Return
+                End If
                 Dim dt As DataTable
 
-                dt = L_fnListarCategoria(5)  ''''Categoria
+                dt = L_fnListarSubGrupoProducto(CbCategoria, CbGrupo)  ''''Categoria
                 'a.ygnumi ,a.ygnombre ,a.ygcodigo ,a.ygimg ,cast('' as image) as img
 
                 Dim listEstCeldas As New List(Of Modelo.Celda)
@@ -1386,10 +1419,21 @@ Public Class F1_Productos
     Private Sub tbclase_KeyDown(sender As Object, e As KeyEventArgs) Handles tbclase.KeyDown
         If (tbnombre.ReadOnly = False) Then
             If e.KeyData = Keys.Control + Keys.Enter Then
-
+                If (CbCategoria <= 0) Then
+                    Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
+                    ToastNotification.Show(Me, "Primero Seleccione una Categoria".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+                    tbcategoria.Focus()
+                    Return
+                End If
+                If (CbGrupo <= 0) Then
+                    Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
+                    ToastNotification.Show(Me, "Primero Seleccione una Grupo".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+                    tbgrupo.Focus()
+                    Return
+                End If
                 Dim dt As DataTable
 
-                dt = L_fnListarCategoria(6)  ''''Categoria
+                dt = L_fnListarClasesProducto(CbCategoria, CbGrupo)  ''''Categoria
                 'a.ygnumi ,a.ygnombre ,a.ygcodigo ,a.ygimg ,cast('' as image) as img
 
                 Dim listEstCeldas As New List(Of Modelo.Celda)

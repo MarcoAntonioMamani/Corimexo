@@ -569,14 +569,79 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
-    Public Shared Function L_fnListarCategoria(_categoria As Integer) As DataTable
+    Public Shared Function L_fnListarCategoriaProducto() As DataTable
         Dim _Tabla As DataTable
 
         Dim _listParam As New List(Of Datos.DParametro)
 
-        _listParam.Add(New Datos.DParametro("@tipo", 12))
-        _listParam.Add(New Datos.DParametro("@categoria", _categoria))
+        _listParam.Add(New Datos.DParametro("@tipo", 13))
         _listParam.Add(New Datos.DParametro("@yfuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY005", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_fnListarEstructuraProducto() As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 16))
+        _listParam.Add(New Datos.DParametro("@yfuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY005", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_fnListarGrupoProducto(_categorias As Integer) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 14))
+        _listParam.Add(New Datos.DParametro("@yfuact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@categoria", _categorias))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY005", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_fnListarSubGrupoProducto(_categorias As Integer, _modelo As Integer) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 17))
+        _listParam.Add(New Datos.DParametro("@yfuact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@categoria", _categorias))
+        _listParam.Add(New Datos.DParametro("@grupo", _modelo))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY005", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_fnListarClasesProducto(_categorias As Integer, _modelo As Integer) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 18))
+        _listParam.Add(New Datos.DParametro("@yfuact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@categoria", _categorias))
+        _listParam.Add(New Datos.DParametro("@grupo", _modelo))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TY005", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_fnListarModeloProducto(_categorias As Integer, _modelo As Integer) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 15))
+        _listParam.Add(New Datos.DParametro("@yfuact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@categoria", _categorias))
+        _listParam.Add(New Datos.DParametro("@grupo", _modelo))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TY005", _listParam)
 
         Return _Tabla
