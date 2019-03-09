@@ -1368,7 +1368,7 @@ Public Class F1_Productos
                 Dim dt As DataTable
 
                 dt = L_fnListarSubGrupoProducto(CbCategoria, CbGrupo)  ''''Categoria
-                'a.ygnumi ,a.ygnombre ,a.ygcodigo ,a.ygimg ,cast('' as image) as img
+                'a.ygnumi ,a.ygnombre ,a.ygcodigo ,a.ygimg ,cast('' as image) as img   
 
                 Dim listEstCeldas As New List(Of Modelo.Celda)
                 listEstCeldas.Add(New Modelo.Celda("ygnumi,", False, "ID", 50))

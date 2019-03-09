@@ -35,6 +35,8 @@ Partial Class F0_Ventas
         Me.PanelContentSup = New System.Windows.Forms.Panel()
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.tbbanco = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.lbbanco = New DevComponents.DotNetBar.LabelX()
         Me.cbTipoVenta = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.SwProforma = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.LabelX18 = New DevComponents.DotNetBar.LabelX()
@@ -93,8 +95,12 @@ Partial Class F0_Ventas
         Me.LabelX9 = New DevComponents.DotNetBar.LabelX()
         Me.ButtonX1 = New DevComponents.DotNetBar.ButtonX()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
-        Me.tbbanco = New DevComponents.DotNetBar.Controls.TextBoxX()
-        Me.lbbanco = New DevComponents.DotNetBar.LabelX()
+        Me.tbcheque = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.lbcheque = New DevComponents.DotNetBar.LabelX()
+        Me.LabelX19 = New DevComponents.DotNetBar.LabelX()
+        Me.swanticipo = New DevComponents.DotNetBar.Controls.SwitchButton()
+        Me.tbmontoanticipo = New DevComponents.Editors.DoubleInput()
+        Me.lbmontoanticipo = New DevComponents.DotNetBar.LabelX()
         Me.PanelSuperior.SuspendLayout()
         Me.PanelInferior.SuspendLayout()
         CType(Me.BubbleBarUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -142,6 +148,7 @@ Partial Class F0_Ventas
         CType(Me.tbMdesc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbtotal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbPdesc, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tbmontoanticipo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelSuperior
@@ -455,7 +462,7 @@ Partial Class F0_Ventas
         Me.PanelContentSup.Location = New System.Drawing.Point(0, 0)
         Me.PanelContentSup.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelContentSup.Name = "PanelContentSup"
-        Me.PanelContentSup.Size = New System.Drawing.Size(1318, 300)
+        Me.PanelContentSup.Size = New System.Drawing.Size(1318, 360)
         Me.PanelContentSup.TabIndex = 0
         '
         'GroupPanel1
@@ -470,7 +477,7 @@ Partial Class F0_Ventas
         Me.GroupPanel1.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(1318, 300)
+        Me.GroupPanel1.Size = New System.Drawing.Size(1318, 360)
         '
         '
         '
@@ -506,6 +513,12 @@ Partial Class F0_Ventas
         '
         Me.Panel2.AutoScroll = True
         Me.Panel2.BackColor = System.Drawing.Color.White
+        Me.Panel2.Controls.Add(Me.lbmontoanticipo)
+        Me.Panel2.Controls.Add(Me.tbmontoanticipo)
+        Me.Panel2.Controls.Add(Me.swanticipo)
+        Me.Panel2.Controls.Add(Me.LabelX19)
+        Me.Panel2.Controls.Add(Me.lbcheque)
+        Me.Panel2.Controls.Add(Me.tbcheque)
         Me.Panel2.Controls.Add(Me.tbbanco)
         Me.Panel2.Controls.Add(Me.lbbanco)
         Me.Panel2.Controls.Add(Me.cbTipoVenta)
@@ -534,8 +547,45 @@ Partial Class F0_Ventas
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1312, 273)
+        Me.Panel2.Size = New System.Drawing.Size(1312, 333)
         Me.Panel2.TabIndex = 234
+        '
+        'tbbanco
+        '
+        Me.tbbanco.BackColor = System.Drawing.Color.White
+        '
+        '
+        '
+        Me.tbbanco.Border.Class = "TextBoxBorder"
+        Me.tbbanco.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbbanco.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbbanco.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.tbbanco.Location = New System.Drawing.Point(849, 205)
+        Me.tbbanco.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbbanco.Name = "tbbanco"
+        Me.tbbanco.PreventEnterBeep = True
+        Me.tbbanco.Size = New System.Drawing.Size(360, 26)
+        Me.tbbanco.TabIndex = 257
+        Me.tbbanco.Visible = False
+        '
+        'lbbanco
+        '
+        Me.lbbanco.AutoSize = True
+        Me.lbbanco.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.lbbanco.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbbanco.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbbanco.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.lbbanco.Location = New System.Drawing.Point(644, 211)
+        Me.lbbanco.Margin = New System.Windows.Forms.Padding(4)
+        Me.lbbanco.Name = "lbbanco"
+        Me.lbbanco.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.lbbanco.Size = New System.Drawing.Size(56, 20)
+        Me.lbbanco.TabIndex = 258
+        Me.lbbanco.Text = "Banco:"
+        Me.lbbanco.Visible = False
         '
         'cbTipoVenta
         '
@@ -659,7 +709,7 @@ Partial Class F0_Ventas
         Me.GroupPanelFactura2.Location = New System.Drawing.Point(1209, 0)
         Me.GroupPanelFactura2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupPanelFactura2.Name = "GroupPanelFactura2"
-        Me.GroupPanelFactura2.Size = New System.Drawing.Size(467, 252)
+        Me.GroupPanelFactura2.Size = New System.Drawing.Size(467, 312)
         '
         '
         '
@@ -1190,10 +1240,10 @@ Partial Class F0_Ventas
         Me.PanelDetalle.Controls.Add(Me.GroupPanel4)
         Me.PanelDetalle.Controls.Add(Me.GPanelProductos)
         Me.PanelDetalle.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelDetalle.Location = New System.Drawing.Point(0, 300)
+        Me.PanelDetalle.Location = New System.Drawing.Point(0, 360)
         Me.PanelDetalle.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelDetalle.Name = "PanelDetalle"
-        Me.PanelDetalle.Size = New System.Drawing.Size(1318, 446)
+        Me.PanelDetalle.Size = New System.Drawing.Size(1318, 386)
         Me.PanelDetalle.TabIndex = 1
         '
         'GroupPanel4
@@ -1207,7 +1257,7 @@ Partial Class F0_Ventas
         Me.GroupPanel4.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanel4.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupPanel4.Name = "GroupPanel4"
-        Me.GroupPanel4.Size = New System.Drawing.Size(1318, 191)
+        Me.GroupPanel4.Size = New System.Drawing.Size(1318, 131)
         '
         '
         '
@@ -1248,7 +1298,7 @@ Partial Class F0_Ventas
         Me.Panel5.Location = New System.Drawing.Point(0, 0)
         Me.Panel5.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(1312, 164)
+        Me.Panel5.Size = New System.Drawing.Size(1312, 104)
         Me.Panel5.TabIndex = 0
         '
         'grdetalle
@@ -1262,7 +1312,7 @@ Partial Class F0_Ventas
         Me.grdetalle.Name = "grdetalle"
         Me.grdetalle.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grdetalle.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grdetalle.Size = New System.Drawing.Size(1312, 164)
+        Me.grdetalle.Size = New System.Drawing.Size(1312, 104)
         Me.grdetalle.TabIndex = 0
         Me.grdetalle.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -1274,7 +1324,7 @@ Partial Class F0_Ventas
         Me.GPanelProductos.DisabledBackColor = System.Drawing.Color.Empty
         Me.GPanelProductos.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.GPanelProductos.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GPanelProductos.Location = New System.Drawing.Point(0, 191)
+        Me.GPanelProductos.Location = New System.Drawing.Point(0, 131)
         Me.GPanelProductos.Margin = New System.Windows.Forms.Padding(4)
         Me.GPanelProductos.Name = "GPanelProductos"
         Me.GPanelProductos.Size = New System.Drawing.Size(1318, 255)
@@ -1711,42 +1761,117 @@ Partial Class F0_Ventas
         '
         Me.PrintDialog1.UseEXDialog = True
         '
-        'tbbanco
+        'tbcheque
         '
-        Me.tbbanco.BackColor = System.Drawing.Color.White
-        '
-        '
-        '
-        Me.tbbanco.Border.Class = "TextBoxBorder"
-        Me.tbbanco.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tbbanco.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbbanco.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.tbbanco.Location = New System.Drawing.Point(849, 205)
-        Me.tbbanco.Margin = New System.Windows.Forms.Padding(4)
-        Me.tbbanco.Name = "tbbanco"
-        Me.tbbanco.PreventEnterBeep = True
-        Me.tbbanco.Size = New System.Drawing.Size(360, 26)
-        Me.tbbanco.TabIndex = 257
-        Me.tbbanco.Visible = False
-        '
-        'lbbanco
-        '
-        Me.lbbanco.AutoSize = True
-        Me.lbbanco.BackColor = System.Drawing.Color.Transparent
+        Me.tbcheque.BackColor = System.Drawing.Color.White
         '
         '
         '
-        Me.lbbanco.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.lbbanco.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbbanco.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.lbbanco.Location = New System.Drawing.Point(644, 211)
-        Me.lbbanco.Margin = New System.Windows.Forms.Padding(4)
-        Me.lbbanco.Name = "lbbanco"
-        Me.lbbanco.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.lbbanco.Size = New System.Drawing.Size(56, 20)
-        Me.lbbanco.TabIndex = 258
-        Me.lbbanco.Text = "Banco:"
-        Me.lbbanco.Visible = False
+        Me.tbcheque.Border.Class = "TextBoxBorder"
+        Me.tbcheque.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbcheque.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbcheque.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.tbcheque.Location = New System.Drawing.Point(849, 239)
+        Me.tbcheque.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbcheque.MaxLength = 15
+        Me.tbcheque.Name = "tbcheque"
+        Me.tbcheque.PreventEnterBeep = True
+        Me.tbcheque.Size = New System.Drawing.Size(180, 26)
+        Me.tbcheque.TabIndex = 259
+        Me.tbcheque.Visible = False
+        '
+        'lbcheque
+        '
+        Me.lbcheque.AutoSize = True
+        Me.lbcheque.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbcheque.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbcheque.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.lbcheque.Location = New System.Drawing.Point(643, 244)
+        Me.lbcheque.Margin = New System.Windows.Forms.Padding(4)
+        Me.lbcheque.Name = "lbcheque"
+        Me.lbcheque.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.lbcheque.Size = New System.Drawing.Size(100, 20)
+        Me.lbcheque.TabIndex = 260
+        Me.lbcheque.Text = "Nro Cheque:"
+        Me.lbcheque.Visible = False
+        '
+        'LabelX19
+        '
+        Me.LabelX19.AutoSize = True
+        Me.LabelX19.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX19.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.LabelX19.Location = New System.Drawing.Point(17, 218)
+        Me.LabelX19.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX19.Name = "LabelX19"
+        Me.LabelX19.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.LabelX19.Size = New System.Drawing.Size(74, 20)
+        Me.LabelX19.TabIndex = 261
+        Me.LabelX19.Text = "Anticipo:"
+        '
+        'swanticipo
+        '
+        '
+        '
+        '
+        Me.swanticipo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.swanticipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.swanticipo.Location = New System.Drawing.Point(179, 218)
+        Me.swanticipo.Margin = New System.Windows.Forms.Padding(4)
+        Me.swanticipo.Name = "swanticipo"
+        Me.swanticipo.OffBackColor = System.Drawing.Color.LawnGreen
+        Me.swanticipo.OffText = "NO"
+        Me.swanticipo.OnBackColor = System.Drawing.Color.Gold
+        Me.swanticipo.OnText = "SI"
+        Me.swanticipo.Size = New System.Drawing.Size(91, 27)
+        Me.swanticipo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.swanticipo.TabIndex = 262
+        Me.swanticipo.Value = True
+        Me.swanticipo.ValueObject = "Y"
+        '
+        'tbmontoanticipo
+        '
+        '
+        '
+        '
+        Me.tbmontoanticipo.BackgroundStyle.Class = "DateTimeInputBackground"
+        Me.tbmontoanticipo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbmontoanticipo.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
+        Me.tbmontoanticipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbmontoanticipo.Increment = 1.0R
+        Me.tbmontoanticipo.Location = New System.Drawing.Point(179, 253)
+        Me.tbmontoanticipo.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbmontoanticipo.MinValue = 0R
+        Me.tbmontoanticipo.Name = "tbmontoanticipo"
+        Me.tbmontoanticipo.Size = New System.Drawing.Size(119, 24)
+        Me.tbmontoanticipo.TabIndex = 263
+        Me.tbmontoanticipo.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right
+        '
+        'lbmontoanticipo
+        '
+        Me.lbmontoanticipo.AutoSize = True
+        Me.lbmontoanticipo.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.lbmontoanticipo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbmontoanticipo.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbmontoanticipo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.lbmontoanticipo.Location = New System.Drawing.Point(17, 257)
+        Me.lbmontoanticipo.Margin = New System.Windows.Forms.Padding(4)
+        Me.lbmontoanticipo.Name = "lbmontoanticipo"
+        Me.lbmontoanticipo.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.lbmontoanticipo.Size = New System.Drawing.Size(128, 20)
+        Me.lbmontoanticipo.TabIndex = 264
+        Me.lbmontoanticipo.Text = "Monto Anticipo:"
         '
         'F0_Ventas
         '
@@ -1807,6 +1932,7 @@ Partial Class F0_Ventas
         CType(Me.tbMdesc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbtotal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbPdesc, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tbmontoanticipo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1880,4 +2006,10 @@ Partial Class F0_Ventas
     Friend WithEvents cbTipoVenta As Janus.Windows.GridEX.EditControls.MultiColumnCombo
     Friend WithEvents tbbanco As DevComponents.DotNetBar.Controls.TextBoxX
     Friend WithEvents lbbanco As DevComponents.DotNetBar.LabelX
+    Friend WithEvents lbcheque As DevComponents.DotNetBar.LabelX
+    Friend WithEvents tbcheque As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents swanticipo As DevComponents.DotNetBar.Controls.SwitchButton
+    Friend WithEvents LabelX19 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents lbmontoanticipo As DevComponents.DotNetBar.LabelX
+    Friend WithEvents tbmontoanticipo As DevComponents.Editors.DoubleInput
 End Class

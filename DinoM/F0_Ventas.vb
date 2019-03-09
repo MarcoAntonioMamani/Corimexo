@@ -226,7 +226,10 @@ Public Class F0_Ventas
         tbCodigo.Clear()
         tbCliente.Clear()
         tbVendedor.Clear()
+        swanticipo.Value = False
+        tbcheque.Clear()
         tbObservacion.Clear()
+        tbmontoanticipo.Value = 0
         swMoneda.Value = True
         _Codbanco = 0
         tbbanco.Clear()
@@ -289,7 +292,10 @@ Public Class F0_Ventas
             _CodEmpleado = .GetValue("taven")
             _Codbanco = .GetValue("tabanco")
             tbbanco.Text = .GetValue("banco")
+            swanticipo.Value = .GetValue("taanticipo")
+
             tbVendedor.Text = .GetValue("vendedor")
+            tbcheque.Text = .GetValue("tanrocheque")
             cbTipoVenta.Value = .GetValue("tatven")
             _CodCliente = .GetValue("taclpr")
             tbCliente.Text = .GetValue("cliente")
@@ -343,7 +349,7 @@ Public Class F0_Ventas
         tbIce.Value = grVentas.GetValue("taice")
         _prCalcularPrecioTotal()
         LblPaginacion.Text = Str(grVentas.Row + 1) + "/" + grVentas.RowCount.ToString
-
+        tbmontoanticipo.Value = grVentas.GetValue("tamontoanticipo")
     End Sub
 
     Private Sub _prCargarDetalleVenta(_numi As String)
@@ -572,6 +578,11 @@ Public Class F0_Ventas
         End With
 
         With grVentas.RootTable.Columns("tafvcr")
+            .Width = 50
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = False
+        End With
+        With grVentas.RootTable.Columns("tanrocheque")
             .Width = 50
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
             .Visible = False
@@ -1154,8 +1165,10 @@ Public Class F0_Ventas
         tbIce.Value = grdetalle.GetTotal(grdetalle.RootTable.Columns("tbptot2"), AggregateFunction.Sum) * (gi_ICE / 100)
         If (gb_FacturaIncluirICE = True) Then
             tbtotal.Value = grdetalle.GetTotal(grdetalle.RootTable.Columns("tbtotdesc"), AggregateFunction.Sum) - montodesc + tbIce.Value
+            tbmontoanticipo.Value = tbtotal.Value / 2
         Else
             tbtotal.Value = grdetalle.GetTotal(grdetalle.RootTable.Columns("tbtotdesc"), AggregateFunction.Sum) - montodesc
+            tbmontoanticipo.Value = tbtotal.Value / 2
         End If
 
 
@@ -1235,7 +1248,7 @@ Public Class F0_Ventas
 
     Public Sub _GuardarNuevo()
         Dim numi As String = ""
-        Dim res As Boolean = L_fnGrabarVenta(numi, "", tbFechaVenta.Value.ToString("yyyy/MM/dd"), _CodEmpleado, cbTipoVenta.Value, IIf(cbTipoVenta.Value = 2, tbFechaVenc.Value.ToString("yyyy/MM/dd"), Now.Date.ToString("yyyy/MM/dd")), _CodCliente, IIf(swMoneda.Value = True, 1, 0), tbObservacion.Text, tbMdesc.Value, tbIce.Value, tbtotal.Value, CType(grdetalle.DataSource, DataTable), cbSucursal.Value, IIf(SwProforma.Value = True, tbProforma.Text, 0), _Codbanco)
+        Dim res As Boolean = L_fnGrabarVenta(numi, "", tbFechaVenta.Value.ToString("yyyy/MM/dd"), _CodEmpleado, cbTipoVenta.Value, IIf(cbTipoVenta.Value = 2, tbFechaVenc.Value.ToString("yyyy/MM/dd"), Now.Date.ToString("yyyy/MM/dd")), _CodCliente, IIf(swMoneda.Value = True, 1, 0), tbObservacion.Text, tbMdesc.Value, tbIce.Value, tbtotal.Value, CType(grdetalle.DataSource, DataTable), cbSucursal.Value, IIf(SwProforma.Value = True, tbProforma.Text, 0), _Codbanco, tbcheque.Text, IIf(swanticipo.Value = True, 1, 0), tbmontoanticipo.Value)
 
 
         If res Then
@@ -1295,7 +1308,7 @@ Public Class F0_Ventas
         End If
     End Sub
     Private Sub _prGuardarModificado()
-        Dim res As Boolean = L_fnModificarVenta(tbCodigo.Text, tbFechaVenta.Value.ToString("yyyy/MM/dd"), _CodEmpleado, cbTipoVenta.Value, IIf(cbTipoVenta.Value = 2, tbFechaVenc.Value.ToString("yyyy/MM/dd"), Now.Date.ToString("yyyy/MM/dd")), _CodCliente, IIf(swMoneda.Value = True, 1, 0), tbObservacion.Text, tbMdesc.Value, tbIce.Value, tbtotal.Value, CType(grdetalle.DataSource, DataTable), cbSucursal.Value, IIf(SwProforma.Value = True, tbProforma.Text, 0), _Codbanco)
+        Dim res As Boolean = L_fnModificarVenta(tbCodigo.Text, tbFechaVenta.Value.ToString("yyyy/MM/dd"), _CodEmpleado, cbTipoVenta.Value, IIf(cbTipoVenta.Value = 2, tbFechaVenc.Value.ToString("yyyy/MM/dd"), Now.Date.ToString("yyyy/MM/dd")), _CodCliente, IIf(swMoneda.Value = True, 1, 0), tbObservacion.Text, tbMdesc.Value, tbIce.Value, tbtotal.Value, CType(grdetalle.DataSource, DataTable), cbSucursal.Value, IIf(SwProforma.Value = True, tbProforma.Text, 0), _Codbanco, tbcheque.Text, IIf(swanticipo.Value = True, 1, 0), tbmontoanticipo.Value)
         If res Then
 
             'If (gb_FacturaEmite) Then
@@ -1734,24 +1747,27 @@ Public Class F0_Ventas
             P_Global.Visualizador.BringToFront() 'Comentar
         Else
             'Dim objrep As New R_Notadeentrega2
-            ''Dim objrep As New R_NotaDeVentaSinLote
-            ''' GenerarNro(_dt)
-            '''objrep.SetDataSource(Dt1Kardex)
-            'totald = Math.Round(totald, 2)
-            'objrep.SetDataSource(dt)
-            'objrep.SetParameterValue("TotalBs", li)
-            'objrep.SetParameterValue("TotalDo", lid)
-            'objrep.SetParameterValue("TotalDoN", totald)
+            Dim objrep As New R_NotaDeVentaSinLote
+            ' GenerarNro(_dt)
+            'objrep.SetDataSource(Dt1Kardex)
+            totald = Math.Round(totald, 2)
+            objrep.SetDataSource(dt)
+            objrep.SetParameterValue("TotalBs", li)
+            objrep.SetParameterValue("TotalDo", lid)
+            objrep.SetParameterValue("TotalDoN", totald)
+            objrep.SetParameterValue("usuario", gs_user)
+            objrep.SetParameterValue("glosa", tbObservacion.Text)
+            objrep.SetParameterValue("estado", 0)
             'objrep.SetParameterValue("P_Fecha", _FechaPar)
             'objrep.SetParameterValue("P_Empresa", ParEmp1)
             'objrep.SetParameterValue("P_Empresa1", ParEmp2)
             'objrep.SetParameterValue("P_Empresa2", ParEmp3)
             'objrep.SetParameterValue("P_Empresa3", ParEmp4)
-            ''objrep.SetParameterValue("usuario", gs_user)
-            ''objrep.SetParameterValue("estado", 1)
-            'P_Global.Visualizador.CrGeneral.ReportSource = objrep 'Comentar
-            'P_Global.Visualizador.Show() 'Comentar
-            'P_Global.Visualizador.BringToFront() 'Comentar
+            'objrep.SetParameterValue("usuario", gs_user)
+            'objrep.SetParameterValue("estado", 1)
+            P_Global.Visualizador.CrGeneral.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.Show() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
         End If
 
     End Sub
@@ -2408,8 +2424,10 @@ salirIf:
 
                     If (gb_FacturaIncluirICE = True) Then
                         tbtotal.Value = grdetalle.GetTotal(grdetalle.RootTable.Columns("tbtotdesc"), AggregateFunction.Sum) - montodesc + tbIce.Value
+                        tbmontoanticipo.Value = tbtotal.Value / 2
                     Else
                         tbtotal.Value = grdetalle.GetTotal(grdetalle.RootTable.Columns("tbtotdesc"), AggregateFunction.Sum) - montodesc
+                        tbmontoanticipo.Value = tbtotal.Value / 2
                     End If
                 End If
 
@@ -2438,8 +2456,10 @@ salirIf:
                     tbIce.Value = grdetalle.GetTotal(grdetalle.RootTable.Columns("tbptot2"), AggregateFunction.Sum) * (gi_ICE / 100)
                     If (gb_FacturaIncluirICE = True) Then
                         tbtotal.Value = grdetalle.GetTotal(grdetalle.RootTable.Columns("tbtotdesc"), AggregateFunction.Sum) - montodesc + tbIce.Value
+                        tbmontoanticipo.Value = tbtotal.Value / 2
                     Else
                         tbtotal.Value = grdetalle.GetTotal(grdetalle.RootTable.Columns("tbtotdesc"), AggregateFunction.Sum) - montodesc
+                        tbmontoanticipo.Value = tbtotal.Value / 2
                     End If
 
                 End If
@@ -2781,11 +2801,20 @@ salirIf:
             'lbobservacion.Visible = True
             'tbObservacion.Visible = True
         Else
-            lbbanco.Visible = False
-            tbbanco.Visible = False
-            'lbobservacion.Visible = False
-            'tbObservacion.Visible = False
+            If (cbTipoVenta.Value = 5) Then
+                lbbanco.Visible = True
+                tbbanco.Visible = True
+                lbcheque.Visible = True
+                tbcheque.Visible = True
+            Else
+                lbbanco.Visible = False
+                tbbanco.Visible = False
+                lbcheque.Visible = False
+                tbcheque.Visible = False
+            End If
         End If
+
+
     End Sub
 
     Private Sub tbbanco_KeyDown(sender As Object, e As KeyEventArgs) Handles tbbanco.KeyDown
@@ -2821,6 +2850,23 @@ salirIf:
 
             End If
 
+        End If
+    End Sub
+
+    Private Sub swanticipo_ValueChanged(sender As Object, e As EventArgs) Handles swanticipo.ValueChanged
+        If (swanticipo.Value = True) Then
+            lbmontoanticipo.Visible = True
+            tbmontoanticipo.Visible = True
+        Else
+            lbmontoanticipo.Visible = False
+            tbmontoanticipo.Visible = False
+        End If
+    End Sub
+
+    Private Sub tbmontoanticipo_ValueChanged(sender As Object, e As EventArgs) Handles tbmontoanticipo.ValueChanged
+        Dim total As Double = tbtotal.Value
+        If (tbmontoanticipo.Value > total) Then
+            tbmontoanticipo.Value = 0
         End If
     End Sub
 
