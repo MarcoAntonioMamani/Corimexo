@@ -1275,7 +1275,7 @@ Public Class F0_Ventas
                                       )
             _prImiprimirNotaVenta(numi)
             If (swanticipo.Value = True) Then
-                P_GenerarReporteOrdenProduccion(tbCodigo.Text)
+                P_GenerarReporteOrdenProduccion(numi)
             End If
 
 
