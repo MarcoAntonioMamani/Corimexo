@@ -3256,9 +3256,7 @@ Public Class AccesoLogica
 
     Public Shared Function L_fnObtenerLasVentasCreditoPorVendedorFecha(_numi As Integer, _fecha As String) As DataTable
         Dim _Tabla As DataTable
-
         Dim _listParam As New List(Of Datos.DParametro)
-
         _listParam.Add(New Datos.DParametro("@tipo", 11))
         '_listParam.Add(New Datos.DParametro("@tduact", L_Usuario))
         _listParam.Add(New Datos.DParametro("@tenumi", _numi))
@@ -3336,6 +3334,19 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+
+    Public Shared Function L_fnObtenerNumiPago(_numi As Integer) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 12))
+        _listParam.Add(New Datos.DParametro("@teuact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@tdnumi", _numi))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TV00121Cheque", _listParam)
+
+        Return _Tabla
+    End Function
     Public Shared Function L_fnCobranzasObtenerLasVentasACredito() As DataTable
         Dim _Tabla As DataTable
 
@@ -3393,7 +3404,7 @@ Public Class AccesoLogica
         End If
         Return _resultado
     End Function
-    '@tenumi ,@tefdoc,@tety4vend ,@teobs ,@newFecha ,@newHora ,@teuact 
+
     Public Shared Function L_fnGrabarCobranza(_tenumi As String, _tefdoc As String, _tety4vend As Integer, _teobs As String, detalle As DataTable) As Boolean
         Dim _Tabla As DataTable
         Dim _resultado As Boolean
@@ -3406,6 +3417,34 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@tety4vend", _tety4vend))
         _listParam.Add(New Datos.DParametro("@teobs", _teobs))
         _listParam.Add(New Datos.DParametro("@teuact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@TV00121", "", detalle))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TV00121Cheque", _listParam)
+
+
+        If _Tabla.Rows.Count > 0 Then
+            _tenumi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+    '@tenumi ,@tefdoc,@tety4vend ,@teobs ,@newFecha ,@newHora ,@teuact 
+    Public Shared Function L_fnGrabarCobranzaAnticipados(_tenumi As String, _tefdoc As String, _tety4vend As Integer, _teobs As String, detalle As DataTable, NumiVenta As Integer, Pendiente As Double) As Boolean
+        Dim _Tabla As DataTable
+        Dim _resultado As Boolean
+        Dim _listParam As New List(Of Datos.DParametro)
+        '   @canumi ,@caalm,@cafdoc ,@caty4prov  ,@catven,
+        '@cafvcr,@camon ,@caest  ,@caobs ,@cadesc ,@newFecha,@newHora,@cauact
+        _listParam.Add(New Datos.DParametro("@tipo", 13))
+        _listParam.Add(New Datos.DParametro("@tenumi", _tenumi))
+        _listParam.Add(New Datos.DParametro("@tefdoc", _tefdoc))
+        _listParam.Add(New Datos.DParametro("@tety4vend", _tety4vend))
+        _listParam.Add(New Datos.DParametro("@teobs", _teobs))
+        _listParam.Add(New Datos.DParametro("@teuact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@NumiVenta", NumiVenta))
+        _listParam.Add(New Datos.DParametro("@pendiente", Pendiente))
         _listParam.Add(New Datos.DParametro("@TV00121", "", detalle))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TV00121Cheque", _listParam)
 

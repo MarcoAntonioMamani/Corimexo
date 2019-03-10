@@ -154,10 +154,6 @@ Partial Class F0_Cobrar_Vendedor
         Me.BubbleBarUsuario.MouseOverTabColors.BorderColor = System.Drawing.SystemColors.Highlight
         Me.BubbleBarUsuario.SelectedTabColors.BorderColor = System.Drawing.Color.Black
         '
-        'TxtNombreUsu
-        '
-        Me.TxtNombreUsu.Size = New System.Drawing.Size(267, 44)
-        '
         'PanelToolBar1
         '
         Me.PanelToolBar1.Size = New System.Drawing.Size(261, 89)
@@ -263,10 +259,6 @@ Partial Class F0_Cobrar_Vendedor
         Me.JGrM_Buscador.SelectedFormatStyle.ForeColor = System.Drawing.Color.White
         Me.JGrM_Buscador.Size = New System.Drawing.Size(1541, 98)
         Me.JGrM_Buscador.Visible = False
-        '
-        'btnUltimo
-        '
-        Me.btnUltimo.Location = New System.Drawing.Point(171, 0)
         '
         'MPanelUserAct
         '

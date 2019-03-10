@@ -35,6 +35,8 @@ Partial Class F0_Ventas
         Me.PanelContentSup = New System.Windows.Forms.Panel()
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.lbpendiente = New DevComponents.DotNetBar.LabelX()
+        Me.tbpendiente = New DevComponents.Editors.DoubleInput()
         Me.tbproduccion = New DevComponents.DotNetBar.LabelX()
         Me.lbproduccion = New DevComponents.DotNetBar.LabelX()
         Me.lbmontoanticipo = New DevComponents.DotNetBar.LabelX()
@@ -104,8 +106,7 @@ Partial Class F0_Ventas
         Me.ButtonX1 = New DevComponents.DotNetBar.ButtonX()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.btnproduccion = New DevComponents.DotNetBar.ButtonX()
-        Me.lbpendiente = New DevComponents.DotNetBar.LabelX()
-        Me.tbpendiente = New DevComponents.Editors.DoubleInput()
+        Me.btnPagarAnticipo = New DevComponents.DotNetBar.ButtonX()
         Me.PanelSuperior.SuspendLayout()
         Me.PanelInferior.SuspendLayout()
         CType(Me.BubbleBarUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -131,6 +132,7 @@ Partial Class F0_Ventas
         Me.PanelContentSup.SuspendLayout()
         Me.GroupPanel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.tbpendiente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbmontoanticipo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbTipoVenta, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbSucursal, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -154,11 +156,11 @@ Partial Class F0_Ventas
         CType(Me.tbMdesc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbtotal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbPdesc, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.tbpendiente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelSuperior
         '
+        Me.PanelSuperior.Controls.Add(Me.btnPagarAnticipo)
         Me.PanelSuperior.Controls.Add(Me.btnproduccion)
         Me.PanelSuperior.Controls.Add(Me.ButtonX1)
         Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(5)
@@ -181,6 +183,7 @@ Partial Class F0_Ventas
         Me.PanelSuperior.Controls.SetChildIndex(Me.MRlAccion, 0)
         Me.PanelSuperior.Controls.SetChildIndex(Me.ButtonX1, 0)
         Me.PanelSuperior.Controls.SetChildIndex(Me.btnproduccion, 0)
+        Me.PanelSuperior.Controls.SetChildIndex(Me.btnPagarAnticipo, 0)
         Me.PanelSuperior.Controls.SetChildIndex(Me.PictureBox1, 0)
         '
         'PanelInferior
@@ -334,7 +337,7 @@ Partial Class F0_Ventas
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(659, 0)
+        Me.PictureBox1.Location = New System.Drawing.Point(529, 0)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(5)
         '
         'SuperTabItem1
@@ -562,6 +565,42 @@ Partial Class F0_Ventas
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1312, 333)
         Me.Panel2.TabIndex = 234
+        '
+        'lbpendiente
+        '
+        Me.lbpendiente.AutoSize = True
+        Me.lbpendiente.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.lbpendiente.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbpendiente.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbpendiente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.lbpendiente.Location = New System.Drawing.Point(17, 285)
+        Me.lbpendiente.Margin = New System.Windows.Forms.Padding(4)
+        Me.lbpendiente.Name = "lbpendiente"
+        Me.lbpendiente.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.lbpendiente.Size = New System.Drawing.Size(141, 20)
+        Me.lbpendiente.TabIndex = 268
+        Me.lbpendiente.Text = "Monto Pendiente:"
+        '
+        'tbpendiente
+        '
+        '
+        '
+        '
+        Me.tbpendiente.BackgroundStyle.Class = "DateTimeInputBackground"
+        Me.tbpendiente.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbpendiente.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
+        Me.tbpendiente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbpendiente.Increment = 1.0R
+        Me.tbpendiente.Location = New System.Drawing.Point(179, 284)
+        Me.tbpendiente.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbpendiente.MinValue = 0R
+        Me.tbpendiente.Name = "tbpendiente"
+        Me.tbpendiente.Size = New System.Drawing.Size(119, 24)
+        Me.tbpendiente.TabIndex = 267
+        Me.tbpendiente.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right
         '
         'tbproduccion
         '
@@ -1940,41 +1979,23 @@ Partial Class F0_Ventas
         Me.btnproduccion.Text = "Ord. Producción"
         Me.btnproduccion.TextColor = System.Drawing.Color.White
         '
-        'lbpendiente
+        'btnPagarAnticipo
         '
-        Me.lbpendiente.AutoSize = True
-        Me.lbpendiente.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.lbpendiente.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.lbpendiente.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbpendiente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.lbpendiente.Location = New System.Drawing.Point(17, 285)
-        Me.lbpendiente.Margin = New System.Windows.Forms.Padding(4)
-        Me.lbpendiente.Name = "lbpendiente"
-        Me.lbpendiente.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.lbpendiente.Size = New System.Drawing.Size(141, 20)
-        Me.lbpendiente.TabIndex = 268
-        Me.lbpendiente.Text = "Monto Pendiente:"
-        '
-        'tbpendiente
-        '
-        '
-        '
-        '
-        Me.tbpendiente.BackgroundStyle.Class = "DateTimeInputBackground"
-        Me.tbpendiente.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tbpendiente.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
-        Me.tbpendiente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbpendiente.Increment = 1.0R
-        Me.tbpendiente.Location = New System.Drawing.Point(179, 284)
-        Me.tbpendiente.Margin = New System.Windows.Forms.Padding(4)
-        Me.tbpendiente.MinValue = 0R
-        Me.tbpendiente.Name = "tbpendiente"
-        Me.tbpendiente.Size = New System.Drawing.Size(119, 24)
-        Me.tbpendiente.TabIndex = 267
-        Me.tbpendiente.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right
+        Me.btnPagarAnticipo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnPagarAnticipo.ColorTable = DevComponents.DotNetBar.eButtonColor.Orange
+        Me.btnPagarAnticipo.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnPagarAnticipo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPagarAnticipo.Image = Global.DinoM.My.Resources.Resources.cobro
+        Me.btnPagarAnticipo.ImageFixedSize = New System.Drawing.Size(48, 48)
+        Me.btnPagarAnticipo.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnPagarAnticipo.Location = New System.Drawing.Point(881, 0)
+        Me.btnPagarAnticipo.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnPagarAnticipo.Name = "btnPagarAnticipo"
+        Me.btnPagarAnticipo.Size = New System.Drawing.Size(130, 89)
+        Me.btnPagarAnticipo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btnPagarAnticipo.TabIndex = 14
+        Me.btnPagarAnticipo.Text = "Pagar Anticipo"
+        Me.btnPagarAnticipo.TextColor = System.Drawing.Color.White
         '
         'F0_Ventas
         '
@@ -2013,6 +2034,7 @@ Partial Class F0_Ventas
         Me.GroupPanel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.tbpendiente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbmontoanticipo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbTipoVenta, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbSucursal, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2036,7 +2058,6 @@ Partial Class F0_Ventas
         CType(Me.tbMdesc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbtotal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbPdesc, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.tbpendiente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2121,4 +2142,5 @@ Partial Class F0_Ventas
     Protected WithEvents btnproduccion As DevComponents.DotNetBar.ButtonX
     Friend WithEvents lbpendiente As DevComponents.DotNetBar.LabelX
     Friend WithEvents tbpendiente As DevComponents.Editors.DoubleInput
+    Protected WithEvents btnPagarAnticipo As DevComponents.DotNetBar.ButtonX
 End Class

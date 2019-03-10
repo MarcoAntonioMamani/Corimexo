@@ -378,3 +378,4 @@ A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\DinoM\obj\Debug\DinoM.F1
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\DinoM\obj\Debug\DinoM.F1_Clase.resources
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\DinoM\obj\Debug\DinoM.F1_Modelo.resources
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\DinoM\obj\Debug\DinoM.Pr_CajaDetallada.resources
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\DinoM\obj\Debug\DinoM.FR_AyudaCobro.resources

@@ -294,7 +294,7 @@ Public Class F0_Ventas
             _CodEmpleado = .GetValue("taven")
             _Codbanco = .GetValue("tabanco")
             tbbanco.Text = .GetValue("banco")
-            swanticipo.Value = .GetValue("taanticipo")
+
             tbproduccion.Text = .GetValue("nroproduccion")
             tbVendedor.Text = .GetValue("vendedor")
             tbcheque.Text = .GetValue("tanrocheque")
@@ -352,6 +352,13 @@ Public Class F0_Ventas
         _prCalcularPrecioTotal()
         LblPaginacion.Text = Str(grVentas.Row + 1) + "/" + grVentas.RowCount.ToString
         tbmontoanticipo.Value = grVentas.GetValue("tamontoanticipo")
+        swanticipo.Value = grVentas.GetValue("taanticipo")
+
+        If (swanticipo.Value = True And tbpendiente.Value > 0 And tbObservacion.ReadOnly = True) Then
+            btnPagarAnticipo.Visible = True
+        Else
+            btnPagarAnticipo.Visible = False
+        End If
     End Sub
 
     Private Sub _prCargarDetalleVenta(_numi As String)
@@ -2943,6 +2950,7 @@ salirIf:
             tbpendiente.Visible = False
             lbpendiente.visible = False
         End If
+
     End Sub
 
     Private Sub tbmontoanticipo_ValueChanged(sender As Object, e As EventArgs) Handles tbmontoanticipo.ValueChanged
@@ -2957,6 +2965,30 @@ salirIf:
     Private Sub ButtonX2_Click(sender As Object, e As EventArgs) Handles btnproduccion.Click
         If (Not _fnAccesible()) Then
             P_GenerarReporteOrdenProduccion(tbCodigo.Text)
+
+        End If
+    End Sub
+
+    Private Sub btnPagarAnticipo_Click(sender As Object, e As EventArgs) Handles btnPagarAnticipo.Click
+        'Public NumiVendedor As Integer
+        'Public NumiVenta As Integer
+        'Public NumiCliente As Integer
+        'Public MontoPendiente As Double
+        Dim ef = New FR_AyudaCobro
+        ef.NumiCliente = _CodCliente
+        ef.NumiVendedor = _CodEmpleado
+        ef.NumiVenta = tbCodigo.Text
+        ef.MontoPendiente = tbpendiente.Value
+        ef.ShowDialog()
+
+        If (ef.MBandera = True) Then
+            _prCargarVenta()
+            Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
+            ToastNotification.Show(Me, "El Pago Ha Sido ".ToUpper + " Grabado con Exito.".ToUpper,
+                                      img, 2000,
+                                      eToastGlowColor.Green,
+                                      eToastPosition.TopCenter
+                                      )
 
         End If
     End Sub

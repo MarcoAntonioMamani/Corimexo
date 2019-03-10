@@ -1,19 +1,9 @@
-﻿Imports GMap.NET.WindowsForms
-Imports GMap.NET.WindowsForms.ToolTips
-Imports System.Drawing
-Imports DevComponents.DotNetBar.Controls
-Imports System.Threading
-Imports System.Drawing.Text
+﻿Imports DevComponents.DotNetBar.Controls
 Imports Logica.AccesoLogica
 Imports Janus.Windows.GridEX
 Imports DevComponents.DotNetBar
 Imports System.IO
-Imports DevComponents.DotNetBar.SuperGrid
-Imports GMap.NET.MapProviders
-Imports GMap.NET
-Imports GMap.NET.WindowsForms.Markers
-Imports System.Reflection
-Imports System.Runtime.InteropServices
+
 Public Class F0_Cobrar_Vendedor
 #Region "Variables Globales"
     Dim precio As DataTable
