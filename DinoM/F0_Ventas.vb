@@ -183,6 +183,7 @@ Public Class F0_Ventas
         SwProforma.IsReadOnly = False
         grVentas.Enabled = False
         tbCodigo.ReadOnly = False
+
         ''  tbCliente.ReadOnly = False  por que solo podra seleccionar Cliente
         ''  tbVendedor.ReadOnly = False
         tbObservacion.ReadOnly = False
@@ -223,6 +224,7 @@ Public Class F0_Ventas
     End Sub
     Private Sub _Limpiar()
         tbProforma.Clear()
+        tbproduccion.Text = "0"
         tbCodigo.Clear()
         tbCliente.Clear()
         tbVendedor.Clear()
@@ -282,7 +284,7 @@ Public Class F0_Ventas
     Public Sub _prMostrarRegistro(_N As Integer)
         '' grVentas.Row = _N
         '     a.tanumi ,a.taalm ,a.tafdoc ,a.taven ,vendedor .yddesc as vendedor ,a.tatven ,a.tafvcr ,a.taclpr,
-        'cliente.yddesc as cliente ,a.tamon ,IIF(tamon=1,'Boliviano','Dolar') as moneda,a.taest ,a.taobs ,
+        'cliente.yddesc as cliente ,a.tamon ,IIF(tamon=1,'Boliviano','Dolar') as moneda,a.taest ,a.taobs ,nroproduccion
         'a.tadesc ,a.tafact ,a.tahact ,a.tauact,(Sum(b.tbptot)-a.tadesc ) as total,taproforma
 
         With grVentas
@@ -293,7 +295,7 @@ Public Class F0_Ventas
             _Codbanco = .GetValue("tabanco")
             tbbanco.Text = .GetValue("banco")
             swanticipo.Value = .GetValue("taanticipo")
-
+            tbproduccion.Text = .GetValue("nroproduccion")
             tbVendedor.Text = .GetValue("vendedor")
             tbcheque.Text = .GetValue("tanrocheque")
             cbTipoVenta.Value = .GetValue("tatven")
@@ -2857,9 +2859,13 @@ salirIf:
         If (swanticipo.Value = True) Then
             lbmontoanticipo.Visible = True
             tbmontoanticipo.Visible = True
+            lbproduccion.Visible = True
+            tbproduccion.Visible = True
         Else
             lbmontoanticipo.Visible = False
             tbmontoanticipo.Visible = False
+            lbproduccion.Visible = False
+            tbproduccion.Visible = False
         End If
     End Sub
 
