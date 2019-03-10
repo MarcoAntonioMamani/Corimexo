@@ -35,6 +35,8 @@ Partial Class F0_Ventas
         Me.PanelContentSup = New System.Windows.Forms.Panel()
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.tbproduccion = New DevComponents.DotNetBar.LabelX()
+        Me.lbproduccion = New DevComponents.DotNetBar.LabelX()
         Me.lbmontoanticipo = New DevComponents.DotNetBar.LabelX()
         Me.tbmontoanticipo = New DevComponents.Editors.DoubleInput()
         Me.swanticipo = New DevComponents.DotNetBar.Controls.SwitchButton()
@@ -101,8 +103,9 @@ Partial Class F0_Ventas
         Me.LabelX9 = New DevComponents.DotNetBar.LabelX()
         Me.ButtonX1 = New DevComponents.DotNetBar.ButtonX()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
-        Me.lbproduccion = New DevComponents.DotNetBar.LabelX()
-        Me.tbproduccion = New DevComponents.DotNetBar.LabelX()
+        Me.btnproduccion = New DevComponents.DotNetBar.ButtonX()
+        Me.lbpendiente = New DevComponents.DotNetBar.LabelX()
+        Me.tbpendiente = New DevComponents.Editors.DoubleInput()
         Me.PanelSuperior.SuspendLayout()
         Me.PanelInferior.SuspendLayout()
         CType(Me.BubbleBarUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -151,10 +154,12 @@ Partial Class F0_Ventas
         CType(Me.tbMdesc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbtotal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbPdesc, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tbpendiente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelSuperior
         '
+        Me.PanelSuperior.Controls.Add(Me.btnproduccion)
         Me.PanelSuperior.Controls.Add(Me.ButtonX1)
         Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(5)
         Me.PanelSuperior.Size = New System.Drawing.Size(1355, 89)
@@ -175,6 +180,7 @@ Partial Class F0_Ventas
         Me.PanelSuperior.Controls.SetChildIndex(Me.PanelToolBar2, 0)
         Me.PanelSuperior.Controls.SetChildIndex(Me.MRlAccion, 0)
         Me.PanelSuperior.Controls.SetChildIndex(Me.ButtonX1, 0)
+        Me.PanelSuperior.Controls.SetChildIndex(Me.btnproduccion, 0)
         Me.PanelSuperior.Controls.SetChildIndex(Me.PictureBox1, 0)
         '
         'PanelInferior
@@ -254,6 +260,7 @@ Partial Class F0_Ventas
         '
         'btnImprimir
         '
+        Me.btnImprimir.Text = "Factura"
         '
         'btnUltimo
         '
@@ -327,7 +334,7 @@ Partial Class F0_Ventas
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(789, 0)
+        Me.PictureBox1.Location = New System.Drawing.Point(659, 0)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(5)
         '
         'SuperTabItem1
@@ -515,6 +522,8 @@ Partial Class F0_Ventas
         '
         Me.Panel2.AutoScroll = True
         Me.Panel2.BackColor = System.Drawing.Color.White
+        Me.Panel2.Controls.Add(Me.lbpendiente)
+        Me.Panel2.Controls.Add(Me.tbpendiente)
         Me.Panel2.Controls.Add(Me.tbproduccion)
         Me.Panel2.Controls.Add(Me.lbproduccion)
         Me.Panel2.Controls.Add(Me.lbmontoanticipo)
@@ -553,6 +562,42 @@ Partial Class F0_Ventas
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1312, 333)
         Me.Panel2.TabIndex = 234
+        '
+        'tbproduccion
+        '
+        Me.tbproduccion.BackColor = System.Drawing.Color.OrangeRed
+        '
+        '
+        '
+        Me.tbproduccion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbproduccion.Font = New System.Drawing.Font("Arial Narrow", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbproduccion.ForeColor = System.Drawing.Color.White
+        Me.tbproduccion.Location = New System.Drawing.Point(455, 244)
+        Me.tbproduccion.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbproduccion.Name = "tbproduccion"
+        Me.tbproduccion.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.tbproduccion.Size = New System.Drawing.Size(70, 40)
+        Me.tbproduccion.TabIndex = 266
+        Me.tbproduccion.Text = "01"
+        Me.tbproduccion.TextAlignment = System.Drawing.StringAlignment.Center
+        '
+        'lbproduccion
+        '
+        Me.lbproduccion.AutoSize = True
+        Me.lbproduccion.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.lbproduccion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbproduccion.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbproduccion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.lbproduccion.Location = New System.Drawing.Point(316, 257)
+        Me.lbproduccion.Margin = New System.Windows.Forms.Padding(4)
+        Me.lbproduccion.Name = "lbproduccion"
+        Me.lbproduccion.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.lbproduccion.Size = New System.Drawing.Size(131, 20)
+        Me.lbproduccion.TabIndex = 265
+        Me.lbproduccion.Text = "Nro Producción:"
         '
         'lbmontoanticipo
         '
@@ -1870,48 +1915,66 @@ Partial Class F0_Ventas
         Me.ButtonX1.Size = New System.Drawing.Size(107, 89)
         Me.ButtonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.ButtonX1.TabIndex = 12
-        Me.ButtonX1.Text = "NOTA VENTA"
+        Me.ButtonX1.Text = "Nota De Venta"
         Me.ButtonX1.TextColor = System.Drawing.Color.White
         '
         'PrintDialog1
         '
         Me.PrintDialog1.UseEXDialog = True
         '
-        'lbproduccion
+        'btnproduccion
         '
-        Me.lbproduccion.AutoSize = True
-        Me.lbproduccion.BackColor = System.Drawing.Color.Transparent
+        Me.btnproduccion.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnproduccion.ColorTable = DevComponents.DotNetBar.eButtonColor.Orange
+        Me.btnproduccion.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnproduccion.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnproduccion.Image = Global.DinoM.My.Resources.Resources._14
+        Me.btnproduccion.ImageFixedSize = New System.Drawing.Size(48, 48)
+        Me.btnproduccion.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnproduccion.Location = New System.Drawing.Point(1011, 0)
+        Me.btnproduccion.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnproduccion.Name = "btnproduccion"
+        Me.btnproduccion.Size = New System.Drawing.Size(130, 89)
+        Me.btnproduccion.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btnproduccion.TabIndex = 13
+        Me.btnproduccion.Text = "Ord. Producción"
+        Me.btnproduccion.TextColor = System.Drawing.Color.White
+        '
+        'lbpendiente
+        '
+        Me.lbpendiente.AutoSize = True
+        Me.lbpendiente.BackColor = System.Drawing.Color.Transparent
         '
         '
         '
-        Me.lbproduccion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.lbproduccion.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbproduccion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.lbproduccion.Location = New System.Drawing.Point(316, 257)
-        Me.lbproduccion.Margin = New System.Windows.Forms.Padding(4)
-        Me.lbproduccion.Name = "lbproduccion"
-        Me.lbproduccion.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.lbproduccion.Size = New System.Drawing.Size(131, 20)
-        Me.lbproduccion.TabIndex = 265
-        Me.lbproduccion.Text = "Nro Producción:"
+        Me.lbpendiente.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbpendiente.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbpendiente.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.lbpendiente.Location = New System.Drawing.Point(17, 285)
+        Me.lbpendiente.Margin = New System.Windows.Forms.Padding(4)
+        Me.lbpendiente.Name = "lbpendiente"
+        Me.lbpendiente.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.lbpendiente.Size = New System.Drawing.Size(141, 20)
+        Me.lbpendiente.TabIndex = 268
+        Me.lbpendiente.Text = "Monto Pendiente:"
         '
-        'tbproduccion
-        '
-        Me.tbproduccion.BackColor = System.Drawing.Color.OrangeRed
+        'tbpendiente
         '
         '
         '
-        Me.tbproduccion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tbproduccion.Font = New System.Drawing.Font("Arial Narrow", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbproduccion.ForeColor = System.Drawing.Color.White
-        Me.tbproduccion.Location = New System.Drawing.Point(455, 244)
-        Me.tbproduccion.Margin = New System.Windows.Forms.Padding(4)
-        Me.tbproduccion.Name = "tbproduccion"
-        Me.tbproduccion.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.tbproduccion.Size = New System.Drawing.Size(70, 40)
-        Me.tbproduccion.TabIndex = 266
-        Me.tbproduccion.Text = "01"
-        Me.tbproduccion.TextAlignment = System.Drawing.StringAlignment.Center
+        '
+        Me.tbpendiente.BackgroundStyle.Class = "DateTimeInputBackground"
+        Me.tbpendiente.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbpendiente.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
+        Me.tbpendiente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbpendiente.Increment = 1.0R
+        Me.tbpendiente.Location = New System.Drawing.Point(179, 284)
+        Me.tbpendiente.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbpendiente.MinValue = 0R
+        Me.tbpendiente.Name = "tbpendiente"
+        Me.tbpendiente.Size = New System.Drawing.Size(119, 24)
+        Me.tbpendiente.TabIndex = 267
+        Me.tbpendiente.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right
         '
         'F0_Ventas
         '
@@ -1973,6 +2036,7 @@ Partial Class F0_Ventas
         CType(Me.tbMdesc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbtotal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbPdesc, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tbpendiente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2054,4 +2118,7 @@ Partial Class F0_Ventas
     Friend WithEvents tbmontoanticipo As DevComponents.Editors.DoubleInput
     Friend WithEvents lbproduccion As DevComponents.DotNetBar.LabelX
     Friend WithEvents tbproduccion As DevComponents.DotNetBar.LabelX
+    Protected WithEvents btnproduccion As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents lbpendiente As DevComponents.DotNetBar.LabelX
+    Friend WithEvents tbpendiente As DevComponents.Editors.DoubleInput
 End Class

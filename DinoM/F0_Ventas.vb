@@ -45,7 +45,7 @@ Public Class F0_Ventas
         _prValidarLote()
         _prCargarComboLibreriaSucursal(cbSucursal)
         _prCargarComboLibreriaTipoVenta(cbTipoVenta)
-
+        tbpendiente.IsInputReadOnly = True
 
         P_prCargarVariablesIndispensables()
         _prCargarVenta()
@@ -1267,6 +1267,9 @@ Public Class F0_Ventas
                                       eToastPosition.TopCenter
                                       )
             _prImiprimirNotaVenta(numi)
+            If (swanticipo.Value = True) Then
+                P_GenerarReporteOrdenProduccion(tbCodigo.Text)
+            End If
 
 
 
@@ -1707,12 +1710,12 @@ Public Class F0_Ventas
         ParteEntera = Int(total)
         ParteDecimal = total - ParteEntera
         Dim li As String = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(ParteEntera)) + " con " +
-        IIf(ParteDecimal.ToString.Equals("0"), "00", ParteDecimal.ToString) + "/100 Bolivianos"
+        IIf(ParteDecimal.ToString.Equals("0"), "00", ParteDecimal.ToString) + " / 100 Bolivianos"
 
         ParteEntera = Int(totald)
         ParteDecimal = Math.Round(totald - ParteEntera, 2)
         Dim lid As String = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(ParteEntera)) + " con " +
-        IIf(ParteDecimal.ToString.Equals("0"), "00", ParteDecimal.ToString) + "/100 Dolares"
+        IIf(ParteDecimal.ToString.Equals("0"), "00", ParteDecimal.ToString) + " / 100 Dolares"
 
         Dim dt2 As DataTable = L_fnNameReporte()
         Dim ParEmp1 As String = ""
@@ -1759,18 +1762,85 @@ Public Class F0_Ventas
             objrep.SetParameterValue("TotalDoN", totald)
             objrep.SetParameterValue("usuario", gs_user)
             objrep.SetParameterValue("glosa", tbObservacion.Text)
-            objrep.SetParameterValue("estado", 0)
-            'objrep.SetParameterValue("P_Fecha", _FechaPar)
-            'objrep.SetParameterValue("P_Empresa", ParEmp1)
-            'objrep.SetParameterValue("P_Empresa1", ParEmp2)
-            'objrep.SetParameterValue("P_Empresa2", ParEmp3)
-            'objrep.SetParameterValue("P_Empresa3", ParEmp4)
-            'objrep.SetParameterValue("usuario", gs_user)
-            'objrep.SetParameterValue("estado", 1)
+            If (swanticipo.Value = True) Then
+                objrep.SetParameterValue("estado", 1)
+                objrep.SetParameterValue("MontoAnticipado", tbmontoanticipo.Text)
+                Dim anticipo As Double = tbmontoanticipo.Value
+                Dim pendiente As Double = Math.Round(Convert.ToDouble(total - anticipo), 2)
+                pendiente = pendiente + 0.00
+                objrep.SetParameterValue("pendiente", tbpendiente.Text)
+            Else
+                objrep.SetParameterValue("MontoAnticipado", tbmontoanticipo.Text)
+                objrep.SetParameterValue("pendiente", Str(total - tbmontoanticipo.Value))
+                objrep.SetParameterValue("estado", 0)
+            End If
+
             P_Global.Visualizador.CrGeneral.ReportSource = objrep 'Comentar
             P_Global.Visualizador.Show() 'Comentar
             P_Global.Visualizador.BringToFront() 'Comentar
         End If
+
+    End Sub
+
+
+    Private Sub P_GenerarReporteOrdenProduccion(numi As String)
+        Dim dt As DataTable = L_fnVentaOrdenProduccion(numi)
+        If (dt.Rows.Count <= 0) Then
+            ToastNotification.Show(Me, "NO EXISTEN DATOS PARA MOSTRAR",
+                                       My.Resources.WARNING, 2 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Return
+        End If
+        Dim total As Double = dt.Compute("SUM(Total)", "")
+        Dim totald As Double = (total / 6.96)
+        Dim fechaven As String = dt.Rows(0).Item("fechaventa")
+        If Not IsNothing(P_Global.Visualizador) Then
+            P_Global.Visualizador.Close()
+        End If
+        Dim ParteEntera As Long
+        Dim ParteDecimal As Double
+        ParteEntera = Int(total)
+        ParteDecimal = total - ParteEntera
+        Dim li As String = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(ParteEntera)) + " con " +
+        IIf(ParteDecimal.ToString.Equals("0"), "00", ParteDecimal.ToString) + "/100 Bolivianos"
+
+        ParteEntera = Int(totald)
+        ParteDecimal = Math.Round(totald - ParteEntera, 2)
+        Dim lid As String = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(ParteEntera)) + " con " +
+        IIf(ParteDecimal.ToString.Equals("0"), "00", ParteDecimal.ToString) + "/100 Dolares"
+
+
+
+        P_Global.Visualizador = New Visualizador
+        Dim _FechaAct As String
+        Dim _FechaPar As String
+        Dim _Fecha() As String
+        Dim _Meses() As String = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"}
+        _FechaAct = fechaven
+        _Fecha = Split(_FechaAct, "-")
+        _FechaPar = "Santa Cruz, " + Now.Date.Day.ToString + " De " + MonthName(Now.Date.Month) + " Del " + Now.Date.Year.ToString
+
+        'Dim objrep As New R_Notadeentrega2
+        Dim objrep As New R_OrdenProduccion
+        ' GenerarNro(_dt)
+        'objrep.SetDataSource(Dt1Kardex)
+        totald = Math.Round(totald, 2)
+            objrep.SetDataSource(dt)
+        objrep.SetParameterValue("fecha", _FechaPar)
+
+        objrep.SetParameterValue("usuario", gs_user)
+
+        'objrep.SetParameterValue("P_Fecha", _FechaPar)
+        'objrep.SetParameterValue("P_Empresa", ParEmp1)
+        'objrep.SetParameterValue("P_Empresa1", ParEmp2)
+        'objrep.SetParameterValue("P_Empresa2", ParEmp3)
+        'objrep.SetParameterValue("P_Empresa3", ParEmp4)
+        'objrep.SetParameterValue("usuario", gs_user)
+        'objrep.SetParameterValue("estado", 1)
+        P_Global.Visualizador.CrGeneral.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.Show() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+
 
     End Sub
     Private Sub P_GenerarReporteFactura(numi As String)
@@ -2861,11 +2931,17 @@ salirIf:
             tbmontoanticipo.Visible = True
             lbproduccion.Visible = True
             tbproduccion.Visible = True
+            btnproduccion.Visible = True
+            tbpendiente.Visible = True
+            lbpendiente.visible = True
         Else
             lbmontoanticipo.Visible = False
             tbmontoanticipo.Visible = False
             lbproduccion.Visible = False
             tbproduccion.Visible = False
+            btnproduccion.Visible = False
+            tbpendiente.Visible = False
+            lbpendiente.visible = False
         End If
     End Sub
 
@@ -2873,6 +2949,15 @@ salirIf:
         Dim total As Double = tbtotal.Value
         If (tbmontoanticipo.Value > total) Then
             tbmontoanticipo.Value = 0
+        Else
+            tbpendiente.Value = total - tbmontoanticipo.Value
+        End If
+    End Sub
+
+    Private Sub ButtonX2_Click(sender As Object, e As EventArgs) Handles btnproduccion.Click
+        If (Not _fnAccesible()) Then
+            P_GenerarReporteOrdenProduccion(tbCodigo.Text)
+
         End If
     End Sub
 

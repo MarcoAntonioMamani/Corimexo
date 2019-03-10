@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class R_NotaDeVentaSinLote
+Public Class R_OrdenProduccion
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class R_NotaDeVentaSinLote
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "R_NotaDeVentaSinLote.rpt"
+            Return "R_OrdenProduccion.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class R_NotaDeVentaSinLote
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "DinoM.R_NotaDeVentaSinLote.rpt"
+            Return "DinoM.R_OrdenProduccion.rpt"
         End Get
         Set
             'Do nothing
@@ -94,7 +94,7 @@ Public Class R_NotaDeVentaSinLote
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_TotalBs() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_usuario() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(0)
         End Get
@@ -102,63 +102,15 @@ Public Class R_NotaDeVentaSinLote
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_usuario() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_fecha() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(1)
-        End Get
-    End Property
-    
-    <Browsable(false),  _
-     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_estado() As CrystalDecisions.[Shared].IParameterField
-        Get
-            Return Me.DataDefinition.ParameterFields(2)
-        End Get
-    End Property
-    
-    <Browsable(false),  _
-     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_TotalDo() As CrystalDecisions.[Shared].IParameterField
-        Get
-            Return Me.DataDefinition.ParameterFields(3)
-        End Get
-    End Property
-    
-    <Browsable(false),  _
-     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_TotalDoN() As CrystalDecisions.[Shared].IParameterField
-        Get
-            Return Me.DataDefinition.ParameterFields(4)
-        End Get
-    End Property
-    
-    <Browsable(false),  _
-     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_glosa() As CrystalDecisions.[Shared].IParameterField
-        Get
-            Return Me.DataDefinition.ParameterFields(5)
-        End Get
-    End Property
-    
-    <Browsable(false),  _
-     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_MontoAnticipado() As CrystalDecisions.[Shared].IParameterField
-        Get
-            Return Me.DataDefinition.ParameterFields(6)
-        End Get
-    End Property
-    
-    <Browsable(false),  _
-     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_pendiente() As CrystalDecisions.[Shared].IParameterField
-        Get
-            Return Me.DataDefinition.ParameterFields(7)
         End Get
     End Property
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedR_NotaDeVentaSinLote
+Public Class CachedR_OrdenProduccion
     Inherits Component
     Implements ICachedReport
     
@@ -200,7 +152,7 @@ Public Class CachedR_NotaDeVentaSinLote
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As R_NotaDeVentaSinLote = New R_NotaDeVentaSinLote()
+        Dim rpt As R_OrdenProduccion = New R_OrdenProduccion()
         rpt.Site = Me.Site
         Return rpt
     End Function
