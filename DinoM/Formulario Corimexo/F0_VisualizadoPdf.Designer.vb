@@ -32,13 +32,16 @@ Partial Class F0_VisualizadoPdf
         '
         'PdfView
         '
-        Me.PdfView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PdfView.AllowDrop = True
+        Me.PdfView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PdfView.Enabled = True
-        Me.PdfView.Location = New System.Drawing.Point(0, 67)
-        Me.PdfView.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.PdfView.Location = New System.Drawing.Point(0, 65)
+        Me.PdfView.Margin = New System.Windows.Forms.Padding(0)
         Me.PdfView.Name = "PdfView"
         Me.PdfView.OcxState = CType(resources.GetObject("PdfView.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.PdfView.Size = New System.Drawing.Size(972, 699)
+        Me.PdfView.Size = New System.Drawing.Size(1088, 701)
         Me.PdfView.TabIndex = 1
         '
         'Panel1
@@ -49,7 +52,7 @@ Partial Class F0_VisualizadoPdf
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(972, 67)
+        Me.Panel1.Size = New System.Drawing.Size(1081, 67)
         Me.Panel1.TabIndex = 2
         '
         'lbtitulo
@@ -68,7 +71,7 @@ Partial Class F0_VisualizadoPdf
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(972, 766)
+        Me.ClientSize = New System.Drawing.Size(1081, 766)
         Me.Controls.Add(Me.PdfView)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
