@@ -59,9 +59,8 @@ Public Class FR_AyudaCobro
         If (cbdocumento.Value = 1) Then
             lbbanco.Visible = False
             cbbanco.Visible = False
-            lbnrodocumento.Text = "Nro Recibo:"
-            lbnrodocumento.Visible = True
-            tbnrodocumento.Visible = True
+            lbnrodocumento.Visible = False
+            tbnrodocumento.Visible = False
         End If
         If (cbdocumento.Value = 2) Then
             lbbanco.Visible = True

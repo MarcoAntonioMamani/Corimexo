@@ -185,6 +185,9 @@
     <Reference Include="Janus.Windows.UI.v3">
       <HintPath>C:\Users\usuario\Dropbox\Utilitarios\Aplicaciones\Janus\Janus.Windows.UI.v3.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+    </Reference>
     <Reference Include="OnBarcode.Barcode.WinForms">
       <HintPath>C:\Users\usuario\Dropbox\Utilitarios\Aplicaciones\Qrcode_Barcode\OnBarcode.Barcode.WinForms.dll</HintPath>
     </Reference>
@@ -329,6 +332,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\HOMINIS.TTF" />
     <None Include="Resources\ultimo.png" />
   </ItemGroup>
@@ -514,6 +518,8 @@
     <Content Include="Resources\img2.jpg" />
     <Content Include="Resources\INFORMATION.png" />
     <Content Include="Resources\jpg.png" />
+    <None Include="Resources\logocorimexo.jpg" />
+    <None Include="Resources\logocori.png" />
     <Content Include="Resources\man-28.png" />
     <Content Include="Resources\man.png" />
     <Content Include="Resources\mark.png" />

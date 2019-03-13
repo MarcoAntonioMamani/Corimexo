@@ -1754,9 +1754,14 @@ Public Class F0_Ventas
             objrep.SetParameterValue("TotalDoN", totald)
             objrep.SetParameterValue("usuario", gs_user)
             objrep.SetParameterValue("estado", 1)
-            P_Global.Visualizador.CrGeneral.ReportSource = objrep 'Comentar
-            P_Global.Visualizador.Show() 'Comentar
-            P_Global.Visualizador.BringToFront() 'Comentar
+            Dim ruta As String = gs_CarpetaRaiz + "\PdfView\" + CStr(Now.Date.Year) + "_" + CStr(Now.Date.Month) + CStr(Now.Date.Day) + CStr(Now.Date.Hour) + CStr(Now.Date.Minute) + CStr(Now.Date.Second) + ".pdf"
+            objrep.ExportToDisk(ExportFormatType.PortableDocFormat, ruta)
+            Dim a As VisorPdf = New VisorPdf
+            a.Ruta = ruta
+            a.ShowDialog()
+            'P_Global.Visualizador.CrGeneral.ReportSource = objrep 'Comentar
+            'P_Global.Visualizador.Show() 'Comentar
+            'P_Global.Visualizador.BringToFront() 'Comentar
         Else
             'Dim objrep As New R_Notadeentrega2
             Dim objrep As New R_NotaDeVentaSinLote
@@ -1781,12 +1786,30 @@ Public Class F0_Ventas
                 objrep.SetParameterValue("pendiente", Str(total - tbmontoanticipo.Value))
                 objrep.SetParameterValue("estado", 0)
             End If
+            _prCrearCarpetaImagenes()
+            Dim ruta As String = RutaGlobal + "\PdfView\" + Str(Now.Day).Trim + Str(Now.Month).Trim + Str(Now.Year).Trim + Str(Now.Hour) + Str(Now.Minute) + Str(Now.Second) + ".pdf"
+            objrep.ExportToDisk(ExportFormatType.PortableDocFormat, ruta)
+            Dim a As F0_VisualizadoPdf = New F0_VisualizadoPdf
+            a.Ruta = ruta
+            a.Titulo = "REPORTE DE NOTA DE VENTA"
+            a.Show()
 
-            P_Global.Visualizador.CrGeneral.ReportSource = objrep 'Comentar
-            P_Global.Visualizador.Show() 'Comentar
-            P_Global.Visualizador.BringToFront() 'Comentar
+            'P_Global.Visualizador.CrGeneral.ReportSource = objrep 'Comentar
+            'P_Global.Visualizador.Show() 'Comentar
+            'P_Global.Visualizador.BringToFront() 'Comentar
         End If
 
+    End Sub
+
+    Private Sub _prCrearCarpetaImagenes()
+        Dim rutaDestino As String = RutaGlobal + "\PdfView\"
+
+        If System.IO.Directory.Exists(RutaGlobal + "\PdfView\") = False Then
+
+            System.IO.Directory.CreateDirectory(RutaGlobal + "\PdfView")
+
+
+        End If
     End Sub
 
 
@@ -1844,9 +1867,17 @@ Public Class F0_Ventas
         'objrep.SetParameterValue("P_Empresa3", ParEmp4)
         'objrep.SetParameterValue("usuario", gs_user)
         'objrep.SetParameterValue("estado", 1)
-        P_Global.Visualizador.CrGeneral.ReportSource = objrep 'Comentar
-            P_Global.Visualizador.Show() 'Comentar
-            P_Global.Visualizador.BringToFront() 'Comentar
+
+        _prCrearCarpetaImagenes()
+        Dim ruta As String = RutaGlobal + "\PdfView\" + Str(Now.Day).Trim + Str(Now.Month).Trim + Str(Now.Year).Trim + Str(Now.Hour) + Str(Now.Minute) + Str(Now.Second) + ".pdf"
+        objrep.ExportToDisk(ExportFormatType.PortableDocFormat, ruta)
+        Dim a As F0_VisualizadoPdf = New F0_VisualizadoPdf
+        a.Ruta = ruta
+        a.Titulo = "REPORTE DE ORDEN DE PRODUCCION"
+        a.Show()
+        'P_Global.Visualizador.CrGeneral.ReportSource = objrep 'Comentar
+        '    P_Global.Visualizador.Show() 'Comentar
+        '    P_Global.Visualizador.BringToFront() 'Comentar
 
 
     End Sub

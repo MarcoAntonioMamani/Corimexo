@@ -174,6 +174,7 @@ A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\bin\Debug\Janus.W
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\bin\Debug\Janus.Windows.GridEX.v3.dll
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\bin\Debug\Janus.Windows.Ribbon.v3.dll
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\bin\Debug\Janus.Windows.UI.v3.dll
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\bin\Debug\MaterialSkin.dll
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\bin\Debug\OnBarcode.Barcode.WinForms.dll
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\bin\Debug\SAPBusinessObjects.WPF.Viewer.dll
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\bin\Debug\SAPBusinessObjects.WPF.ViewerShared.dll
@@ -199,7 +200,6 @@ A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\bin\Debug\DevComp
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\bin\Debug\DevComponents.Instrumentation.xml
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.xml
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\bin\Debug\Microsoft.VisualStudio.Designer.Interfaces.xml
-A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\obj\Debug\Modelo.vbprojResolveAssemblyReference.cache
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\obj\Debug\Modelo.ModeloAyuda.resources
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\obj\Debug\Modelo.ModeloF00.resources
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\obj\Debug\Modelo.ModeloF0.resources
@@ -214,3 +214,4 @@ A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\obj\Debug\Modelo.
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\obj\Debug\Modelo.exe
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\obj\Debug\Modelo.xml
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\obj\Debug\Modelo.pdb
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Modelo\obj\Debug\Modelo.vbprojResolveAssemblyReference.cache

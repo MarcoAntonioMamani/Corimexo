@@ -167,6 +167,16 @@ Modelo
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Modelo.My.Resources.Resources.logocori">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Modelo.My.Resources.Resources.logocorimexo">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Modelo.My.Resources.Resources.man_18">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.

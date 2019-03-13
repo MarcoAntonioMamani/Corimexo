@@ -65,8 +65,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AxInterop.AcroPDFLib">
-      <HintPath>..\..\..\..\..\proyectos\DiConta\DiConta\Presentacion\bin\Debug\AxInterop.AcroPDFLib.dll</HintPath>
+    <Reference Include="AxInterop.AcroPDFLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DiConta\DiConta\Presentacion\bin\Debug\AxInterop.AcroPDFLib.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -136,6 +137,9 @@
     </Reference>
     <Reference Include="Janus.Windows.UI.v3">
       <HintPath>C:\Users\usuario\Dropbox\Utilitarios\Aplicaciones\Janus\Janus.Windows.UI.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="OnBarcode.Barcode.WinForms">
       <HintPath>C:\Users\usuario\Dropbox\Utilitarios\Aplicaciones\Qrcode_Barcode\OnBarcode.Barcode.WinForms.dll</HintPath>
@@ -373,6 +377,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Font\Custom.vb" />
+    <Compile Include="Formulario Corimexo\F0_VisualizadoPdf.Designer.vb">
+      <DependentUpon>F0_VisualizadoPdf.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario Corimexo\F0_VisualizadoPdf.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formulario Corimexo\F1_Categoria.Designer.vb">
       <DependentUpon>F1_Categoria.vb</DependentUpon>
     </Compile>
@@ -419,6 +429,12 @@
       <DependentUpon>F1_SubGrupo.vb</DependentUpon>
     </Compile>
     <Compile Include="Formulario Corimexo\F1_SubGrupo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario Corimexo\VisorPdf.Designer.vb">
+      <DependentUpon>VisorPdf.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario Corimexo\VisorPdf.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pr_CajaDetallada.Designer.vb">
@@ -897,6 +913,9 @@
     <EmbeddedResource Include="F1_Zonas.resx">
       <DependentUpon>F1_Zonas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formulario Corimexo\F0_VisualizadoPdf.resx">
+      <DependentUpon>F0_VisualizadoPdf.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formulario Corimexo\F1_Categoria.resx">
       <DependentUpon>F1_Categoria.vb</DependentUpon>
     </EmbeddedResource>
@@ -920,6 +939,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario Corimexo\Migrar.resx">
       <DependentUpon>Migrar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario Corimexo\VisorPdf.resx">
+      <DependentUpon>VisorPdf.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pr_CajaDetallada.resx">
       <DependentUpon>Pr_CajaDetallada.vb</DependentUpon>
@@ -1171,6 +1193,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\addimg.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1458,7 +1481,25 @@
     <None Include="Resources\pdf.png" />
     <None Include="Resources\txt.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
