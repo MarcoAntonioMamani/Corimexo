@@ -1261,7 +1261,7 @@ Public Class F0_Ventas
 
 
         If res Then
-            res = P_fnGrabarFacturarTFV001(numi)
+
 
             If (gb_FacturaEmite) Then
                 P_fnGenerarFactura(numi)
