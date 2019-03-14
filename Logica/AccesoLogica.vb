@@ -814,7 +814,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@ydobs", _ydobs))
         _listParam.Add(New Datos.DParametro("@ydfnac", _ydfnac))
         _listParam.Add(New Datos.DParametro("@ydnomfac", _ydnomfac))
-        _listParam.Add(New Datos.DParametro("@ydtip", _ydtip))
+        _listParam.Add(New Datos.DParametro("@ydtip", 3))
         _listParam.Add(New Datos.DParametro("@ydnit", _ydnit))
         _listParam.Add(New Datos.DParametro("@yddias", _yddias))
         _listParam.Add(New Datos.DParametro("@ydlcred", _ydlcred))

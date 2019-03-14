@@ -208,7 +208,7 @@ Public Class Migrar
             '                                 _ydfnac As String, _ydnomfac As String, _ydtip As Integer,
             '                                 _ydnit As String, _yddias As String, _ydlcred As String,
             '                                 _ydfecing As String, _ydultvent As String, _ydimg As String, _ydrut As String
-            Dim bandera As Boolean = L_fnGrabarCLiente("0", "0", "", dt.Rows(i).Item("NOMBRE"), 0, 1, 2, IIf(IsDBNull(dt.Rows(i).Item("NUMDOC")), "", dt.Rows(i).Item("NUMDOC")), IIf(IsDBNull(dt.Rows(i).Item("DIRECCION")), "", dt.Rows(i).Item("DIRECCION")), IIf(IsDBNull(dt.Rows(i).Item("TELEFONO")), "", dt.Rows(i).Item("TELEFONO")), IIf(IsDBNull(dt.Rows(i).Item("CELULAR")), "", dt.Rows(i).Item("CELULAR")), 0, 1, 0, 0, "", "01/01/1990", "", 2, "", "", "", "01/01/2000", "01/01/2000", "Default.jpg", "")
+            Dim bandera As Boolean = L_fnGrabarCLiente("0", "0", "", dt.Rows(i).Item(0), 0, 1, 2, "", IIf(IsDBNull(dt.Rows(i).Item(2)), "", dt.Rows(i).Item(2)), IIf(IsDBNull(dt.Rows(i).Item(1)), "", dt.Rows(i).Item(1)), IIf(IsDBNull(dt.Rows(i).Item(1)), "", dt.Rows(i).Item(1)), 0, 1, 0, 0, "", "01/01/1990", "", 2, "", "", "", "01/01/2000", "01/01/2000", "Default.jpg", "")
 
 
         Next
@@ -296,7 +296,7 @@ Public Class Migrar
         Dim dt As DataSet = New DataSet
 
         conStr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties='Excel 8.0;HDR=Yes'"
-        conStr = String.Format(conStr, "A:\DINASES\Cambios Marco\Corimexo\Migracion\producto.xlsx")
+        conStr = String.Format(conStr, "A:\DINASES\Cambios Marco\Corimexo\Migracion\proveedor.xlsx")
         Dim connExcel As New OleDbConnection(conStr)
         Dim cmdExcel As New OleDbCommand()
         Dim oda As New OleDbDataAdapter()
@@ -304,7 +304,7 @@ Public Class Migrar
         'Get the name of First Sheet
         connExcel.Open()
         dtExcelSchema = connExcel.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, Nothing)
-        Dim name As String = "producto"
+        Dim name As String = "Proveedores"
         Dim SheetName As String = name + "$"
         'If dtExcelSchema.Rows.Count > 0 Then
         '    SheetName = dtExcelSchema.Rows(dtExcelSchema.Rows.Count - 1)("TABLE_NAME").ToString()
@@ -367,8 +367,8 @@ Public Class Migrar
         'Dim aa As String = "LIV.SLI.016.00.S.TEL"
         'aa = aa.Substring(0, 20)
         'MessageBox.Show(aa)
-        _subMigrarProducto()
-
+        '_subMigrarProducto()
+        '_prCargarClientes()
     End Sub
 
     Public Sub _subMigrarProducto()

@@ -1772,6 +1772,7 @@ Public Class F0_Ventas
             objrep.SetParameterValue("TotalBs", li)
             objrep.SetParameterValue("TotalDo", lid)
             objrep.SetParameterValue("TotalDoN", totald)
+            objrep.SetParameterValue("TipoDocumento", cbTipoVenta.Text)
             objrep.SetParameterValue("usuario", gs_user)
             objrep.SetParameterValue("glosa", tbObservacion.Text)
             If (swanticipo.Value = True) Then
@@ -2940,6 +2941,7 @@ salirIf:
                 listEstCeldas.Add(New Modelo.Celda("canumi,", True, "Codigo", 120))
                 listEstCeldas.Add(New Modelo.Celda("canombre", True, "NOMBRE", 200, ""))
                 listEstCeldas.Add(New Modelo.Celda("cacuenta", True, "NRO CUENTA".ToUpper, 200))
+                listEstCeldas.Add(New Modelo.Celda("Moneda", True, "MONEDA".ToUpper, 120))
                 Dim ef = New Efecto
                 ef.tipo = 3
                 ef.dt = dt
