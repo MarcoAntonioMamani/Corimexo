@@ -27,6 +27,8 @@ Partial Class FR_AyudaCobro
         Dim cbdocumento_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.PanelPrincipal = New System.Windows.Forms.Panel()
         Me.panelcontennt = New System.Windows.Forms.Panel()
+        Me.tbglosa = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
         Me.ButtonX1 = New DevComponents.DotNetBar.ButtonX()
         Me.Bt1Generar = New DevComponents.DotNetBar.ButtonX()
         Me.lbbanco = New DevComponents.DotNetBar.LabelX()
@@ -53,11 +55,13 @@ Partial Class FR_AyudaCobro
         Me.PanelPrincipal.Location = New System.Drawing.Point(0, 0)
         Me.PanelPrincipal.Name = "PanelPrincipal"
         Me.PanelPrincipal.Padding = New System.Windows.Forms.Padding(5)
-        Me.PanelPrincipal.Size = New System.Drawing.Size(743, 403)
+        Me.PanelPrincipal.Size = New System.Drawing.Size(736, 488)
         Me.PanelPrincipal.TabIndex = 0
         '
         'panelcontennt
         '
+        Me.panelcontennt.Controls.Add(Me.tbglosa)
+        Me.panelcontennt.Controls.Add(Me.LabelX1)
         Me.panelcontennt.Controls.Add(Me.ButtonX1)
         Me.panelcontennt.Controls.Add(Me.Bt1Generar)
         Me.panelcontennt.Controls.Add(Me.lbbanco)
@@ -69,8 +73,44 @@ Partial Class FR_AyudaCobro
         Me.panelcontennt.Dock = System.Windows.Forms.DockStyle.Fill
         Me.panelcontennt.Location = New System.Drawing.Point(5, 89)
         Me.panelcontennt.Name = "panelcontennt"
-        Me.panelcontennt.Size = New System.Drawing.Size(733, 309)
+        Me.panelcontennt.Size = New System.Drawing.Size(726, 394)
         Me.panelcontennt.TabIndex = 1
+        '
+        'tbglosa
+        '
+        Me.tbglosa.BackColor = System.Drawing.Color.White
+        '
+        '
+        '
+        Me.tbglosa.Border.Class = "TextBoxBorder"
+        Me.tbglosa.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbglosa.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbglosa.ForeColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.tbglosa.Location = New System.Drawing.Point(334, 176)
+        Me.tbglosa.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbglosa.MaxLength = 300
+        Me.tbglosa.Multiline = True
+        Me.tbglosa.Name = "tbglosa"
+        Me.tbglosa.PreventEnterBeep = True
+        Me.tbglosa.Size = New System.Drawing.Size(308, 79)
+        Me.tbglosa.TabIndex = 268
+        '
+        'LabelX1
+        '
+        Me.LabelX1.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.LabelX1.Location = New System.Drawing.Point(170, 176)
+        Me.LabelX1.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelX1.Name = "LabelX1"
+        Me.LabelX1.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.LabelX1.Size = New System.Drawing.Size(125, 28)
+        Me.LabelX1.TabIndex = 267
+        Me.LabelX1.Text = "Glosa:"
         '
         'ButtonX1
         '
@@ -79,7 +119,7 @@ Partial Class FR_AyudaCobro
         Me.ButtonX1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ButtonX1.Image = Global.DinoM.My.Resources.Resources.cancel
         Me.ButtonX1.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.ButtonX1.Location = New System.Drawing.Point(378, 207)
+        Me.ButtonX1.Location = New System.Drawing.Point(378, 289)
         Me.ButtonX1.Margin = New System.Windows.Forms.Padding(4)
         Me.ButtonX1.Name = "ButtonX1"
         Me.ButtonX1.Size = New System.Drawing.Size(145, 57)
@@ -94,7 +134,7 @@ Partial Class FR_AyudaCobro
         Me.Bt1Generar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Bt1Generar.Image = Global.DinoM.My.Resources.Resources.cobro
         Me.Bt1Generar.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.Bt1Generar.Location = New System.Drawing.Point(177, 207)
+        Me.Bt1Generar.Location = New System.Drawing.Point(177, 289)
         Me.Bt1Generar.Margin = New System.Windows.Forms.Padding(4)
         Me.Bt1Generar.Name = "Bt1Generar"
         Me.Bt1Generar.Size = New System.Drawing.Size(193, 57)
@@ -211,7 +251,7 @@ Partial Class FR_AyudaCobro
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(5, 5)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(733, 84)
+        Me.Panel1.Size = New System.Drawing.Size(726, 84)
         Me.Panel1.TabIndex = 0
         '
         'Label1
@@ -230,7 +270,7 @@ Partial Class FR_AyudaCobro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(743, 403)
+        Me.ClientSize = New System.Drawing.Size(736, 488)
         Me.Controls.Add(Me.PanelPrincipal)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Location = New System.Drawing.Point(400, 0)
@@ -260,4 +300,6 @@ Partial Class FR_AyudaCobro
     Friend WithEvents cbbanco As Janus.Windows.GridEX.EditControls.MultiColumnCombo
     Friend WithEvents Bt1Generar As DevComponents.DotNetBar.ButtonX
     Friend WithEvents ButtonX1 As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents LabelX1 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents tbglosa As DevComponents.DotNetBar.Controls.TextBoxX
 End Class

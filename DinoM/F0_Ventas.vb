@@ -1261,11 +1261,11 @@ Public Class F0_Ventas
 
 
         If res Then
-            'res = P_fnGrabarFacturarTFV001(numi)
+            res = P_fnGrabarFacturarTFV001(numi)
 
-            'If (gb_FacturaEmite) Then
-            '    P_fnGenerarFactura(numi)
-            'End If
+            If (gb_FacturaEmite) Then
+                P_fnGenerarFactura(numi)
+            End If
 
             Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
             ToastNotification.Show(Me, "Código de Venta ".ToUpper + tbCodigo.Text + " Grabado con Exito.".ToUpper,
@@ -1724,17 +1724,7 @@ Public Class F0_Ventas
         Dim lid As String = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(ParteEntera)) + " con " +
         IIf(ParteDecimal.ToString.Equals("0"), "00", ParteDecimal.ToString) + " / 100 Dolares"
 
-        Dim dt2 As DataTable = L_fnNameReporte()
-        Dim ParEmp1 As String = ""
-        Dim ParEmp2 As String = ""
-        Dim ParEmp3 As String = ""
-        Dim ParEmp4 As String = ""
-        If (dt2.Rows.Count > 0) Then
-            ParEmp1 = dt2.Rows(0).Item("Empresa1").ToString
-            ParEmp2 = dt2.Rows(0).Item("Empresa2").ToString
-            ParEmp3 = dt2.Rows(0).Item("Empresa3").ToString
-            ParEmp4 = dt2.Rows(0).Item("Empresa4").ToString
-        End If
+
 
         P_Global.Visualizador = New Visualizador
         Dim _FechaAct As String
@@ -3015,6 +3005,51 @@ salirIf:
         ef.ShowDialog()
 
         If (ef.MBandera = True) Then
+            Dim dt As DataTable = L_fnVentaNotaDeVenta(ef.NumiVenta)
+            Dim total As Double = tbtotal.Value - tbpendiente.Value
+            Dim totald As Double = (total / 6.96)
+            Dim fechaven As String = dt.Rows(0).Item("fechaventa")
+
+            Dim ParteEntera As Long
+            Dim ParteDecimal As Double
+            ParteEntera = Int(total)
+            ParteDecimal = total - ParteEntera
+            Dim li As String = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(ParteEntera)) + " con " +
+        IIf(ParteDecimal.ToString.Equals("0"), "00", ParteDecimal.ToString) + " / 100 Bolivianos"
+
+            ParteEntera = Int(totald)
+            ParteDecimal = Math.Round(totald - ParteEntera, 2)
+            Dim lid As String = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(ParteEntera)) + " con " +
+        IIf(ParteDecimal.ToString.Equals("0"), "00", ParteDecimal.ToString) + " / 100 Dolares"
+
+
+
+            'Dim objrep As New R_Notadeentrega2
+            Dim objrep As New R_NotaCobroAnticipado
+            ' GenerarNro(_dt)
+            'objrep.SetDataSource(Dt1Kardex)
+
+            objrep.SetDataSource(dt)
+                objrep.SetParameterValue("TotalBs", li)
+
+            objrep.SetParameterValue("TipoDocumento", ef.Documento)
+            objrep.SetParameterValue("usuario", gs_user)
+            objrep.SetParameterValue("glosa", ef.Glosa)
+
+            objrep.SetParameterValue("MontoAnticipado", tbmontoanticipo.Text)
+            objrep.SetParameterValue("importe", tbpendiente.Text)
+            objrep.SetParameterValue("pendiente", "0.00")
+
+
+            _prCrearCarpetaImagenes()
+                Dim ruta As String = RutaGlobal + "\PdfView\" + Str(Now.Day).Trim + Str(Now.Month).Trim + Str(Now.Year).Trim + Str(Now.Hour) + Str(Now.Minute) + Str(Now.Second) + ".pdf"
+                objrep.ExportToDisk(ExportFormatType.PortableDocFormat, ruta)
+                Dim a As F0_VisualizadoPdf = New F0_VisualizadoPdf
+                a.Ruta = ruta
+            a.Titulo = "REPORTE DE  COBRANZA"
+            a.Show()
+
+
             _prCargarVenta()
             Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
             ToastNotification.Show(Me, "El Pago Ha Sido ".ToUpper + " Grabado con Exito.".ToUpper,

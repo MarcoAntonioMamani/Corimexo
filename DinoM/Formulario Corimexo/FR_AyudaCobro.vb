@@ -20,6 +20,8 @@ Public Class FR_AyudaCobro
     Public NumiCliente As Integer
     Public MontoPendiente As Double
     Public MBandera As Boolean = False
+    Public Documento As String = ""
+    Public Glosa As String = ""
 
     Private Sub _IniciarTodo()
 
@@ -32,6 +34,8 @@ Public Class FR_AyudaCobro
         Me.Icon = ico
         _prCargarComboLibreria(cbdocumento, 8, 2)
         _prCargarComboLibreria(cbbanco, 6, 1)
+        cbdocumento.SelectedIndex = 0
+        cbbanco.SelectedIndex = 0
     End Sub
 
     Private Sub _prCargarComboLibreria(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo, cod1 As String, cod2 As String)
@@ -66,11 +70,15 @@ Public Class FR_AyudaCobro
             lbbanco.Visible = True
             cbbanco.Visible = True
             lbnrodocumento.Text = "Nro Cheque:"
+            lbnrodocumento.Visible = True
+            tbnrodocumento.Visible = True
         End If
         If (cbdocumento.Value = 3) Then
             lbbanco.Visible = True
             cbbanco.Visible = True
             lbnrodocumento.Text = "Nro Documento:"
+            lbnrodocumento.Visible = True
+            tbnrodocumento.Visible = True
         End If
     End Sub
 
@@ -83,12 +91,7 @@ Public Class FR_AyudaCobro
             Return
 
         End If
-        If (cbdocumento.Value = 1 And tbnrodocumento.Text.Trim = String.Empty) Then
-            ToastNotification.Show(Me, "Por favor Inserte un Numero de Recibo".ToUpper, img2, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
-            tbnrodocumento.Focus()
-            Return
 
-        End If
         If (cbdocumento.Value = 2 And tbnrodocumento.Text.Trim = String.Empty) Then
             ToastNotification.Show(Me, "Por favor Inserte un Numero de Cheque".ToUpper, img2, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
             tbnrodocumento.Focus()
@@ -124,23 +127,22 @@ Public Class FR_AyudaCobro
 
         If res Then
             bandera = True
-            Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
-            ToastNotification.Show(Me, "El Pago Ha Sido ".ToUpper + " Grabado con Exito.".ToUpper,
-                                      img, 2000,
-                                      eToastGlowColor.Green,
-                                      eToastPosition.TopCenter
-                                      )
+
             MBandera = True
+            Documento = cbdocumento.Text
+            Glosa = tbglosa.Text
             Me.Close()
 
 
 
         Else
             Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
-            ToastNotification.Show(Me, "La Compra no pudo ser insertado".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+            ToastNotification.Show(Me, "El Cobro no pudo ser registrado".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
 
         End If
     End Sub
+
+
 
     Sub _prInterpretarDatosCobranza(ByRef dt As DataTable, ByRef bandera As Boolean)
 
