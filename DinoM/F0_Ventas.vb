@@ -1229,19 +1229,22 @@ Public Class F0_Ventas
             Return False
         End If
         'Validar datos de factura
-        'If (TbNit.Text = String.Empty) Then
-        '    Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
-        '    ToastNotification.Show(Me, "Por Favor ponga el nit del cliente.".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
-        '    tbVendedor.Focus()
-        '    Return False
-        'End If
+        If (swanticipo.Value = False) Then
+            If (TbNit.Text = String.Empty) Then
+                Dim img As Bitmap = New Bitmap(My.Resources.mensaje, 50, 50)
+                ToastNotification.Show(Me, "Por Favor ponga el nit del cliente.".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+                tbVendedor.Focus()
+                Return False
+            End If
 
-        'If (TbNombre1.Text = String.Empty) Then
-        '    Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
-        '    ToastNotification.Show(Me, "Por Favor ponga la razon social del cliente.".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
-        '    tbVendedor.Focus()
-        '    Return False
-        'End If
+            If (TbNombre1.Text = String.Empty) Then
+                Dim img As Bitmap = New Bitmap(My.Resources.mensaje, 50, 50)
+                ToastNotification.Show(Me, "Por Favor ponga la razon social del cliente.".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+                tbVendedor.Focus()
+                Return False
+            End If
+        End If
+
 
         If (grdetalle.RowCount = 1) Then
             grdetalle.Row = grdetalle.RowCount - 1
@@ -1263,7 +1266,7 @@ Public Class F0_Ventas
         If res Then
 
 
-            If (gb_FacturaEmite) Then
+            If (gb_FacturaEmite And swanticipo.Value = False) Then
                 P_fnGenerarFactura(numi)
             End If
 
@@ -1323,11 +1326,11 @@ Public Class F0_Ventas
         Dim res As Boolean = L_fnModificarVenta(tbCodigo.Text, tbFechaVenta.Value.ToString("yyyy/MM/dd"), _CodEmpleado, cbTipoVenta.Value, IIf(cbTipoVenta.Value = 2, tbFechaVenc.Value.ToString("yyyy/MM/dd"), Now.Date.ToString("yyyy/MM/dd")), _CodCliente, IIf(swMoneda.Value = True, 1, 0), tbObservacion.Text, tbMdesc.Value, tbIce.Value, tbtotal.Value, CType(grdetalle.DataSource, DataTable), cbSucursal.Value, IIf(SwProforma.Value = True, tbProforma.Text, 0), _Codbanco, tbcheque.Text, IIf(swanticipo.Value = True, 1, 0), tbmontoanticipo.Value)
         If res Then
 
-            'If (gb_FacturaEmite) Then
-            '    L_fnEliminarDatos("TFV001", "fvanumi=" + tbCodigo.Text.Trim)
-            '    L_fnEliminarDatos("TFV0011", "fvbnumi=" + tbCodigo.Text.Trim)
-            '    P_fnGenerarFactura(tbCodigo.Text.Trim)
-            'End If
+            If (gb_FacturaEmite And swanticipo.Value = False) Then
+                L_fnEliminarDatos("TFV001", "fvanumi=" + tbCodigo.Text.Trim)
+                L_fnEliminarDatos("TFV0011", "fvbnumi=" + tbCodigo.Text.Trim)
+                P_fnGenerarFactura(tbCodigo.Text.Trim)
+            End If
             _prImiprimirNotaVenta(tbCodigo.Text)
 
             Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
@@ -1508,7 +1511,7 @@ Public Class F0_Ventas
                 's = fil.Cells("can").Value
                 's = fil.Cells("imp").Value
                 L_Grabar_Factura_Detalle(numi.ToString,
-                                        fil.Cells("tbty5prod").Value.ToString.Trim,
+                                        fil.Cells("yfcprod").Value.ToString.Trim,
                                         fil.Cells("producto").Value.ToString.Trim,
                                         fil.Cells("tbcmin").Value.ToString.Trim,
                                         fil.Cells("tbpbas").Value.ToString.Trim,
@@ -1627,14 +1630,14 @@ Public Class F0_Ventas
             objrep.SetParameterValue("Literal1", _Literal)
             objrep.SetParameterValue("Literal2", " ")
             objrep.SetParameterValue("Literal3", " ")
-            objrep.SetParameterValue("NroFactura", _NumFac)
+            objrep.SetParameterValue("NroFactura", Str(_NumFac))
             objrep.SetParameterValue("NroAutoriz", _Autorizacion)
             objrep.SetParameterValue("ENombre", _Ds2.Tables(0).Rows(0).Item("scneg").ToString) '?
             objrep.SetParameterValue("ECasaMatriz", _Ds2.Tables(0).Rows(0).Item("scsuc").ToString)
             objrep.SetParameterValue("ECiudadPais", _Ds2.Tables(0).Rows(0).Item("scpai").ToString)
             objrep.SetParameterValue("ESFC", _Ds1.Tables(0).Rows(0).Item("sbsfc").ToString)
             objrep.SetParameterValue("ENit", _Ds2.Tables(0).Rows(0).Item("scnit").ToString)
-            objrep.SetParameterValue("EActividad", _Ds2.Tables(0).Rows(0).Item("scact").ToString)
+            objrep.SetParameterValue("EActividad", "Fabricación de muebles de todo tipo (fab. de colchones, muebles y accesorios)")
             objrep.SetParameterValue("ESms", "''" + _Ds1.Tables(0).Rows(0).Item("sbnota").ToString + "''")
             objrep.SetParameterValue("ESms2", "''" + _Ds1.Tables(0).Rows(0).Item("sbnota2").ToString + "''")
             objrep.SetParameterValue("EDuenho", _Ds2.Tables(0).Rows(0).Item("scnom").ToString) '?
@@ -1643,20 +1646,20 @@ Public Class F0_Ventas
 
             If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
                 P_Global.Visualizador.CrGeneral.ReportSource = objrep 'Comentar
-                P_Global.Visualizador.ShowDialog() 'Comentar
-                P_Global.Visualizador.BringToFront() 'Comentar
+                'P_Global.Visualizador.ShowDialog() 'Comentar
+                'P_Global.Visualizador.BringToFront() 'Comentar
             End If
 
             Dim pd As New PrintDocument()
             pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
-            If (Not pd.PrinterSettings.IsValid) Then
-                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
-                                       My.Resources.WARNING, 5 * 1000,
-                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
-            Else
-                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString '"EPSON TM-T20II Receipt5 (1)"
-                objrep.PrintToPrinter(1, False, 1, 1)
-            End If
+            'If (Not pd.PrinterSettings.IsValid) Then
+            '    ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+            '                           My.Resources.WARNING, 5 * 1000,
+            '                           eToastGlowColor.Blue, eToastPosition.BottomRight)
+            'Else
+            '    objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString '"EPSON TM-T20II Receipt5 (1)"
+            '    objrep.PrintToPrinter(1, False, 1, 1)
+            'End If
 
             If (grabarPDF) Then
                 'Copia de Factura en PDF
@@ -1666,6 +1669,12 @@ Public Class F0_Ventas
                 objrep.ExportToDisk(ExportFormatType.PortableDocFormat, gs_CarpetaRaiz + "\Facturas\" + CStr(_NumFac) + "_" + CStr(_Autorizacion) + ".pdf")
 
             End If
+            Dim ruta As String = gs_CarpetaRaiz + "\PdfView\" + CStr(Now.Date.Year) + "_" + CStr(Now.Date.Month) + CStr(Now.Date.Day) + CStr(Now.Date.Hour) + CStr(Now.Date.Minute) + CStr(Now.Date.Second) + ".pdf"
+            objrep.ExportToDisk(ExportFormatType.PortableDocFormat, ruta)
+            Dim a As F0_VisualizadoPdf = New F0_VisualizadoPdf
+            a.Ruta = ruta
+            a.Titulo = "FACTURA"
+            a.Show()
         End If
         L_Actualiza_Dosificacion(_numidosif, _NumFac, numi)
     End Sub
