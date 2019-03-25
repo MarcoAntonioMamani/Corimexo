@@ -208,7 +208,6 @@ Partial Class F0_Proforma
         '
         'btnUltimo
         '
-        Me.btnUltimo.Location = New System.Drawing.Point(171, 0)
         Me.btnUltimo.Margin = New System.Windows.Forms.Padding(2)
         '
         'btnSiguiente
@@ -975,7 +974,7 @@ Partial Class F0_Proforma
         Me.tbSubTotal.Location = New System.Drawing.Point(196, 4)
         Me.tbSubTotal.LockUpdateChecked = False
         Me.tbSubTotal.Margin = New System.Windows.Forms.Padding(4)
-        Me.tbSubTotal.MinValue = 0.0R
+        Me.tbSubTotal.MinValue = 0R
         Me.tbSubTotal.Name = "tbSubTotal"
         Me.tbSubTotal.Size = New System.Drawing.Size(119, 24)
         Me.tbSubTotal.TabIndex = 2
@@ -993,7 +992,7 @@ Partial Class F0_Proforma
         Me.tbIce.Increment = 1.0R
         Me.tbIce.Location = New System.Drawing.Point(196, 101)
         Me.tbIce.Margin = New System.Windows.Forms.Padding(4)
-        Me.tbIce.MinValue = 0.0R
+        Me.tbIce.MinValue = 0R
         Me.tbIce.Name = "tbIce"
         Me.tbIce.Size = New System.Drawing.Size(119, 24)
         Me.tbIce.TabIndex = 3
@@ -1028,7 +1027,7 @@ Partial Class F0_Proforma
         Me.tbMdesc.Increment = 1.0R
         Me.tbMdesc.Location = New System.Drawing.Point(196, 68)
         Me.tbMdesc.Margin = New System.Windows.Forms.Padding(4)
-        Me.tbMdesc.MinValue = 0.0R
+        Me.tbMdesc.MinValue = 0R
         Me.tbMdesc.Name = "tbMdesc"
         Me.tbMdesc.Size = New System.Drawing.Size(119, 24)
         Me.tbMdesc.TabIndex = 2
@@ -1046,7 +1045,7 @@ Partial Class F0_Proforma
         Me.tbtotal.Increment = 1.0R
         Me.tbtotal.Location = New System.Drawing.Point(196, 134)
         Me.tbtotal.Margin = New System.Windows.Forms.Padding(4)
-        Me.tbtotal.MinValue = 0.0R
+        Me.tbtotal.MinValue = 0R
         Me.tbtotal.Name = "tbtotal"
         Me.tbtotal.Size = New System.Drawing.Size(119, 24)
         Me.tbtotal.TabIndex = 4
@@ -1099,7 +1098,7 @@ Partial Class F0_Proforma
         Me.tbPdesc.Location = New System.Drawing.Point(196, 37)
         Me.tbPdesc.LockUpdateChecked = False
         Me.tbPdesc.Margin = New System.Windows.Forms.Padding(4)
-        Me.tbPdesc.MinValue = 0.0R
+        Me.tbPdesc.MinValue = 0R
         Me.tbPdesc.Name = "tbPdesc"
         Me.tbPdesc.Size = New System.Drawing.Size(119, 24)
         Me.tbPdesc.TabIndex = 1

@@ -10,12 +10,13 @@ Public Class F0_VisualizadoPdf
         Dim blah As New Bitmap(New Bitmap(My.Resources.printee), 20, 20)
         Dim ico As Icon = Icon.FromHandle(blah.GetHicon())
         Me.Icon = ico
-
+        PdfView.Dock = DockStyle.Fill
         If (File.Exists(Ruta)) Then
             PdfView.LoadFile(Ruta)
-            PdfView.setZoom(95)
+            PdfView.setZoom(90)
             'PdfView.setShowToolbar(True)
             PdfView.setShowScrollbars(True)
+            PdfView.Refresh()
 
 
 
@@ -24,8 +25,8 @@ Public Class F0_VisualizadoPdf
                                    My.Resources.INFORMATION, 2 * 1000,
                                    eToastGlowColor.Blue, eToastPosition.BottomLeft)
         End If
-        PdfView.Dock = DockStyle.Fill
-        Me.Refresh()
+
+
 
         lbtitulo.Text = Titulo
     End Sub

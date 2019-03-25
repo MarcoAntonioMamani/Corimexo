@@ -80,6 +80,7 @@ Partial Class F0_VisualizadoPdf
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "VISUALIZADOR PDF"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.PdfView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

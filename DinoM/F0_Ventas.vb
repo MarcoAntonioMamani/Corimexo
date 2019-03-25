@@ -1753,6 +1753,8 @@ Public Class F0_Ventas
             objrep.SetParameterValue("TotalDoN", totald)
             objrep.SetParameterValue("usuario", gs_user)
             objrep.SetParameterValue("estado", 1)
+            objrep.SetParameterValue("tipo", 1)
+            objrep.SetParameterValue("titulo", "NOTA DE VENTA")
             Dim ruta As String = gs_CarpetaRaiz + "\PdfView\" + CStr(Now.Date.Year) + "_" + CStr(Now.Date.Month) + CStr(Now.Date.Day) + CStr(Now.Date.Hour) + CStr(Now.Date.Minute) + CStr(Now.Date.Second) + ".pdf"
             objrep.ExportToDisk(ExportFormatType.PortableDocFormat, ruta)
             Dim a As VisorPdf = New VisorPdf
@@ -1776,6 +1778,8 @@ Public Class F0_Ventas
             objrep.SetParameterValue("glosa", tbObservacion.Text)
             If (swanticipo.Value = True) Then
                 objrep.SetParameterValue("estado", 1)
+                objrep.SetParameterValue("tipo", 1)
+                objrep.SetParameterValue("titulo", "NOTA DE VENTA")
                 objrep.SetParameterValue("MontoAnticipado", tbmontoanticipo.Text)
                 Dim anticipo As Double = tbmontoanticipo.Value
                 Dim pendiente As Double = Math.Round(Convert.ToDouble(total - anticipo), 2)
@@ -1785,6 +1789,8 @@ Public Class F0_Ventas
                 objrep.SetParameterValue("MontoAnticipado", tbmontoanticipo.Text)
                 objrep.SetParameterValue("pendiente", Str(total - tbmontoanticipo.Value))
                 objrep.SetParameterValue("estado", 0)
+                objrep.SetParameterValue("tipo", 1)
+                objrep.SetParameterValue("titulo", "NOTA DE VENTA")
             End If
             _prCrearCarpetaImagenes()
             Dim ruta As String = RutaGlobal + "\PdfView\" + Str(Now.Day).Trim + Str(Now.Month).Trim + Str(Now.Year).Trim + Str(Now.Hour) + Str(Now.Minute) + Str(Now.Second) + ".pdf"
@@ -1937,35 +1943,29 @@ Public Class F0_Ventas
                 Dim lote As String = ""
                 Dim FechaVenc As Date = Now.Date
                 Dim cant As Double = dt.Rows(i).Item("pbcmin")
-                Dim iccven As Double = 0
-                _prPedirLotesProducto(lote, FechaVenc, iccven, numiproducto, nameproducto, cant)
+
+
                 _prAddDetalleVenta()
                 grdetalle.Row = grdetalle.RowCount - 1
-                If (lote <> String.Empty) Then
-                    If (cant <= iccven) Then
 
-                        grdetalle.SetValue("tbptot", dt.Rows(i).Item("pbptot"))
-                        grdetalle.SetValue("tbtotdesc", dt.Rows(i).Item("pbtotdesc"))
-                        grdetalle.SetValue("tbdesc", dt.Rows(i).Item("pbdesc"))
-                        grdetalle.SetValue("tbcmin", cant)
-                        grdetalle.SetValue("tbptot2", dt.Rows(i).Item("pcosto") * cant)
 
-                    Else
-                        Dim tot As Double = dt.Rows(i).Item("pbpbas") * iccven
-                        grdetalle.SetValue("tbptot", tot)
+                Dim tot As Double = dt.Rows(i).Item("pbpbas") * cant
+                grdetalle.SetValue("tbptot", tot)
                         grdetalle.SetValue("tbtotdesc", tot)
                         grdetalle.SetValue("tbdesc", 0)
-                        grdetalle.SetValue("tbcmin", iccven)
-                        grdetalle.SetValue("tbptot2", dt.Rows(i).Item("pcosto") * iccven)
-                    End If
-                    grdetalle.SetValue("tbty5prod", numiproducto)
+                grdetalle.SetValue("tbcmin", cant)
+                grdetalle.SetValue("tbptot2", dt.Rows(i).Item("pcosto") * cant)
+
+                grdetalle.SetValue("tbty5prod", numiproducto)
                     grdetalle.SetValue("producto", nameproducto)
                     grdetalle.SetValue("tbumin", dt.Rows(i).Item("pbumin"))
                     grdetalle.SetValue("unidad", dt.Rows(i).Item("unidad"))
-                    grdetalle.SetValue("tbpbas", dt.Rows(i).Item("pbpbas"))
+                grdetalle.SetValue("tbpbas", dt.Rows(i).Item("pbpbas"))
+                grdetalle.SetValue("tbobs", dt.Rows(i).Item("pbcodificacion"))
+                grdetalle.SetValue("yfcprod", dt.Rows(i).Item("pbcodificacion"))
 
 
-                    If (gb_FacturaIncluirICE) Then
+                If (gb_FacturaIncluirICE) Then
                         grdetalle.SetValue("tbpcos", dt.Rows(i).Item("pcosto"))
 
                     Else
@@ -1974,9 +1974,9 @@ Public Class F0_Ventas
 
                     grdetalle.SetValue("tblote", lote)
                     grdetalle.SetValue("tbfechaVenc", FechaVenc)
-                    grdetalle.SetValue("stock", iccven)
+                grdetalle.SetValue("stock", 1000)
 
-                End If
+
 
                 'grdetalle.Refetch()
                 'grdetalle.Refresh()

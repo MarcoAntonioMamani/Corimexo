@@ -1387,6 +1387,19 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 
+    Public Shared Function L_fnVentanotaProforma(_numi As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 12))
+        _listParam.Add(New Datos.DParametro("@panumi", _numi))
+        _listParam.Add(New Datos.DParametro("@pauact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TP001", _listParam)
+
+        Return _Tabla
+    End Function
+
     Public Shared Function L_fnVentaOrdenProduccion(_numi As String) As DataTable
         Dim _Tabla As DataTable
 
@@ -1454,7 +1467,6 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@almacen", _almacen))
         _listParam.Add(New Datos.DParametro("@cliente", _cliente))
         _listParam.Add(New Datos.DParametro("@tauact", L_Usuario))
-        _listParam.Add(New Datos.DParametro("@TV0011", "", _detalle))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TV001", _listParam)
 
         Return _Tabla

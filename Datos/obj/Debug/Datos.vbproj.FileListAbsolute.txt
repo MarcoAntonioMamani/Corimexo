@@ -26,3 +26,4 @@ A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Datos\obj\Debug\Datos.vb
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Datos\obj\Debug\Datos.dll
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Datos\obj\Debug\Datos.xml
 A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Datos\obj\Debug\Datos.pdb
+A:\DINASES\proyectos\Proyecto Corimexo\ProyectoCorimexo\Datos\obj\Debug\Datos.vbprojResolveAssemblyReference.cache
